@@ -1,0 +1,2936 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="description" content="The complete digital companion to the Mahābhārata — characters, timelines, kingdoms, and sacred sites across ancient and modern India."/>
+<meta name="theme-color" content="#c8961e"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Mahābhārata — The Great Epic</title>
+
+<style>
+/* ═══════════════════════════════════════════════════
+   DESIGN TOKENS & CSS VARIABLES
+═══════════════════════════════════════════════════ */
+:root {
+  --gold:        #c8961e;
+  --gold-light:  #f0c44a;
+  --gold-pale:   #fde89a;
+  --copper:      #b5541a;
+  --crimson:     #8b1a1a;
+  --sacred-blue: #1a3a6b;
+  --lotus:       #c2185b;
+  --emerald:     #1b5e20;
+  --bg:          #0a0500;
+  --bg2:         #120b00;
+  --bg3:         #1c1100;
+  --surface:     rgba(255,210,80,0.05);
+  --surface2:    rgba(255,210,80,0.08);
+  --border:      rgba(200,150,30,0.2);
+  --border2:     rgba(200,150,30,0.35);
+  --text:        #f5e6c8;
+  --text2:       #c9a96e;
+  --text3:       #8a7455;
+  --radius:      16px;
+  --radius-lg:   28px;
+  --shadow:      0 8px 40px rgba(0,0,0,0.6);
+  --glow:        0 0 40px rgba(200,150,30,0.25);
+  --transition:  cubic-bezier(0.4,0,0.2,1);
+  --font-display: 'Cinzel Decorative', serif;
+  --font-serif:   'Cinzel', serif;
+  --font-body:    'EB Garamond', serif;
+  --font-hindi:   'Noto Sans Devanagari', sans-serif;
+}
+[data-theme="light"] {
+  --bg:      #fdf8f0;
+  --bg2:     #f7f0e2;
+  --bg3:     #ede3cc;
+  --surface: rgba(180,120,10,0.06);
+  --surface2:rgba(180,120,10,0.10);
+  --border:  rgba(160,100,10,0.2);
+  --border2: rgba(160,100,10,0.35);
+  --text:    #2a1a05;
+  --text2:   #6b4a15;
+  --text3:   #9a7540;
+  --shadow:  0 8px 40px rgba(0,0,0,0.12);
+  --glow:    0 0 40px rgba(200,150,30,0.15);
+}
+
+/* ═══ RESET & BASE ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.7;
+  font-size:16px;
+}
+img{max-width:100%;height:auto}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ═══ ANIMATED BACKGROUND ═══ */
+.cosmic-bg {
+  position:fixed;inset:0;z-index:-1;overflow:hidden;
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1a0d00 0%, var(--bg) 60%);
+}
+.star-field {
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,220,100,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 10%, rgba(255,220,100,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,220,100,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 80%, rgba(255,220,100,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 50%, rgba(255,220,100,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 90%, rgba(255,220,100,0.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 40%, rgba(255,220,100,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 60%, rgba(255,220,100,0.5) 0%, transparent 100%);
+  animation: twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes twinkle{0%{opacity:.5}100%{opacity:1}}
+.mandala-bg {
+  position:absolute;top:-30%;left:50%;transform:translateX(-50%);
+  width:120vw;height:120vw;max-width:1200px;max-height:1200px;
+  opacity:0.04;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg, var(--gold) 2deg, transparent 4deg,
+    transparent 28deg, var(--gold) 30deg, transparent 32deg,
+    transparent 58deg, var(--gold) 60deg, transparent 62deg,
+    transparent 88deg, var(--gold) 90deg, transparent 92deg,
+    transparent 118deg, var(--gold) 120deg, transparent 122deg,
+    transparent 148deg, var(--gold) 150deg, transparent 152deg,
+    transparent 178deg, var(--gold) 180deg, transparent 182deg,
+    transparent 208deg, var(--gold) 210deg, transparent 212deg,
+    transparent 238deg, var(--gold) 240deg, transparent 242deg,
+    transparent 268deg, var(--gold) 270deg, transparent 272deg,
+    transparent 298deg, var(--gold) 300deg, transparent 302deg,
+    transparent 328deg, var(--gold) 330deg, transparent 332deg,
+    transparent 358deg, var(--gold) 360deg
+  );
+  border-radius:50%;
+  animation: rotate-slow 120s linear infinite;
+  pointer-events:none;
+}
+@keyframes rotate-slow{to{transform:translateX(-50%) rotate(360deg)}}
+
+/* ═══ NAVIGATION ═══ */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 5vw;
+  backdrop-filter:blur(24px) saturate(1.5);
+  -webkit-backdrop-filter:blur(24px) saturate(1.5);
+  background:rgba(10,5,0,0.7);
+  border-bottom:1px solid var(--border);
+  transition:all .3s var(--transition);
+}
+[data-theme="light"] nav{background:rgba(253,248,240,0.85)}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;max-width:1400px;margin:0 auto;
+}
+.nav-logo {
+  font-family:var(--font-display);
+  font-size:clamp(14px,2.5vw,20px);
+  color:var(--gold);
+  letter-spacing:.05em;
+  text-shadow:0 0 20px rgba(200,150,30,0.5);
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo .om {font-size:1.4em;animation:pulse-glow 3s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{text-shadow:0 0 10px rgba(200,150,30,.4)}50%{text-shadow:0 0 30px rgba(200,150,30,.9),0 0 60px rgba(200,150,30,.4)}}
+.nav-links {
+  display:flex;align-items:center;gap:clamp(12px,2vw,28px);
+  font-family:var(--font-serif);font-size:clamp(11px,1.2vw,14px);
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.nav-links a {
+  color:var(--text2);
+  padding:6px 12px;border-radius:8px;
+  transition:all .25s var(--transition);
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:50%;right:50%;
+  height:1px;background:var(--gold);
+  transition:all .3s var(--transition);
+}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-links a:hover::after{left:12px;right:12px}
+.nav-links a.active{color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.theme-btn,.search-btn {
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text2);font-size:16px;
+  transition:all .25s var(--transition);
+}
+.theme-btn:hover,.search-btn:hover{background:var(--surface2);color:var(--gold);border-color:var(--border2)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:8px;background:var(--surface)}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold);transition:all .3s var(--transition);border-radius:1px}
+
+/* ═══ MOBILE NAV ═══ */
+.mobile-nav {
+  position:fixed;inset:0;z-index:99;
+  background:rgba(10,5,0,0.97);
+  backdrop-filter:blur(30px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;
+  transform:translateX(100%);transition:transform .4s var(--transition);
+}
+.mobile-nav.open{transform:none}
+.mobile-nav a{
+  font-family:var(--font-serif);font-size:clamp(20px,5vw,32px);
+  color:var(--text2);letter-spacing:.1em;
+  padding:12px 24px;border-radius:12px;
+  transition:all .25s;text-transform:uppercase;
+}
+.mobile-nav a:hover{color:var(--gold);background:var(--surface)}
+
+/* ═══ HERO ═══ */
+#home {
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:100px 5vw 60px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.hero-content{max-width:900px;position:relative;z-index:1}
+.hero-sanskrit {
+  font-family:var(--font-hindi);
+  font-size:clamp(16px,3vw,22px);
+  color:var(--gold);opacity:.7;
+  letter-spacing:.15em;
+  margin-bottom:20px;
+  animation:fadeDown .8s var(--transition) both;
+}
+.hero-title {
+  font-family:var(--font-display);
+  font-size:clamp(38px,8vw,100px);
+  line-height:1.05;
+  background: linear-gradient(135deg, var(--gold-pale) 0%, var(--gold) 40%, var(--copper) 70%, var(--gold-light) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(200,150,30,0.4));
+  animation:fadeDown .8s .1s var(--transition) both;
+  letter-spacing:-.01em;
+}
+.hero-sub {
+  font-family:var(--font-serif);
+  font-size:clamp(13px,2vw,18px);
+  color:var(--text2);
+  letter-spacing:.2em;text-transform:uppercase;
+  margin:16px 0 28px;
+  animation:fadeDown .8s .2s var(--transition) both;
+}
+.hero-desc {
+  font-size:clamp(15px,2.2vw,19px);
+  color:var(--text3);
+  max-width:650px;margin:0 auto 40px;
+  line-height:1.8;
+  animation:fadeUp .8s .35s var(--transition) both;
+  font-style:italic;
+}
+.hero-stats {
+  display:flex;justify-content:center;flex-wrap:wrap;gap:24px;
+  margin-bottom:48px;
+  animation:fadeUp .8s .45s var(--transition) both;
+}
+.stat-card {
+  padding:16px 24px;border-radius:var(--radius);
+  background:var(--surface);
+  border:1px solid var(--border);
+  backdrop-filter:blur(12px);
+  text-align:center;
+  transition:all .3s var(--transition);
+}
+.stat-card:hover{background:var(--surface2);border-color:var(--border2);transform:translateY(-3px);box-shadow:var(--glow)}
+.stat-num{font-family:var(--font-serif);font-size:clamp(22px,3vw,32px);color:var(--gold);font-weight:700}
+.stat-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-top:4px}
+.cta-group{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;animation:fadeUp .8s .55s var(--transition) both}
+.btn-primary {
+  padding:14px 32px;border-radius:50px;
+  background:linear-gradient(135deg,var(--gold),var(--copper));
+  color:#1a0d00;font-family:var(--font-serif);
+  font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  transition:all .3s var(--transition);
+  box-shadow:0 4px 20px rgba(200,150,30,0.4);
+  border:none;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,150,30,0.6);filter:brightness(1.1)}
+.btn-secondary {
+  padding:13px 32px;border-radius:50px;
+  background:transparent;
+  color:var(--gold);font-family:var(--font-serif);
+  font-size:14px;letter-spacing:.1em;text-transform:uppercase;
+  border:1.5px solid var(--border2);
+  transition:all .3s var(--transition);
+}
+.btn-secondary:hover{background:var(--surface);border-color:var(--gold);transform:translateY(-2px)}
+.scroll-hint {
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:var(--text3);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  animation:fadeIn 1s 1.2s both, float 3s ease-in-out 2s infinite;
+}
+.scroll-arrow{width:20px;height:30px;border:2px solid var(--border2);border-radius:10px;position:relative}
+.scroll-arrow::after{
+  content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);
+  width:4px;height:8px;border-radius:2px;background:var(--gold);
+  animation:scroll-dot 2s ease-in-out infinite;
+}
+@keyframes scroll-dot{0%{top:5px;opacity:1}100%{top:14px;opacity:0}}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* Parallax chakra decoration */
+.hero-chakra {
+  position:absolute;right:-10%;top:50%;transform:translateY(-50%);
+  width:min(500px,60vw);height:min(500px,60vw);
+  opacity:.06;pointer-events:none;
+  animation:rotate-slow 80s linear infinite;
+}
+.hero-chakra-2 {
+  position:absolute;left:-8%;bottom:10%;
+  width:min(300px,40vw);height:min(300px,40vw);
+  opacity:.04;pointer-events:none;
+  animation:rotate-slow 60s linear infinite reverse;
+}
+
+/* ═══ SECTIONS COMMON ═══ */
+.section {
+  padding:clamp(60px,8vw,120px) 5vw;
+  max-width:1400px;margin:0 auto;
+}
+.section-header {
+  text-align:center;margin-bottom:clamp(48px,6vw,80px);
+}
+.section-eyebrow {
+  font-family:var(--font-serif);
+  font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.section-eyebrow::before,.section-eyebrow::after{
+  content:'';width:40px;height:1px;background:var(--gold);opacity:.5;
+}
+.section-title {
+  font-family:var(--font-display);
+  font-size:clamp(28px,5vw,56px);
+  background:linear-gradient(135deg,var(--gold-pale),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:16px;line-height:1.15;
+}
+.section-desc {
+  font-size:clamp(15px,2vw,18px);
+  color:var(--text2);max-width:600px;margin:0 auto;
+  line-height:1.8;font-style:italic;
+}
+
+/* ═══ SEARCH BAR ═══ */
+.search-section{
+  padding:40px 5vw 0;max-width:1400px;margin:0 auto;
+}
+.search-bar {
+  max-width:680px;margin:0 auto;
+  position:relative;
+  background:var(--surface);
+  border:1.5px solid var(--border2);
+  border-radius:50px;
+  padding:14px 24px 14px 56px;
+  display:flex;align-items:center;
+  backdrop-filter:blur(20px);
+  transition:all .3s var(--transition);
+}
+.search-bar:focus-within{border-color:var(--gold);box-shadow:var(--glow)}
+.search-icon{position:absolute;left:20px;color:var(--gold);font-size:18px;pointer-events:none}
+.search-bar input{
+  background:none;border:none;outline:none;
+  color:var(--text);font-family:var(--font-body);font-size:16px;
+  width:100%;
+}
+.search-bar input::placeholder{color:var(--text3)}
+.search-results {
+  position:absolute;top:calc(100% + 8px);left:0;right:0;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);z-index:50;
+  display:none;
+}
+.search-result-item{
+  padding:12px 20px;border-bottom:1px solid var(--border);
+  cursor:pointer;transition:background .2s;
+  display:flex;align-items:center;gap:12px;
+}
+.search-result-item:last-child{border-bottom:none}
+.search-result-item:hover{background:var(--surface)}
+.result-tag{
+  font-size:10px;padding:3px 8px;border-radius:4px;
+  background:var(--surface2);color:var(--gold);
+  font-family:var(--font-serif);letter-spacing:.08em;white-space:nowrap;
+}
+
+/* ═══ CHARACTERS GRID ═══ */
+.char-filter {
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+  margin-bottom:40px;
+}
+.filter-btn {
+  padding:8px 20px;border-radius:50px;
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text2);font-family:var(--font-serif);
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  transition:all .25s var(--transition);
+}
+.filter-btn:hover,.filter-btn.active{
+  background:linear-gradient(135deg,var(--gold),var(--copper));
+  color:#1a0d00;border-color:transparent;
+}
+.chars-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:24px;
+}
+.char-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:all .35s var(--transition);
+  cursor:pointer;
+  position:relative;
+}
+.char-card::before{
+  content:'';position:absolute;inset:0;border-radius:var(--radius-lg);
+  background:linear-gradient(135deg,rgba(200,150,30,.12),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.char-card:hover{transform:translateY(-6px);box-shadow:var(--glow),var(--shadow);border-color:var(--border2)}
+.char-card:hover::before{opacity:1}
+.char-avatar {
+  width:100%;height:200px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  font-size:64px;
+}
+.char-avatar-bg {
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--bg3),var(--bg2));
+}
+.char-avatar-pattern {
+  position:absolute;inset:0;opacity:.3;
+  background-image:repeating-linear-gradient(
+    45deg, transparent, transparent 10px,
+    rgba(200,150,30,.08) 10px, rgba(200,150,30,.08) 11px
+  );
+}
+.char-symbol{position:relative;z-index:1;filter:drop-shadow(0 0 20px rgba(200,150,30,.6))}
+.char-body{padding:20px}
+.char-name {
+  font-family:var(--font-serif);
+  font-size:clamp(18px,2.5vw,22px);
+  color:var(--gold-light);margin-bottom:4px;
+}
+.char-title {
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:12px;font-family:var(--font-serif);
+}
+.char-desc{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:16px}
+.char-tags{display:flex;flex-wrap:wrap;gap:6px}
+.char-tag {
+  font-size:10px;padding:4px 10px;border-radius:4px;
+  background:var(--surface2);color:var(--gold);
+  font-family:var(--font-serif);letter-spacing:.06em;
+}
+.char-side-pandava{border-left:3px solid #4fc3f7}
+.char-side-kaurava{border-left:3px solid var(--crimson)}
+.char-side-neutral{border-left:3px solid var(--gold)}
+.char-side-divine{border-left:3px solid #ce93d8}
+
+/* ═══ FAMILY TREE ═══ */
+.family-tree-container {
+  overflow-x:auto;padding:20px 0;
+  scrollbar-width:thin;scrollbar-color:var(--gold) var(--bg);
+}
+.tree-wrapper{
+  min-width:900px;position:relative;
+  padding:40px 20px;
+}
+.tree-level{
+  display:flex;justify-content:center;gap:20px;
+  position:relative;margin-bottom:60px;
+}
+.tree-level::before{
+  content:'';position:absolute;bottom:-30px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border2),transparent);
+}
+.tree-node {
+  position:relative;
+  text-align:center;
+  flex-shrink:0;
+}
+.tree-node-card {
+  padding:12px 16px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--border);
+  cursor:pointer;transition:all .3s var(--transition);
+  min-width:110px;
+  backdrop-filter:blur(10px);
+}
+.tree-node-card:hover{background:var(--surface2);border-color:var(--gold);transform:scale(1.05)}
+.tree-node-card.pandava{border-top:2px solid #4fc3f7}
+.tree-node-card.kaurava{border-top:2px solid var(--crimson)}
+.tree-node-card.divine{border-top:2px solid #ce93d8}
+.tree-node-card.patriarch{border-top:2px solid var(--gold)}
+.node-name{font-family:var(--font-serif);font-size:13px;color:var(--gold-light);font-weight:600}
+.node-role{font-size:10px;color:var(--text3);margin-top:3px;letter-spacing:.05em}
+.node-life{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic}
+.tree-connector {
+  position:absolute;top:-30px;left:50%;transform:translateX(-50%);
+  width:2px;height:30px;background:var(--border2);
+}
+
+/* ═══ TIMELINE ═══ */
+.timeline {
+  position:relative;
+  padding:20px 0;
+}
+.timeline::before {
+  content:'';position:absolute;left:clamp(20px,6vw,60px);top:0;bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom,transparent,var(--gold) 10%,var(--gold) 90%,transparent);
+}
+.timeline-item {
+  display:flex;gap:clamp(20px,4vw,60px);
+  margin-bottom:clamp(32px,5vw,56px);
+  align-items:flex-start;
+  position:relative;
+  opacity:0;transform:translateX(-20px);
+  transition:all .6s var(--transition);
+}
+.timeline-item.visible{opacity:1;transform:none}
+.timeline-dot {
+  flex-shrink:0;
+  width:clamp(32px,5vw,48px);height:clamp(32px,5vw,48px);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--gold),var(--copper));
+  font-size:clamp(14px,2vw,18px);
+  box-shadow:0 0 20px rgba(200,150,30,.5);
+  position:relative;z-index:1;
+  margin-left:clamp(4px,4vw,37px);
+  flex:0 0 clamp(32px,5vw,48px);
+}
+.timeline-content {
+  flex:1;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:clamp(16px,3vw,28px);
+  backdrop-filter:blur(10px);
+  transition:all .3s var(--transition);
+}
+.timeline-content:hover{border-color:var(--border2);background:var(--surface2)}
+.timeline-era {
+  font-family:var(--font-serif);font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px;
+}
+.timeline-title {
+  font-family:var(--font-serif);
+  font-size:clamp(16px,2.5vw,22px);
+  color:var(--gold-light);margin-bottom:8px;
+}
+.timeline-text{font-size:clamp(13px,1.8vw,16px);color:var(--text2);line-height:1.7}
+.timeline-meta{
+  margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;
+}
+.timeline-tag{
+  font-size:10px;padding:4px 10px;border-radius:4px;
+  background:var(--surface2);color:var(--text3);
+  font-family:var(--font-serif);letter-spacing:.06em;
+}
+
+/* ═══ KINGDOMS MAP ═══ */
+.kingdoms-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+}
+.kingdom-card {
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:24px;
+  transition:all .35s var(--transition);cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.kingdom-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);transition:transform .3s var(--transition);
+}
+.kingdom-card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:var(--border2)}
+.kingdom-card:hover::after{transform:scaleX(1)}
+.kingdom-icon{font-size:36px;margin-bottom:12px;display:block}
+.kingdom-name{
+  font-family:var(--font-serif);
+  font-size:clamp(18px,2.5vw,22px);
+  color:var(--gold-light);margin-bottom:4px;
+}
+.kingdom-ancient{font-size:12px;color:var(--text3);margin-bottom:8px;font-style:italic}
+.kingdom-modern {
+  font-size:12px;color:var(--gold);
+  background:var(--surface2);
+  padding:6px 12px;border-radius:6px;
+  display:inline-flex;align-items:center;gap:6px;
+  margin-bottom:12px;font-family:var(--font-serif);
+}
+.kingdom-desc{font-size:14px;color:var(--text2);line-height:1.6}
+.kingdom-ruler{
+  margin-top:12px;padding-top:12px;
+  border-top:1px solid var(--border);
+  font-size:12px;color:var(--text3);
+  font-family:var(--font-serif);
+}
+
+/* ═══ SACRED SITES ═══ */
+.sites-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:20px;
+}
+.site-card {
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  transition:all .35s var(--transition);cursor:pointer;
+}
+.site-card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:var(--border2)}
+.site-image{
+  height:160px;
+  background:linear-gradient(135deg,var(--bg3),var(--bg2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:56px;position:relative;overflow:hidden;
+}
+.site-image-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent,rgba(10,5,0,.6));
+}
+.site-body{padding:18px}
+.site-name{font-family:var(--font-serif);font-size:18px;color:var(--gold-light);margin-bottom:4px}
+.site-state{font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;font-family:var(--font-serif)}
+.site-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.site-visit{
+  font-size:11px;color:var(--text3);
+  display:flex;align-items:center;gap:6px;font-style:italic;
+}
+
+/* ═══ PARVAS (BOOKS) ═══ */
+.parvas-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+}
+.parva-card {
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+  transition:all .35s var(--transition);cursor:pointer;
+  position:relative;
+}
+.parva-card:hover{transform:translateY(-3px);box-shadow:var(--glow);border-color:var(--border2)}
+.parva-num{
+  font-family:var(--font-display);
+  font-size:36px;color:var(--gold);opacity:.3;
+  position:absolute;right:16px;top:12px;
+  line-height:1;
+}
+.parva-name{font-family:var(--font-serif);font-size:18px;color:var(--gold-light);margin-bottom:4px}
+.parva-sanskrit{font-family:var(--font-hindi);font-size:14px;color:var(--text3);margin-bottom:8px}
+.parva-chapters{font-size:11px;color:var(--gold);font-family:var(--font-serif);letter-spacing:.08em;margin-bottom:10px}
+.parva-desc{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* ═══ MODAL ═══ */
+.modal-overlay {
+  position:fixed;inset:0;z-index:200;
+  background:rgba(10,5,0,.85);
+  backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s var(--transition);
+}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal {
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-lg);
+  max-width:680px;width:100%;
+  max-height:90vh;overflow-y:auto;
+  box-shadow:0 20px 80px rgba(0,0,0,.8),var(--glow);
+  transform:scale(.95) translateY(20px);
+  transition:transform .3s var(--transition);
+}
+.modal-overlay.open .modal{transform:none}
+.modal-header{
+  padding:28px 28px 20px;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:var(--bg2);z-index:1;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+}
+.modal-title{font-family:var(--font-serif);font-size:clamp(20px,3vw,28px);color:var(--gold-light)}
+.modal-close{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface);color:var(--text2);
+  font-size:18px;transition:all .2s;flex-shrink:0;
+}
+.modal-close:hover{background:var(--surface2);color:var(--gold)}
+.modal-body{padding:24px 28px 28px}
+.modal-section{margin-bottom:20px}
+.modal-section h4{
+  font-family:var(--font-serif);font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;
+}
+.modal-section p{color:var(--text2);line-height:1.75;font-size:15px}
+.modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.modal-tag{
+  padding:6px 14px;border-radius:20px;
+  background:var(--surface);border:1px solid var(--border);
+  font-size:12px;color:var(--gold);font-family:var(--font-serif);
+}
+
+/* ═══ QUOTES CAROUSEL ═══ */
+.quotes-section{
+  text-align:center;
+  background:linear-gradient(135deg,var(--surface),transparent);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:clamp(40px,6vw,80px) clamp(24px,6vw,80px);
+  position:relative;overflow:hidden;
+  margin:clamp(40px,6vw,80px) 5vw;
+}
+.quotes-section::before{
+  content:'❝';
+  position:absolute;top:-20px;left:20px;
+  font-size:200px;color:var(--gold);opacity:.04;
+  font-family:serif;line-height:1;pointer-events:none;
+}
+.quote-text {
+  font-size:clamp(18px,3vw,28px);
+  font-style:italic;color:var(--text);
+  line-height:1.6;max-width:700px;margin:0 auto 20px;
+  transition:opacity .5s,transform .5s;
+}
+.quote-source{
+  font-family:var(--font-serif);font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);
+}
+.quote-controls{
+  display:flex;justify-content:center;gap:8px;margin-top:28px;
+}
+.quote-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border2);cursor:pointer;transition:all .3s;
+}
+.quote-dot.active{background:var(--gold);transform:scale(1.3)}
+
+/* ═══ LOADING / SKELETON ═══ */
+.skeleton {
+  background:linear-gradient(90deg,var(--surface) 25%,var(--surface2) 50%,var(--surface) 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.8s infinite;
+  border-radius:8px;
+}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ═══ FOOTER ═══ */
+footer {
+  border-top:1px solid var(--border);
+  padding:clamp(40px,6vw,80px) 5vw clamp(24px,4vw,40px);
+  background:linear-gradient(to bottom,transparent,var(--bg2));
+}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr repeat(3,1fr);
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand{
+  font-family:var(--font-display);
+  font-size:clamp(16px,2vw,22px);
+  color:var(--gold);margin-bottom:12px;
+}
+.footer-brand-desc{font-size:14px;color:var(--text3);line-height:1.7;max-width:280px}
+.footer-col h5{
+  font-family:var(--font-serif);font-size:12px;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+}
+.footer-col a{
+  display:block;color:var(--text3);font-size:14px;
+  margin-bottom:10px;transition:color .2s;
+}
+.footer-col a:hover{color:var(--gold-light)}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:24px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;
+  align-items:center;gap:12px;
+  font-size:12px;color:var(--text3);
+}
+.footer-bottom a{color:var(--text3);transition:color .2s}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* ═══ LANG SWITCHER ═══ */
+.lang-btn {
+  padding:6px 14px;border-radius:20px;
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text3);font-size:12px;font-family:var(--font-serif);
+  letter-spacing:.08em;transition:all .2s;
+}
+.lang-btn.active,.lang-btn:hover{background:var(--surface2);color:var(--gold);border-color:var(--border2)}
+.lang-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+
+/* ═══ BACK TO TOP ═══ */
+.back-top {
+  position:fixed;bottom:24px;right:24px;z-index:90;
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--copper));
+  color:#1a0d00;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(200,150,30,0.4);
+  transition:all .3s var(--transition);
+  opacity:0;transform:translateY(20px);pointer-events:none;
+}
+.back-top.visible{opacity:1;transform:none;pointer-events:auto}
+.back-top:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(200,150,30,.6)}
+
+/* ═══ TABS ═══ */
+.tabs{
+  display:flex;gap:4px;flex-wrap:wrap;
+  background:var(--surface);border-radius:50px;
+  padding:4px;margin-bottom:40px;
+  border:1px solid var(--border);
+  justify-content:center;
+}
+.tab-btn{
+  padding:10px 24px;border-radius:50px;
+  font-family:var(--font-serif);font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text2);transition:all .25s var(--transition);
+}
+.tab-btn.active{
+  background:linear-gradient(135deg,var(--gold),var(--copper));
+  color:#1a0d00;
+}
+.tab-btn:hover:not(.active){color:var(--gold)}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn .4s var(--transition)}
+
+/* ═══ PROGRESS BAR ═══ */
+.progress-bar{
+  position:fixed;top:0;left:0;z-index:200;
+  height:3px;background:linear-gradient(90deg,var(--gold),var(--copper),var(--gold));
+  width:0%;transition:width .1s linear;
+  box-shadow:0 0 10px var(--gold);
+}
+
+/* ═══ SECTION DIVIDER ═══ */
+.divider {
+  width:100%;max-width:1400px;margin:0 auto;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border2),transparent);
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .nav-links,.nav-actions .theme-btn{display:none}
+  .hamburger{display:flex}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr}
+  .tree-level{gap:10px}
+  .tree-node-card{min-width:80px;padding:8px 10px}
+  .node-name{font-size:11px}
+  .timeline::before{left:16px}
+  .timeline-item{gap:16px}
+  .timeline-dot{width:32px;height:32px;font-size:14px;margin-left:0}
+}
+
+/* ═══ ACCESSIBILITY ═══ */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+
+/* ═══ WEAPONS ENCYCLOPEDIA ═══ */
+.weapons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.weapon-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:24px;
+  cursor:pointer;transition:all .35s var(--transition);position:relative;overflow:hidden;
+}
+.weapon-card::before{
+  content:'';position:absolute;top:0;right:0;
+  width:80px;height:80px;border-radius:0 var(--radius-lg) 0 80px;
+  background:linear-gradient(135deg,var(--gold),transparent);
+  opacity:.08;
+}
+.weapon-card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:var(--border2)}
+.weapon-icon{font-size:40px;margin-bottom:12px;display:block}
+.weapon-name{font-family:var(--font-serif);font-size:20px;color:var(--gold-light);margin-bottom:4px}
+.weapon-sanskrit{font-family:var(--font-hindi);font-size:13px;color:var(--text3);margin-bottom:8px}
+.weapon-type{
+  display:inline-block;padding:4px 12px;border-radius:20px;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  font-family:var(--font-serif);margin-bottom:10px;
+  background:linear-gradient(135deg,rgba(200,150,30,.15),rgba(181,84,26,.15));
+  border:1px solid var(--border2);color:var(--gold);
+}
+.weapon-desc{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:12px}
+.weapon-wielders{font-size:12px;color:var(--text3);font-family:var(--font-serif)}
+.weapon-power{
+  margin-top:12px;height:4px;background:var(--surface2);border-radius:2px;overflow:hidden;
+}
+.weapon-power-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--copper));transition:width 1s var(--transition)}
+
+/* ═══ WAR STATS DASHBOARD ═══ */
+.stats-dashboard{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:20px;margin-bottom:40px;
+}
+.stat-widget{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:24px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.stat-widget::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--copper));
+}
+.stat-widget-num{
+  font-family:var(--font-display);
+  font-size:clamp(32px,5vw,52px);
+  background:linear-gradient(135deg,var(--gold-pale),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;
+}
+.stat-widget-label{font-family:var(--font-serif);font-size:13px;color:var(--text2);margin-top:6px;letter-spacing:.05em}
+.stat-widget-sub{font-size:12px;color:var(--text3);margin-top:4px;font-style:italic}
+
+/* Bar chart inside widgets */
+.mini-bar-chart{margin-top:16px}
+.mini-bar{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.mini-bar-label{font-size:11px;color:var(--text3);min-width:90px;text-align:right;font-family:var(--font-serif)}
+.mini-bar-track{flex:1;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden}
+.mini-bar-fill{height:100%;border-radius:3px;transition:width 1.2s var(--transition)}
+.mini-bar-val{font-size:11px;color:var(--gold);min-width:32px;font-family:var(--font-serif)}
+
+/* Day-by-day war strip */
+.war-days-strip{
+  display:flex;gap:8px;overflow-x:auto;padding:16px 0;
+  scrollbar-width:thin;scrollbar-color:var(--gold) var(--bg);
+}
+.war-day-card{
+  flex:0 0 160px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px 14px;
+  cursor:pointer;transition:all .3s var(--transition);
+}
+.war-day-card:hover,.war-day-card.highlighted{
+  background:var(--surface2);border-color:var(--border2);
+  transform:translateY(-3px);box-shadow:var(--glow);
+}
+.war-day-num{
+  font-family:var(--font-display);font-size:22px;
+  color:var(--gold);margin-bottom:4px;line-height:1;
+}
+.war-day-commander{font-family:var(--font-serif);font-size:12px;color:var(--gold-light);margin-bottom:4px}
+.war-day-event{font-size:11px;color:var(--text3);line-height:1.5}
+
+/* ═══ QUIZ ═══ */
+.quiz-container{max-width:720px;margin:0 auto}
+.quiz-progress-bar{
+  height:6px;background:var(--surface2);border-radius:3px;margin-bottom:32px;overflow:hidden;
+}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--copper));border-radius:3px;transition:width .5s var(--transition)}
+.quiz-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:clamp(24px,4vw,40px);
+  position:relative;
+}
+.quiz-q-num{font-family:var(--font-serif);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.quiz-question{
+  font-family:var(--font-serif);font-size:clamp(18px,2.5vw,24px);
+  color:var(--text);line-height:1.5;margin-bottom:28px;
+}
+.quiz-options{display:grid;gap:12px}
+.quiz-option{
+  padding:14px 20px;border-radius:var(--radius);
+  background:var(--surface2);border:1.5px solid var(--border);
+  color:var(--text2);font-family:var(--font-serif);
+  font-size:15px;text-align:left;
+  transition:all .25s var(--transition);cursor:pointer;
+  display:flex;align-items:center;gap:12px;
+}
+.quiz-option:hover:not(:disabled){background:var(--surface);border-color:var(--border2);color:var(--gold)}
+.quiz-option.correct{background:rgba(27,94,32,.3);border-color:#4caf50;color:#81c784}
+.quiz-option.wrong{background:rgba(139,26,26,.3);border-color:#e57373;color:#ef9a9a}
+.quiz-option-letter{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;flex-shrink:0;font-family:var(--font-serif);
+  color:var(--gold);
+}
+.quiz-explanation{
+  margin-top:20px;padding:16px 20px;
+  background:rgba(200,150,30,.08);border:1px solid var(--border2);
+  border-radius:var(--radius);font-size:14px;color:var(--text2);
+  line-height:1.65;display:none;
+}
+.quiz-explanation.show{display:block;animation:fadeIn .4s var(--transition)}
+.quiz-nav{display:flex;gap:12px;margin-top:24px;justify-content:space-between;align-items:center}
+.quiz-score-display{
+  text-align:center;padding:48px 24px;
+}
+.quiz-score-num{
+  font-family:var(--font-display);
+  font-size:clamp(56px,10vw,100px);
+  background:linear-gradient(135deg,var(--gold-pale),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:12px;
+}
+.quiz-score-label{font-family:var(--font-serif);font-size:20px;color:var(--text2);margin-bottom:8px}
+.quiz-score-sub{font-size:15px;color:var(--text3);margin-bottom:32px;font-style:italic}
+
+/* ═══ DIVINE CONCEPTS ═══ */
+.concepts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.concept-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+  transition:all .3s var(--transition);cursor:pointer;
+}
+.concept-card:hover{border-color:var(--border2);background:var(--surface2);transform:translateY(-2px)}
+.concept-term{font-family:var(--font-serif);font-size:20px;color:var(--gold-light);margin-bottom:4px}
+.concept-devanagari{font-family:var(--font-hindi);font-size:16px;color:var(--text3);margin-bottom:8px}
+.concept-desc{font-size:13px;color:var(--text2);line-height:1.65}
+.concept-ref{font-size:11px;color:var(--gold);margin-top:10px;font-family:var(--font-serif);letter-spacing:.06em}
+
+/* ═══ INTERACTIVE MAP SVG ═══ */
+.map-section-inner{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:clamp(20px,3vw,40px);
+  overflow:hidden;
+}
+.india-map-wrapper{
+  position:relative;max-width:700px;margin:0 auto;
+}
+.india-map-wrapper svg{width:100%;height:auto}
+.map-dot{
+  cursor:pointer;transition:r .2s,filter .2s;
+}
+.map-dot:hover{filter:brightness(1.5) drop-shadow(0 0 8px var(--gold))}
+.map-legend{
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;justify-content:center;
+}
+.map-legend-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--text2);font-family:var(--font-serif);
+}
+.map-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.map-tooltip{
+  position:absolute;background:var(--bg2);border:1px solid var(--border2);
+  border-radius:var(--radius);padding:10px 14px;
+  font-family:var(--font-serif);font-size:13px;color:var(--text);
+  pointer-events:none;z-index:10;max-width:200px;
+  box-shadow:var(--shadow);
+  opacity:0;transition:opacity .2s;
+}
+.map-tooltip.show{opacity:1}
+
+/* ═══ AUDIO / CHANTS ═══ */
+.chants-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.chant-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+  transition:all .3s var(--transition);
+}
+.chant-card:hover{border-color:var(--border2)}
+.chant-title{font-family:var(--font-serif);font-size:17px;color:var(--gold-light);margin-bottom:4px}
+.chant-source{font-size:11px;color:var(--text3);margin-bottom:12px;font-style:italic}
+.chant-text{
+  font-family:var(--font-hindi);font-size:16px;color:var(--text);
+  line-height:1.8;margin-bottom:8px;
+}
+.chant-translation{font-size:13px;color:var(--text2);line-height:1.65;font-style:italic}
+.chant-bar{
+  margin-top:14px;height:40px;background:var(--surface2);
+  border-radius:var(--radius);display:flex;align-items:center;
+  padding:0 14px;gap:10px;cursor:pointer;
+  border:1px solid var(--border);transition:all .2s;
+}
+.chant-bar:hover{border-color:var(--border2);background:var(--surface)}
+.chant-play-btn{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--copper));
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:#1a0d00;flex-shrink:0;
+  transition:transform .2s;
+}
+.chant-play-btn:hover{transform:scale(1.1)}
+.chant-wave{
+  flex:1;height:20px;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0px, transparent 2px,
+    rgba(200,150,30,.3) 2px, rgba(200,150,30,.3) 3px
+  );
+  border-radius:2px;position:relative;overflow:hidden;
+}
+.chant-wave-fill{
+  position:absolute;left:0;top:0;bottom:0;width:0%;
+  background:linear-gradient(90deg,rgba(200,150,30,.6),rgba(181,84,26,.6));
+  transition:width .1s linear;
+}
+
+/* ═══ NOTABLE STORIES ═══ */
+.stories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.story-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:24px;
+  cursor:pointer;transition:all .35s var(--transition);
+}
+.story-card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:var(--border2)}
+.story-parva{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-family:var(--font-serif)}
+.story-title{font-family:var(--font-serif);font-size:20px;color:var(--gold-light);margin-bottom:8px}
+.story-chars{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.story-char{font-size:10px;padding:3px 8px;border-radius:4px;background:var(--surface2);color:var(--text3);font-family:var(--font-serif)}
+.story-preview{font-size:14px;color:var(--text2);line-height:1.65}
+.story-read-more{
+  margin-top:14px;font-size:12px;color:var(--gold);
+  font-family:var(--font-serif);letter-spacing:.08em;
+  display:flex;align-items:center;gap:6px;
+}
+
+/* ═══ DHARMA WHEEL ANIMATION ═══ */
+.dharma-divider{
+  text-align:center;padding:clamp(40px,6vw,80px) 5vw;
+  max-width:1400px;margin:0 auto;
+}
+.dharma-wheel{
+  width:80px;height:80px;margin:0 auto 24px;
+  border:2px solid var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;
+  animation:rotate-slow 30s linear infinite;
+  box-shadow:0 0 30px rgba(200,150,30,.2);
+}
+.dharma-quote{
+  font-family:var(--font-display);
+  font-size:clamp(18px,3vw,28px);
+  color:var(--gold);text-align:center;
+  max-width:600px;margin:0 auto;
+  text-shadow:0 0 40px rgba(200,150,30,.3);
+}
+
+/* ═══ RESPONSIVE additions ═══ */
+@media(max-width:600px){
+  .weapons-grid,.stats-dashboard,.chants-grid,.stories-grid{grid-template-columns:1fr}
+  .war-day-card{flex:0 0 140px}
+}
+
+
+/* ═══ NOTIFICATION TOAST ═══ */
+.toast{
+  position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:50px;padding:12px 24px;
+  font-family:var(--font-serif);font-size:13px;color:var(--gold-light);
+  box-shadow:var(--shadow);z-index:300;
+  opacity:0;transition:all .3s;pointer-events:none;
+  white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ═══ EMPTY STATE ═══ */
+.empty-state{
+  text-align:center;padding:60px 20px;color:var(--text3);
+}
+.empty-state .empty-icon{font-size:56px;margin-bottom:16px;opacity:.5}
+.empty-state h3{font-family:var(--font-serif);font-size:20px;color:var(--text2);margin-bottom:8px}
+.empty-state p{font-size:14px;max-width:320px;margin:0 auto;line-height:1.6}
+
+/* Highlighted section chip */
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(200,150,30,.2),rgba(181,84,26,.2));
+  border:1px solid var(--border2);
+  font-size:11px;color:var(--gold);font-family:var(--font-serif);
+  letter-spacing:.08em;
+}
+
+/* ═══ GITA SECTION ═══ */
+.gita-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:16px;
+}
+.gita-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;cursor:pointer;
+  transition:all .3s var(--transition);
+}
+.gita-card:hover{transform:translateY(-3px);border-color:var(--border2);box-shadow:var(--glow)}
+.gita-chapter{
+  font-family:var(--font-display);font-size:28px;
+  color:var(--gold);opacity:.4;margin-bottom:4px;
+}
+.gita-name{font-family:var(--font-serif);font-size:17px;color:var(--gold-light);margin-bottom:6px}
+.gita-sanskrit{font-family:var(--font-hindi);font-size:13px;color:var(--text3);margin-bottom:8px}
+.gita-desc{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* Online indicator */
+.online-dot{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:#4caf50;animation:blink 2s ease-in-out infinite;
+  margin-right:6px;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+</style>
+</head>
+<body>
+
+<!-- ═══ PROGRESS BAR ═══ -->
+<div class="progress-bar" id="progressBar" role="progressbar" aria-label="Page scroll progress"></div>
+
+<!-- ═══ COSMIC BACKGROUND ═══ -->
+<div class="cosmic-bg" aria-hidden="true">
+  <div class="star-field"></div>
+  <div class="mandala-bg"></div>
+</div>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo" aria-label="Mahabharata Home">
+      <span class="om" aria-hidden="true">ॐ</span>
+      <span>Mahābhārata</span>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="#characters" role="menuitem">Characters</a>
+      <a href="#family-tree" role="menuitem">Family Tree</a>
+      <a href="#timeline" role="menuitem">Timeline</a>
+      <a href="#kingdoms" role="menuitem">Kingdoms</a>
+      <a href="#sacred-sites" role="menuitem">Sacred Sites</a>
+      <a href="#gita" role="menuitem">Bhagavad Gītā</a>
+      <a href="#parvas" role="menuitem">18 Parvas</a>
+    </div>
+    <div class="nav-actions">
+      <button class="search-btn" id="searchToggle" aria-label="Search">🔍</button>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ MOBILE NAVIGATION ═══ -->
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="#home" onclick="closeMobileNav()">Home</a>
+  <a href="#characters" onclick="closeMobileNav()">Characters</a>
+  <a href="#family-tree" onclick="closeMobileNav()">Family Tree</a>
+  <a href="#timeline" onclick="closeMobileNav()">Timeline</a>
+  <a href="#kingdoms" onclick="closeMobileNav()">Kingdoms</a>
+  <a href="#sacred-sites" onclick="closeMobileNav()">Sacred Sites</a>
+  <a href="#war-stats" onclick="closeMobileNav()">War Stats</a>
+  <a href="#weapons" onclick="closeMobileNav()">Weapons</a>
+  <a href="#map" onclick="closeMobileNav()">Ancient Map</a>
+  <a href="#stories" onclick="closeMobileNav()">Stories</a>
+  <a href="#gita" onclick="closeMobileNav()">Bhagavad Gītā</a>
+  <a href="#concepts" onclick="closeMobileNav()">Philosophy</a>
+  <a href="#verses" onclick="closeMobileNav()">Sacred Verses</a>
+  <a href="#parvas" onclick="closeMobileNav()">18 Parvas</a>
+  <a href="#quiz" onclick="closeMobileNav()">Quiz</a>
+</nav>
+
+<!-- ═══ HERO SECTION ═══ -->
+<section id="home" aria-label="Hero">
+  <svg class="hero-chakra" aria-hidden="true" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="240" stroke="#c8961e" stroke-width="2"/>
+    <circle cx="250" cy="250" r="180" stroke="#c8961e" stroke-width="1" stroke-dasharray="8 8"/>
+    <circle cx="250" cy="250" r="120" stroke="#c8961e" stroke-width="2"/>
+    <circle cx="250" cy="250" r="60" stroke="#c8961e" stroke-width="1.5"/>
+    <circle cx="250" cy="250" r="20" fill="#c8961e" opacity="0.5"/>
+    <g stroke="#c8961e" stroke-width="1.5">
+      <line x1="250" y1="10" x2="250" y2="490"/>
+      <line x1="10" y1="250" x2="490" y2="250"/>
+      <line x1="80" y1="80" x2="420" y2="420"/>
+      <line x1="420" y1="80" x2="80" y2="420"/>
+      <line x1="10" y1="130" x2="490" y2="370"/>
+      <line x1="10" y1="370" x2="490" y2="130"/>
+      <line x1="130" y1="10" x2="370" y2="490"/>
+      <line x1="370" y1="10" x2="130" y2="490"/>
+    </g>
+    <circle cx="250" cy="10" r="6" fill="#c8961e"/>
+    <circle cx="250" cy="490" r="6" fill="#c8961e"/>
+    <circle cx="10" cy="250" r="6" fill="#c8961e"/>
+    <circle cx="490" cy="250" r="6" fill="#c8961e"/>
+  </svg>
+  <svg class="hero-chakra-2" aria-hidden="true" viewBox="0 0 300 300" fill="none">
+    <circle cx="150" cy="150" r="140" stroke="#c8961e" stroke-width="1.5"/>
+    <circle cx="150" cy="150" r="90" stroke="#c8961e" stroke-width="1" stroke-dasharray="5 5"/>
+    <circle cx="150" cy="150" r="40" stroke="#c8961e" stroke-width="1.5"/>
+    <g stroke="#c8961e" stroke-width="1">
+      <line x1="150" y1="10" x2="150" y2="290"/>
+      <line x1="10" y1="150" x2="290" y2="150"/>
+      <line x1="50" y1="50" x2="250" y2="250"/>
+      <line x1="250" y1="50" x2="50" y2="250"/>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-sanskrit" lang="sa" aria-label="Sanskrit verse">
+      धर्मो रक्षति रक्षितः · Dharma protects those who protect it
+    </div>
+    <h1 class="hero-title">Mahābhārata</h1>
+    <div class="hero-sub">महाभारत · The Great Epic of Bhārata</div>
+    <p class="hero-desc">
+      The world's longest epic poem — 100,000 verses across 18 books, narrating the great war between the Pandavas and Kauravas, and the eternal wisdom of the Bhagavad Gītā.
+    </p>
+    <div class="hero-stats" role="list">
+      <div class="stat-card" role="listitem">
+        <div class="stat-num">100,000+</div>
+        <div class="stat-label">Sanskrit Verses</div>
+      </div>
+      <div class="stat-card" role="listitem">
+        <div class="stat-num">18</div>
+        <div class="stat-label">Parvas (Books)</div>
+      </div>
+      <div class="stat-card" role="listitem">
+        <div class="stat-num">3,000+</div>
+        <div class="stat-label">Characters</div>
+      </div>
+      <div class="stat-card" role="listitem">
+        <div class="stat-num">~3100 BCE</div>
+        <div class="stat-label">Traditional Date</div>
+      </div>
+      <div class="stat-card" role="listitem">
+        <div class="stat-num">18</div>
+        <div class="stat-label">Days of War</div>
+      </div>
+    </div>
+    <div class="cta-group">
+      <a href="#characters" class="btn-primary">Explore Characters</a>
+      <a href="#timeline" class="btn-secondary">View Timeline</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-arrow"></div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ═══ SEARCH ═══ -->
+<div class="search-section" id="searchSection">
+  <div class="search-bar" role="search">
+    <span class="search-icon" aria-hidden="true">🔍</span>
+    <input type="search" id="searchInput" placeholder="Search characters, kingdoms, events, sacred sites…" aria-label="Search the Mahabharata"/>
+    <div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>
+  </div>
+</div>
+
+<!-- ═══ QUOTES CAROUSEL ═══ -->
+<div class="quotes-section" id="quotesSection" aria-label="Inspirational quotes from the Mahabharata">
+  <div class="quote-text" id="quoteText"></div>
+  <div class="quote-source" id="quoteSource"></div>
+  <div class="quote-controls" role="tablist" aria-label="Quote navigation" id="quoteDots"></div>
+</div>
+
+<!-- ═══ CHARACTERS ═══ -->
+<section id="characters" class="section" aria-label="Characters">
+  <div class="section-header">
+    <div class="section-eyebrow">The Great Protagonists</div>
+    <h2 class="section-title">Characters of the Epic</h2>
+    <p class="section-desc">From divine warriors to wise sages — the unforgettable souls who shaped the course of Kurukshetra</p>
+  </div>
+  <div class="char-filter" role="group" aria-label="Filter characters">
+    <button class="filter-btn active" data-filter="all">All Characters</button>
+    <button class="filter-btn" data-filter="pandava">🔵 Pāṇḍavas</button>
+    <button class="filter-btn" data-filter="kaurava">🔴 Kauravas</button>
+    <button class="filter-btn" data-filter="divine">🟣 Divine</button>
+    <button class="filter-btn" data-filter="neutral">🟡 Sages &amp; Others</button>
+  </div>
+  <div class="chars-grid" id="charsGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ FAMILY TREE ═══ -->
+<section id="family-tree" class="section" aria-label="Family Tree">
+  <div class="section-header">
+    <div class="section-eyebrow">Lineage of Bharata</div>
+    <h2 class="section-title">The Royal Family Tree</h2>
+    <p class="section-desc">From the sage Parāśara to the Pāṇḍavas — the divine lineage that shaped an age</p>
+  </div>
+  <div class="family-tree-container" tabindex="0" aria-label="Scrollable family tree diagram">
+    <div class="tree-wrapper" id="familyTree"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TIMELINE ═══ -->
+<section id="timeline" class="section" aria-label="Timeline of Events">
+  <div class="section-header">
+    <div class="section-eyebrow">From Creation to Kali Yuga</div>
+    <h2 class="section-title">Timeline of Events</h2>
+    <p class="section-desc">The complete chronology of the Mahābhārata — from the birth of the Kuru lineage to the end of Dvāpara Yuga</p>
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="all-events" role="tab" aria-selected="true">All Events</button>
+    <button class="tab-btn" data-tab="pre-war" role="tab" aria-selected="false">Pre-War</button>
+    <button class="tab-btn" data-tab="kurukshetra" role="tab" aria-selected="false">Kurukshetra War</button>
+    <button class="tab-btn" data-tab="post-war" role="tab" aria-selected="false">Post-War</button>
+  </div>
+  <div class="timeline" id="timelineContainer" aria-label="Timeline events"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ KINGDOMS ═══ -->
+<section id="kingdoms" class="section" aria-label="Ancient Kingdoms">
+  <div class="section-header">
+    <div class="section-eyebrow">Janapadas of Āryāvarta</div>
+    <h2 class="section-title">Kingdoms of Ancient India</h2>
+    <p class="section-desc">The mighty realms that sent their armies to Kurukshetra — and where you can find them in modern India today</p>
+  </div>
+  <div class="kingdoms-grid" id="kingdomsGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SACRED SITES ═══ -->
+<section id="sacred-sites" class="section" aria-label="Sacred Sites">
+  <div class="section-header">
+    <div class="section-eyebrow">Pilgrimage Across Bhārata</div>
+    <h2 class="section-title">Sacred Sites &amp; Locations</h2>
+    <p class="section-desc">Ancient battlefields, holy rivers, and sacred forests — where the Mahābhārata still lives in modern India</p>
+  </div>
+  <div class="sites-grid" id="sitesGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BHAGAVAD GITA ═══ -->
+<section id="gita" class="section" aria-label="Bhagavad Gita">
+  <div class="section-header">
+    <div class="section-eyebrow">The Song of God</div>
+    <h2 class="section-title">Bhagavad Gītā</h2>
+    <p class="section-desc">The divine dialogue between Arjuna and Krishna on the battlefield of Kurukshetra — 18 chapters of eternal wisdom</p>
+  </div>
+  <div class="gita-grid" id="gitaGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 18 PARVAS ═══ -->
+<section id="parvas" class="section" aria-label="18 Parvas">
+  <div class="section-header">
+    <div class="section-eyebrow">The 18 Books</div>
+    <h2 class="section-title">The Eighteen Parvas</h2>
+    <p class="section-desc">100,000 verses organized across 18 books — each narrating a distinct chapter of the greatest story ever told</p>
+  </div>
+  <div class="parvas-grid" id="parvasGrid" role="list"></div>
+</section>
+
+<!-- ═══ DHARMA DIVIDER ═══ -->
+<div class="dharma-divider" aria-hidden="true">
+  <div class="dharma-wheel">☸️</div>
+  <div class="dharma-quote">यदा यदा हि धर्मस्य ग्लानिर्भवति भारत</div>
+  <div style="font-size:14px;color:var(--text3);margin-top:12px;font-style:italic">"Whenever dharma declines, I manifest myself" — Bhagavad Gītā 4.7</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ WAR STATISTICS DASHBOARD ═══ -->
+<section id="war-stats" class="section" aria-label="War Statistics">
+  <div class="section-header">
+    <div class="section-eyebrow">18 Days · 18 Akshauhinis</div>
+    <h2 class="section-title">The War in Numbers</h2>
+    <p class="section-desc">Staggering scale of the Kurukshetra War — one of humanity's most epic recorded conflicts</p>
+  </div>
+  <div class="stats-dashboard">
+    <div class="stat-widget">
+      <div class="stat-widget-num" data-count="18">18</div>
+      <div class="stat-widget-label">Days of War</div>
+      <div class="stat-widget-sub">Kartik Shukla Ekadashi to Ashtami</div>
+      <div class="mini-bar-chart">
+        <div class="mini-bar"><span class="mini-bar-label">Pre-War</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:60%;background:linear-gradient(90deg,#4fc3f7,#1565c0)"></div></div><span class="mini-bar-val" style="color:#4fc3f7">~12yr</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Exile</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:75%;background:linear-gradient(90deg,#81c784,#2e7d32)"></div></div><span class="mini-bar-val" style="color:#81c784">13yr</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">War</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:5%;background:linear-gradient(90deg,var(--gold),var(--copper))"></div></div><span class="mini-bar-val">18d</span></div>
+      </div>
+    </div>
+    <div class="stat-widget">
+      <div class="stat-widget-num">18</div>
+      <div class="stat-widget-label">Akshauhinis (Army Divisions)</div>
+      <div class="stat-widget-sub">Kauravas: 11 · Pandavas: 7</div>
+      <div class="mini-bar-chart">
+        <div class="mini-bar"><span class="mini-bar-label">Kauravas</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:61%;background:linear-gradient(90deg,var(--crimson),#b71c1c)"></div></div><span class="mini-bar-val" style="color:#ef9a9a">11</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Pandavas</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:39%;background:linear-gradient(90deg,#4fc3f7,#1565c0)"></div></div><span class="mini-bar-val" style="color:#4fc3f7">7</span></div>
+      </div>
+    </div>
+    <div class="stat-widget">
+      <div class="stat-widget-num">~3.9M</div>
+      <div class="stat-widget-label">Warriors Perished</div>
+      <div class="stat-widget-sub">1 Akshauhini = ~218,700 warriors</div>
+      <div class="mini-bar-chart">
+        <div class="mini-bar"><span class="mini-bar-label">Infantry</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:80%;background:linear-gradient(90deg,var(--gold),var(--copper))"></div></div><span class="mini-bar-val">~3M</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Chariots</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:25%;background:linear-gradient(90deg,#ce93d8,#7b1fa2)"></div></div><span class="mini-bar-val">~0.5M</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Elephants</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:12%;background:linear-gradient(90deg,#80cbc4,#004d40)"></div></div><span class="mini-bar-val">~0.1M</span></div>
+      </div>
+    </div>
+    <div class="stat-widget">
+      <div class="stat-widget-num">5</div>
+      <div class="stat-widget-label">Supreme Commanders</div>
+      <div class="stat-widget-sub">Kaurava side through 18 days</div>
+      <div class="mini-bar-chart">
+        <div class="mini-bar"><span class="mini-bar-label">Bhishma</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:56%;background:linear-gradient(90deg,var(--gold),var(--copper))"></div></div><span class="mini-bar-val">Days 1-10</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Drona</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:28%;background:linear-gradient(90deg,#ce93d8,#7b1fa2)"></div></div><span class="mini-bar-val">Days 11-15</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Karna</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:11%;background:linear-gradient(90deg,#ffcc02,#e65100)"></div></div><span class="mini-bar-val">Days 16-17</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Shalya/Dur.</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:6%;background:linear-gradient(90deg,#ef9a9a,#b71c1c)"></div></div><span class="mini-bar-val">Day 18</span></div>
+      </div>
+    </div>
+    <div class="stat-widget">
+      <div class="stat-widget-num">100</div>
+      <div class="stat-widget-label">Sons of Dhritarashtra</div>
+      <div class="stat-widget-sub">All 100 Kauravas fell at Kurukshetra</div>
+      <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:3px">
+        ${Array.from({length:100},(_,i)=>`<div style="width:8px;height:8px;border-radius:1px;background:${i<12?'var(--gold)':'var(--crimson)'};opacity:${i<12?1:0.5};transition:all .3s;cursor:default" title="${i<12?'Known Kaurava':'One of 100'}"></div>`).join('')}
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:var(--text3)">🟡 Named in texts &nbsp; 🔴 All 100 fell</div>
+    </div>
+    <div class="stat-widget">
+      <div class="stat-widget-num">700</div>
+      <div class="stat-widget-label">Verses in Bhagavad Gītā</div>
+      <div class="stat-widget-sub">Across 18 chapters · Delivered on the battlefield</div>
+      <div class="mini-bar-chart" style="margin-top:16px">
+        <div class="mini-bar"><span class="mini-bar-label">Total Mahabharata</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%;background:linear-gradient(90deg,var(--gold),var(--copper))"></div></div><span class="mini-bar-val">100K</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Bhagavad Gita</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:0.7%;background:linear-gradient(90deg,#ce93d8,#7b1fa2)"></div></div><span class="mini-bar-val">700</span></div>
+        <div class="mini-bar"><span class="mini-bar-label">Shanti Parva</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:14.7%;background:linear-gradient(90deg,#4fc3f7,#1565c0)"></div></div><span class="mini-bar-val">14.7K</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day by Day War -->
+  <div class="section-header" style="margin-top:60px;margin-bottom:24px">
+    <div class="section-eyebrow">Kurukshetra — Day by Day</div>
+    <h3 class="section-title" style="font-size:clamp(22px,3.5vw,40px)">18 Days of Battle</h3>
+  </div>
+  <div class="war-days-strip" id="warDaysStrip" role="list" aria-label="Day by day Kurukshetra war events"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ WEAPONS ENCYCLOPEDIA ═══ -->
+<section id="weapons" class="section" aria-label="Divine Weapons">
+  <div class="section-header">
+    <div class="section-eyebrow">Astras &amp; Shastras</div>
+    <h2 class="section-title">Divine Weapons Encyclopedia</h2>
+    <p class="section-desc">From Gandiva to Brahmastra — the supernatural weapons of the Mahābhārata that could destroy armies, invoke gods, or end the world</p>
+  </div>
+  <div class="weapons-grid" id="weaponsGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ INTERACTIVE MAP ═══ -->
+<section id="map" class="section" aria-label="Ancient India Map">
+  <div class="section-header">
+    <div class="section-eyebrow">Then &amp; Now</div>
+    <h2 class="section-title">Ancient India — Mahabharata Map</h2>
+    <p class="section-desc">Key locations of the Mahābhārata plotted across the Indian subcontinent — from Gandhara to Dwarka, Hastinapur to Lanka</p>
+  </div>
+  <div class="map-section-inner">
+    <div class="india-map-wrapper">
+      <div class="map-tooltip" id="mapTooltip"></div>
+      <svg viewBox="0 0 500 560" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Map of ancient India with Mahabharata locations" role="img">
+        <!-- India outline simplified -->
+        <path d="M140,30 L200,20 L260,30 L310,25 L360,45 L390,75 L410,110 L420,150 L415,190 L430,220 L440,260 L435,300 L420,330 L400,360 L380,390 L360,415 L330,440 L300,460 L270,480 L250,500 L230,480 L200,460 L175,440 L150,410 L130,380 L110,350 L95,310 L85,270 L80,230 L85,190 L80,150 L90,110 L105,75 L120,50 Z" fill="rgba(200,150,30,0.06)" stroke="rgba(200,150,30,0.3)" stroke-width="1.5"/>
+        <!-- River lines -->
+        <path d="M160,80 Q200,100 250,120 Q290,135 320,160" stroke="rgba(79,195,247,0.4)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+        <path d="M170,100 Q200,130 220,160 Q240,190 250,230" stroke="rgba(79,195,247,0.3)" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+        <path d="M280,60 Q300,80 310,110 Q320,140 315,170" stroke="rgba(79,195,247,0.3)" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+        <text x="180" y="92" fill="rgba(79,195,247,0.6)" font-size="8" font-family="Georgia">Ganga</text>
+        <text x="255" y="200" fill="rgba(79,195,247,0.5)" font-size="7" font-family="Georgia">Yamuna</text>
+
+        <!-- LOCATION DOTS — each with data attributes -->
+        <!-- Hastinapur -->
+        <circle class="map-dot" cx="230" cy="110" r="8" fill="var(--gold)" opacity="0.9" data-name="Hastinapur" data-modern="Near Meerut, UP" data-desc="Kuru capital — seat of Dhritarashtra" data-type="kingdom"/>
+        <text x="242" y="114" fill="var(--gold-light)" font-size="9" font-family="Cinzel,serif">Hastinapur</text>
+
+        <!-- Indraprastha / Delhi -->
+        <circle class="map-dot" cx="210" cy="130" r="7" fill="var(--gold)" opacity="0.85" data-name="Indraprastha" data-modern="Delhi" data-desc="Pandava capital — built on Khandavaprastha" data-type="kingdom"/>
+        <text x="162" y="134" fill="var(--gold-light)" font-size="9" font-family="Cinzel,serif">Indraprastha</text>
+
+        <!-- Kurukshetra -->
+        <circle class="map-dot" cx="205" cy="95" r="10" fill="#e53935" opacity="0.9" data-name="Kurukshetra" data-modern="Kurukshetra, Haryana" data-desc="The great battlefield — 18 days of war" data-type="battle"/>
+        <text x="218" y="93" fill="#ef9a9a" font-size="9" font-family="Cinzel,serif" font-weight="bold">Kurukshetra ⚔️</text>
+
+        <!-- Dwarka -->
+        <circle class="map-dot" cx="100" cy="280" r="8" fill="#4fc3f7" opacity="0.9" data-name="Dwarka" data-modern="Dwarka, Gujarat" data-desc="Krishna's sunken city — now beneath the sea" data-type="sacred"/>
+        <text x="112" y="284" fill="#81d4fa" font-size="9" font-family="Cinzel,serif">Dwārka</text>
+
+        <!-- Panchala / Kampilya -->
+        <circle class="map-dot" cx="255" cy="125" r="7" fill="var(--gold)" opacity="0.8" data-name="Panchala" data-modern="Bareilly/Kampil, UP" data-desc="Drupada's kingdom — Draupadi's birthplace" data-type="kingdom"/>
+        <text x="265" y="129" fill="var(--gold-light)" font-size="8" font-family="Cinzel,serif">Pāñcāla</text>
+
+        <!-- Gandhara -->
+        <circle class="map-dot" cx="130" cy="45" r="7" fill="#ce93d8" opacity="0.85" data-name="Gandhāra" data-modern="Kandahar, Afghanistan" data-desc="Gandhari & Shakuni's kingdom" data-type="kingdom"/>
+        <text x="142" y="49" fill="#e1bee7" font-size="8" font-family="Cinzel,serif">Gandhāra</text>
+
+        <!-- Magadha / Patna -->
+        <circle class="map-dot" cx="320" cy="165" r="7" fill="#81c784" opacity="0.85" data-name="Magadha" data-modern="Patna, Bihar" data-desc="Jarasandha's powerful kingdom" data-type="kingdom"/>
+        <text x="330" y="169" fill="#a5d6a7" font-size="8" font-family="Cinzel,serif">Magadha</text>
+
+        <!-- Anga / Bhagalpur -->
+        <circle class="map-dot" cx="345" cy="150" r="6" fill="#ffcc02" opacity="0.85" data-name="Anga" data-modern="Bhagalpur, Bihar" data-desc="Karna's kingdom — gifted by Duryodhana" data-type="kingdom"/>
+        <text x="355" y="154" fill="#fff176" font-size="8" font-family="Cinzel,serif">Anga</text>
+
+        <!-- Matsya / Virat Nagar -->
+        <circle class="map-dot" cx="185" cy="160" r="6" fill="#4fc3f7" opacity="0.8" data-name="Matsya" data-modern="Virat Nagar, Rajasthan" data-desc="Pandavas' incognito 13th year" data-type="kingdom"/>
+        <text x="143" y="164" fill="#81d4fa" font-size="8" font-family="Cinzel,serif">Matsya</text>
+
+        <!-- Vidarbha -->
+        <circle class="map-dot" cx="250" cy="290" r="6" fill="#f48fb1" opacity="0.85" data-name="Vidarbha" data-modern="Nagpur, Maharashtra" data-desc="Rukmini's kingdom — Nala-Damayanti's home" data-type="kingdom"/>
+        <text x="260" y="294" fill="#f8bbd0" font-size="8" font-family="Cinzel,serif">Vidarbha</text>
+
+        <!-- Varanasi / Kashi -->
+        <circle class="map-dot" cx="295" cy="148" r="6" fill="#fff176" opacity="0.85" data-name="Kāśī" data-modern="Varanasi, UP" data-desc="Holy city — where Bhishma abducted three princesses" data-type="sacred"/>
+        <text x="303" y="144" fill="#fff9c4" font-size="8" font-family="Cinzel,serif">Kāśī</text>
+
+        <!-- Mathura -->
+        <circle class="map-dot" cx="220" cy="145" r="6" fill="#4fc3f7" opacity="0.85" data-name="Mathurā" data-modern="Mathura, UP" data-desc="Krishna's birthplace — Janmabhoomi" data-type="sacred"/>
+        <text x="228" y="156" fill="#81d4fa" font-size="8" font-family="Cinzel,serif">Mathurā</text>
+
+        <!-- Badrinath / Vyasa Cave -->
+        <circle class="map-dot" cx="240" cy="65" r="6" fill="#ce93d8" opacity="0.85" data-name="Badrinath" data-modern="Badrinath, Uttarakhand" data-desc="Where Vyasa composed the Mahabharata" data-type="sacred"/>
+        <text x="248" y="62" fill="#e1bee7" font-size="8" font-family="Cinzel,serif">Badrinath</text>
+
+        <!-- Indus / Sindhu -->
+        <circle class="map-dot" cx="110" cy="90" r="5" fill="rgba(200,150,30,0.6)" data-name="Sindhudesh" data-modern="Sindh, Pakistan" data-desc="Kingdom on the Indus — allied with Kauravas" data-type="kingdom"/>
+        <text x="118" y="93" fill="var(--text3)" font-size="7" font-family="Cinzel,serif">Sindhu</text>
+
+        <!-- Prayagraj Sangam -->
+        <circle class="map-dot" cx="273" cy="155" r="5" fill="#fff176" opacity="0.7" data-name="Prayāga" data-modern="Prayagraj (Allahabad), UP" data-desc="Triveni Sangam — Ganga, Yamuna, Saraswati" data-type="sacred"/>
+        <text x="278" y="165" fill="#fff9c4" font-size="7" font-family="Cinzel,serif">Prayāga</text>
+
+        <!-- Scale legend -->
+        <rect x="25" y="510" width="80" height="1" fill="rgba(200,150,30,0.5)"/>
+        <text x="25" y="525" fill="var(--text3)" font-size="8" font-family="Georgia,serif">~500 km approx.</text>
+
+        <!-- Compass rose -->
+        <g transform="translate(460,60)">
+          <text x="-4" y="-12" fill="var(--gold)" font-size="10" text-anchor="middle">N</text>
+          <text x="-4" y="20" fill="var(--text3)" font-size="9" text-anchor="middle">S</text>
+          <text x="14" y="5" fill="var(--text3)" font-size="9">E</text>
+          <text x="-20" y="5" fill="var(--text3)" font-size="9" text-anchor="end">W</text>
+          <line x1="-4" y1="-8" x2="-4" y2="15" stroke="var(--gold)" stroke-width="1"/>
+          <line x1="-14" y1="3" x2="10" y2="3" stroke="var(--text3)" stroke-width="0.8"/>
+        </g>
+      </svg>
+    </div>
+    <div class="map-legend">
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:var(--gold)"></div>Kingdom Capital</div>
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:#e53935"></div>Battlefield</div>
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:#4fc3f7"></div>Sacred Site / City</div>
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:#ce93d8"></div>Divine Location</div>
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:#81c784"></div>Allied Kingdom</div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--text3);margin-top:16px;font-style:italic">Tap any location marker for details · Approximate positions based on scholarly consensus</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ NOTABLE STORIES ═══ -->
+<section id="stories" class="section" aria-label="Notable Stories">
+  <div class="section-header">
+    <div class="section-eyebrow">Stories Within the Story</div>
+    <h2 class="section-title">Sub-tales &amp; Upakhyanas</h2>
+    <p class="section-desc">The Mahābhārata contains hundreds of sub-stories — each a complete universe of dharma, love, sacrifice, and wisdom</p>
+  </div>
+  <div class="stories-grid" id="storiesGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ DIVINE CONCEPTS ═══ -->
+<section id="concepts" class="section" aria-label="Philosophical Concepts">
+  <div class="section-header">
+    <div class="section-eyebrow">The Philosophy</div>
+    <h2 class="section-title">Key Concepts &amp; Dharmic Terms</h2>
+    <p class="section-desc">The philosophical vocabulary of the Mahābhārata — from Dharma to Moksha, Karma to Yoga</p>
+  </div>
+  <div class="concepts-grid" id="conceptsGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SACRED VERSES / CHANTS ═══ -->
+<section id="verses" class="section" aria-label="Sacred Verses">
+  <div class="section-header">
+    <div class="section-eyebrow">Shlokas &amp; Mantras</div>
+    <h2 class="section-title">Sacred Verses</h2>
+    <p class="section-desc">The most celebrated shlokas from the Mahābhārata and Bhagavad Gītā — read, reflect, and recite</p>
+  </div>
+  <div class="chants-grid" id="chantsGrid" role="list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ KNOWLEDGE QUIZ ═══ -->
+<section id="quiz" class="section" aria-label="Knowledge Quiz">
+  <div class="section-header">
+    <div class="section-eyebrow">Test Your Knowledge</div>
+    <h2 class="section-title">Mahābhārata Quiz</h2>
+    <p class="section-desc">How well do you know the greatest epic? Answer these questions across characters, events, weapons, and wisdom</p>
+  </div>
+  <div class="quiz-container" id="quizContainer">
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgress" style="width:0%"></div></div>
+    <div id="quizCard"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ॐ Mahābhārata</div>
+        <p class="footer-brand-desc">A comprehensive digital companion to the world's greatest epic — exploring characters, kingdoms, timelines, and sacred sites across ancient and modern India.</p>
+        <br/>
+        <div class="lang-group" role="group" aria-label="Language selector">
+          <button class="lang-btn active" onclick="setLang('en')">English</button>
+          <button class="lang-btn" onclick="setLang('hi')">हिन्दी</button>
+          <button class="lang-btn" onclick="setLang('sa')">संस्कृत</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="#characters">Characters</a>
+        <a href="#family-tree">Family Tree</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#kingdoms">Kingdoms</a>
+        <a href="#sacred-sites">Sacred Sites</a>
+        <a href="#war-stats">War Statistics</a>
+        <a href="#weapons">Weapons</a>
+        <a href="#map">Ancient Map</a>
+      </div>
+      <div class="footer-col">
+        <h5>Texts &amp; Wisdom</h5>
+        <a href="#parvas">18 Parvas</a>
+        <a href="#gita">Bhagavad Gītā</a>
+        <a href="#stories">Sub-tales</a>
+        <a href="#concepts">Philosophy</a>
+        <a href="#verses">Sacred Verses</a>
+        <a href="#quiz">Knowledge Quiz</a>
+      </div>
+      <div class="footer-col">
+        <h5>References</h5>
+        <a href="https://www.sacred-texts.com/hin/maha/" target="_blank" rel="noopener">Sacred Texts Archive</a>
+        <a href="https://www.wisdomlib.org/hinduism/book/mahabharata" target="_blank" rel="noopener">Wisdom Library</a>
+        <a href="https://www.bori.ac.in/" target="_blank" rel="noopener">BORI Critical Edition</a>
+        <a href="https://www.chitrapur.org/" target="_blank" rel="noopener">Sanskrit Resources</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><span class="online-dot" aria-hidden="true"></span>Built with reverence · Data from BORI Critical Edition &amp; scholarly translations</span>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <span>© 2026 Mahābhārata Digital Archive</span>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ BACK TO TOP ═══ -->
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div id="modalEyebrow" style="font-size:11px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;font-family:var(--font-serif);margin-bottom:6px"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   DATA — CHARACTERS
+═══════════════════════════════════════════════ */
+const CHARACTERS = [
+  {
+    id:'krishna',name:'Krishna',title:'The Supreme Being · Yogeshvara',
+    side:'divine',symbol:'🦚',
+    tags:['Avatar of Vishnu','Charioteer','Philosopher','King of Dwarka'],
+    desc:'The eighth avatar of Vishnu, cousin of the Pandavas, who served as Arjuna\'s charioteer and delivered the Bhagavad Gita on the battlefield of Kurukshetra.',
+    details:`<div class="modal-section"><h4>Birth &amp; Early Life</h4><p>Born in Mathura to Vasudeva and Devaki, Krishna was raised by foster parents Nanda and Yashoda in Vrindavan. His childhood exploits — slaying demons, lifting Govardhan hill, and the divine Raas Leela — are celebrated across India.</p></div>
+    <div class="modal-section"><h4>Role in Mahabharata</h4><p>Krishna served as the chief diplomat for the Pandavas, attempted to negotiate peace with Duryodhana (offering only five villages), and ultimately became Arjuna's charioteer (sarathi) in the Kurukshetra War. He did not personally fight but guided the war through wisdom and strategy.</p></div>
+    <div class="modal-section"><h4>Bhagavad Gita</h4><p>When Arjuna faltered on the battlefield, Krishna delivered the timeless 700-verse Bhagavad Gita — covering Karma Yoga, Jnana Yoga, Bhakti Yoga, and the nature of the immortal soul.</p></div>`,
+    kingdom:'Dwarka (Dwaraka)',modernLocation:'Dwarka, Gujarat',
+    parents:'Vasudeva & Devaki',spouse:'Rukmini, Satyabhama (chief wives)',
+  },
+  {
+    id:'arjuna',name:'Arjuna',title:'The Greatest Archer · Savyasachi',
+    side:'pandava',symbol:'🏹',
+    tags:['Master Archer','Third Pandava','Gandiva','Disciple of Krishna'],
+    desc:'Third of the five Pandavas, considered the greatest archer of his age. Son of Indra, god of thunder, trained by Drona, and blessed with the divine bow Gandiva.',
+    details:`<div class="modal-section"><h4>Birth &amp; Training</h4><p>Born of Kunti and Lord Indra (god of rain and thunder), Arjuna was trained by Guru Drona at Hastinapur. He was declared the foremost archer after shooting the eye of a rotating fish reflected in water below — an act which won him Draupadi's hand.</p></div>
+    <div class="modal-section"><h4>Weapons &amp; Achievements</h4><p>Arjuna possessed the divine bow Gandiva (gifted by Agni), the quiver Akshaya (inexhaustible arrows), and celestial weapons (astras) from Indra, Yama, Kubera, and Shiva. He retrieved the Pashupatastra from Lord Shiva after intense penance.</p></div>
+    <div class="modal-section"><h4>At Kurukshetra</h4><p>Arjuna killed Bhishma (with Shikhandi's help), Jayadratha (before sunset), and ultimately slew Karna in single combat. His moral crisis before the war prompted Krishna's delivery of the Bhagavad Gita.</p></div>`,
+    kingdom:'Indraprastha',modernLocation:'Delhi, India',
+    parents:'Kunti & Indra (divine)',spouse:'Draupadi, Subhadra (Krishna\'s sister)',
+  },
+  {
+    id:'yudhishthira',name:'Yudhiṣṭhira',title:'The Dharma King · Ajatashatru',
+    side:'pandava',symbol:'⚖️',
+    tags:['Eldest Pandava','Dharmaraja','Son of Yama','Emperor'],
+    desc:'Eldest of the five Pandavas, son of Dharma (Yama). Renowned for his unflinching commitment to truth and righteousness — yet his fatal weakness was gambling.',
+    details:`<div class="modal-section"><h4>Character</h4><p>Yudhishthira, known as Dharmaraja, never uttered a deliberate lie in his life — until he whispered "Ashwatthama is dead" (referring to an elephant) during the war, causing Drona to lay down arms. This half-truth haunted him forever.</p></div>
+    <div class="modal-section"><h4>The Dice Game</h4><p>In the most fateful moment of the epic, Yudhishthira accepted Shakuni's invitation to dice and successively lost his kingdom, brothers, himself, and finally Draupadi — leading directly to Draupadi's attempted disrobing and the inevitable war.</p></div>
+    <div class="modal-section"><h4>After the War</h4><p>Crowned emperor of Hastinapur, he performed the Ashwamedha (horse sacrifice) to cleanse war-guilt. He was the only Pandava to reach Swarga (heaven) in his mortal body after the final journey.</p></div>`,
+    kingdom:'Indraprastha / Hastinapur',modernLocation:'Delhi / Haryana',
+    parents:'Kunti & Dharma (Yama)',spouse:'Draupadi (shared)',
+  },
+  {
+    id:'bhima',name:'Bhīma',title:'The Mighty · Vrikodara',
+    side:'pandava',symbol:'🏋️',
+    tags:['Second Pandava','Son of Vayu','Mace Warrior','Ghatotkacha\'s Father'],
+    desc:'Second Pandava, son of the wind god Vayu. Possessing the strength of ten thousand elephants, he was the primary enforcer of Pandava justice, slaying 99 Kauravas.',
+    details:`<div class="modal-section"><h4>Strength &amp; Weapons</h4><p>Bhima possessed the strength of ten thousand elephants inherited from Vayu. His primary weapon was the mace (gada). He received training from Balarama (Krishna's brother) and was declared superior to Duryodhana in mace combat.</p></div>
+    <div class="modal-section"><h4>Vows &amp; Fulfillment</h4><p>After Draupadi's humiliation, Bhima made three terrible vows: to kill Dushasana (who dragged Draupadi) and drink his blood, to break Duryodhana's thighs, and to kill all 100 Kauravas. All three vows were fulfilled at Kurukshetra.</p></div>`,
+    kingdom:'Indraprastha',modernLocation:'Delhi, India',
+    parents:'Kunti & Vayu (Wind god)',spouse:'Draupadi, Hidimbi',
+  },
+  {
+    id:'nakula',name:'Nakula',title:'The Handsome Twin · Ashwini Kumar',
+    side:'pandava',symbol:'⚔️',
+    tags:['Fourth Pandava','Twin of Sahadeva','Expert Swordsman','Horseman'],
+    desc:'Fourth Pandava and twin of Sahadeva, sons of Madri and the divine Ashwini Kumars. Nakula was considered the most handsome man in the world and an expert with horses and swords.',
+    details:`<div class="modal-section"><h4>Skills</h4><p>Nakula was the supreme equestrian of the Pandava army and an expert swordsman. He was so handsome that Yudhishthira (Dharmaraja) once said Nakula\'s beauty was a danger to him — beautiful people attract enemies.</p></div>`,
+    kingdom:'Western Madra',modernLocation:'Punjab region',
+    parents:'Madri & Ashwini Kumars',spouse:'Draupadi, Karenumati',
+  },
+  {
+    id:'sahadeva',name:'Sahadeva',title:'The Astrologer · Wise Twin',
+    side:'pandava',symbol:'🌟',
+    tags:['Fifth Pandava','Twin of Nakula','Astrologer','Swordsman'],
+    desc:'Fifth and youngest Pandava, twin brother of Nakula. Sahadeva was blessed with extraordinary knowledge of past, present, and future — yet was cursed never to reveal it unless asked.',
+    details:`<div class="modal-section"><h4>Hidden Knowledge</h4><p>Sahadeva possessed complete knowledge of future events but was cursed — if he ever revealed unsolicited knowledge, his head would split. He knew the war was coming, who would die, but could not speak unless asked. When asked by Duryodhana about an auspicious time to start the war, Sahadeva gave the exact moment — knowing it would doom the Kauravas.</p></div>`,
+    kingdom:'Southern territories',modernLocation:'Karnataka region',
+    parents:'Madri & Ashwini Kumars',spouse:'Draupadi, Vijaya',
+  },
+  {
+    id:'draupadi',name:'Draupadī',title:'The Dark Princess · Panchali',
+    side:'pandava',symbol:'🌺',
+    tags:['Wife of Five Pandavas','Daughter of Drupada','Yajnaseni','Avatar of Shri'],
+    desc:'Princess of Panchala, born from the sacred fire. Wife to all five Pandavas — her humiliation in the Kuru court became the proximate cause of the Kurukshetra War.',
+    details:`<div class="modal-section"><h4>Divine Birth</h4><p>Draupadi was born from the sacrificial fire (yagna) of King Drupada of Panchala, along with her brother Dhrishtadyumna. She was born fully grown and is described as having dusky skin (hence "Krishna/Draupadi"), fragrant body, and lotus-like eyes.</p></div>
+    <div class="modal-section"><h4>The Vastra Harana</h4><p>After Yudhishthira lost everything in dice, Duryodhana commanded Dushasana to drag Draupadi by her hair into the court. When Dushasana attempted to strip her, she prayed to Krishna, who provided an endless stream of sari cloth, protecting her honor. This event sealed the war's inevitability.</p></div>`,
+    kingdom:'Panchala / Indraprastha',modernLocation:'Kampilya, UP (ancient Panchala)',
+    parents:'King Drupada of Panchala',spouse:'All five Pandavas',
+  },
+  {
+    id:'duryodhana',name:'Duryodhana',title:'The Pride of Kurus · Suyodhana',
+    side:'kaurava',symbol:'💎',
+    tags:['Eldest Kaurava','Crown Prince','Mace Warrior','Tragic Villain'],
+    desc:'Eldest of the 100 Kaurava princes, son of blind king Dhritarashtra. His envy of the Pandavas, refusal to share Hastinapur, and pride set the Mahabharata War in motion.',
+    details:`<div class="modal-section"><h4>Character &amp; Virtues</h4><p>While often portrayed as the villain, Duryodhana had genuine virtues — unwavering loyalty to Karna (when all others scorned him for low birth), generosity, personal courage, and mastery of the mace. He never wavered from his decisions, even at the cost of his life.</p></div>
+    <div class="modal-section"><h4>Final Battle</h4><p>After all his brothers were killed, Duryodhana hid in the Dvaipayana lake, inflating his body to breathe underwater. The Pandavas found him and challenged him to single combat. He chose to fight Bhima with maces. Though his mace work was superior, Bhima broke his thighs (fulfilling his vow), striking below the waist — a dishonorable blow, but Duryodhana had himself placed a curse on Bhima to ensure this vulnerability.</p></div>`,
+    kingdom:'Hastinapur',modernLocation:'Near Meerut, Uttar Pradesh',
+    parents:'Dhritarashtra & Gandhari',spouse:'Bhanumati',
+  },
+  {
+    id:'karna',name:'Karṇa',title:'The Tragic Hero · Radheya · Surya Putra',
+    side:'kaurava',symbol:'☀️',
+    tags:['Son of Surya','Greatest Donor','King of Anga','Priyavrata Karna'],
+    desc:'Born of Kunti and the Sun god Surya before her marriage, abandoned and raised by a charioteer. The greatest warrior of his age — cursed, deceived, yet noble to the last.',
+    details:`<div class="modal-section"><h4>Divine Birth &amp; Abandonment</h4><p>Kunti, as a young girl, received a boon from sage Durvasa to summon any god. She tested it by calling Surya, the Sun god, who gifted her a son — Karna. Afraid of social stigma, she placed the infant in a basket on the river Ganga. He was found by Adhiratha, a royal charioteer, and his wife Radha — hence "Radheya."</p></div>
+    <div class="modal-section"><h4>The Three Great Curses</h4><p>1. Drona refused to teach Karna advanced archery due to caste. 2. Parashurama (who only taught brahmins) cursed him that his celestial weapons would fail him when he needed them most, after discovering Karna was a kshatriya. 3. A brahmin cursed him that his chariot wheel would sink in earth when he was in greatest peril — fulfilling this at his death when Arjuna killed him.</p></div>
+    <div class="modal-section"><h4>Kavacha-Kundala</h4><p>Born with divine armor (kavacha) and earrings (kundala) fused to his body — these made him invulnerable. Indra (Arjuna\'s divine father) came disguised as a brahmin and asked Karna to donate them. True to his vow never to refuse a brahmin, Karna cut them from his own body and gave them away, knowing he was sacrificing his protection.</p></div>`,
+    kingdom:'Anga (gifted by Duryodhana)',modernLocation:'Bhagalpur, Bihar',
+    parents:'Kunti & Surya (Sun god)',spouse:'Vrushali, Supriya',
+  },
+  {
+    id:'bhishma',name:'Bhīṣma',title:'The Grandsire · Pitamaha · Shantanava',
+    side:'neutral',symbol:'🗡️',
+    tags:['Son of Ganga','Terrible Vow','Immortal Until Chosen','Pitamaha'],
+    desc:'Born Devavrata, son of King Shantanu and the goddess Ganga. Took the terrible vow (bhishma pratigya) of lifelong celibacy and to never claim the Hastinapur throne to secure his father\'s marriage.',
+    details:`<div class="modal-section"><h4>The Terrible Vow</h4><p>When his father Shantanu fell in love with Satyavati (a fisherwoman), her father refused unless her sons would inherit the throne. Devavrata, crown prince, agreed — and to eliminate all doubt, also took the vow of lifelong celibacy. This vow was so terrible it earned him the name Bhishma ("the one who has taken a terrible vow").</p></div>
+    <div class="modal-section"><h4>On the Battlefield</h4><p>Though he loved the Pandavas, Bhishma was bound by oath to fight for Hastinapur's king — Duryodhana. He commanded the Kaurava army for 10 days, using a strategy of "I will not kill Pandavas" but wearing them down. He fell on the 10th day when Arjuna placed Shikhandi (born female, Bhishma would not shoot at a woman) before him — Bhishma laid down his arms.</p></div>
+    <div class="modal-section"><h4>Shara Shaiyya — Bed of Arrows</h4><p>Bhishma had the boon of ichha mrityu — death at will. He lay on a bed of arrows for 58 days, awaiting the auspicious Uttarayan. During this time he delivered the Shanti Parva and Anushasana Parva — 12,000+ verses of statecraft, ethics, and dharma to Yudhishthira.</p></div>`,
+    kingdom:'Hastinapur',modernLocation:'Near Meerut/Haridwar, Uttar Pradesh',
+    parents:'King Shantanu & Goddess Ganga',spouse:'Lifelong celibate',
+  },
+  {
+    id:'drona',name:'Droṇācārya',title:'The Supreme Preceptor · Guru of Warriors',
+    side:'kaurava',symbol:'🏆',
+    tags:['Master of All Weapons','Guru','Brahmin Warrior','Father of Ashwatthama'],
+    desc:'Son of sage Bharadvaja, Drona was the supreme martial arts guru of both Pandavas and Kauravas. His favoritism for Arjuna over Ekalavya remains one of the epic\'s most contested ethical moments.',
+    details:`<div class="modal-section"><h4>Teaching Arjuna</h4><p>Drona recognized Arjuna's exceptional talent and mentored him beyond all others. As guru dakshina (teacher's fee), he demanded the right thumb of the tribal prince Ekalavya — who had self-taught himself to be an archer equal to Arjuna using a clay statue of Drona. Ekalavya gave it without hesitation.</p></div>
+    <div class="modal-section"><h4>Death</h4><p>On the 15th day of war, Drona was fighting unstoppably. To break his spirit, Yudhishthira proclaimed "Ashwatthama is dead" (referring to an elephant, not Drona's son). Heartbroken, Drona sat in meditation. Dhrishtadyumna — born specifically to kill Drona — decapitated him while he meditated.</p></div>`,
+    kingdom:'Hastinapur (court)',modernLocation:'Gurugram (Guru's town) — Haryana',
+    parents:'Sage Bharadvaja',spouse:'Kripi (sister of Kripacharya)',
+  },
+  {
+    id:'kunti',name:'Kuntī',title:'The Devoted Mother · Pritha',
+    side:'pandava',symbol:'🌸',
+    tags:['Mother of Pandavas','Daughter of Shurasena','Boon of Durvasa'],
+    desc:'Born Pritha to king Shurasena, adopted by her childless uncle Kuntibhoja. Received a divine boon from sage Durvasa to summon any god and bear a son. Mother of the three elder Pandavas.',
+    details:`<div class="modal-section"><h4>Divine Sons</h4><p>Kunti used her boon to call Dharma (Yudhishthira), Vayu (Bhima), and Indra (Arjuna). She also shared the boon with Madri who summoned the Ashwini Kumars for Nakula and Sahadeva. Her greatest secret — that Karna was her firstborn, son of Surya — she revealed to Karna only days before the war.</p></div>
+    <div class="modal-section"><h4>Revelation to Karna</h4><p>Kunti met Karna at his sunrise worship and revealed she was his mother, begging him to join the Pandavas. Karna refused to betray Duryodhana but promised he would not kill any Pandava except Arjuna — she would always have five sons.</p></div>`,
+    kingdom:'Kunti kingdom / Indraprastha',modernLocation:'Kuntala, Karnataka',
+    parents:'Shurasena (birth) / Kuntibhoja (adopted)',spouse:'King Pandu',
+  },
+  {
+    id:'vidura',name:'Vidura',title:'The Wisest Counselor · Dharmaputra',
+    side:'neutral',symbol:'📜',
+    tags:['Prime Minister','Reincarnation of Dharma','Vidura Niti','Advisor'],
+    desc:'Half-brother of Dhritarashtra and Pandu, born of a maid servant. Considered the wisest man of his age and an incarnation of Dharma. His Vidura Niti remains a masterwork of statecraft.',
+    details:`<div class="modal-section"><h4>Vidura Niti</h4><p>Vidura's advice to Dhritarashtra (Vidura Niti) in the Udyoga Parva is a masterpiece of political philosophy — covering kingship, wisdom, friendship, and ethics. He foresaw that the war was inevitable and consistently advised Dhritarashtra to restrain Duryodhana, but was ignored.</p></div>
+    <div class="modal-section"><h4>Warning the Pandavas</h4><p>When Duryodhana plotted to burn the Pandavas alive in the House of Lac (Lakshagraha), Vidura secretly sent a miner to dig a tunnel. The Pandavas escaped. Vidura's loyalty was always to dharma, not to kinship.</p></div>`,
+    kingdom:'Hastinapur',modernLocation:'Near Meerut, Uttar Pradesh',
+    parents:'Sage Vyasa & Ambika\'s maid',spouse:'Sulabha',
+  },
+  {
+    id:'vyasa',name:'Vyāsa',title:'The Compiler · Krishna Dvaipayana',
+    side:'neutral',symbol:'📖',
+    tags:['Author of Mahabharata','Compiler of Vedas','Sage','Grandfather'],
+    desc:'Born Krishnadvaipayana, son of sage Parasara and Satyavati. Compiler of the four Vedas, author of the 18 Puranas, and the Mahabharata itself. Grandfather of both Pandavas and Kauravas.',
+    details:`<div class="modal-section"><h4>The Author God</h4><p>Vyasa dictated the entire Mahabharata to Lord Ganesha, who wrote it without pause. The condition was that Vyasa must dictate without interruption, and Ganesha must understand each verse before writing. This is why the text contains profound verses requiring deep contemplation (Ganesha would pause to understand, giving Vyasa time to compose the next).</p></div>`,
+    kingdom:'Various ashrams',modernLocation:'Badrinath area, Uttarakhand',
+    parents:'Sage Parashara & Satyavati',spouse:'None (forest ascetic)',
+  },
+  {
+    id:'shakuni',name:'Śakunī',title:'The Master Gambler · Prince of Gandhara',
+    side:'kaurava',symbol:'🎲',
+    tags:['Master of Dice','Maternal Uncle','Gandhara King','Strategist'],
+    desc:'Prince (later king) of Gandhara and maternal uncle of the Kauravas. His magical dice and cunning strategy engineered the fateful gambling match that set the Mahabharata War in motion.',
+    details:`<div class="modal-section"><h4>The Cursed Dice</h4><p>Shakuni\'s dice were made from his father\'s bones (some say spine) — his father who was imprisoned and starved by Dhritarashtra\'s father. The dice always obeyed Shakuni\'s will. His sole purpose in the Kaurava court was revenge for his family\'s humiliation.</p></div>
+    <div class="modal-section"><h4>The Dice Game</h4><p>Shakuni orchestrated the entire dice game to destroy the Pandavas. Yudhishthira, though knowing Shakuni cheated, could not refuse without violating kshatriya honor. Shakuni won everything — the entire Kuru empire. His death came at Sahadeva's hands on the 18th day of battle.</p></div>`,
+    kingdom:'Gandhara',modernLocation:'Kandahar, Afghanistan',
+    parents:'King Subala of Gandhara',spouse:'Not prominent in texts',
+  },
+  {
+    id:'abhimanyu',name:'Abhimanyu',title:'The Boy Hero · Saubhadra',
+    side:'pandava',symbol:'🌙',
+    tags:['Son of Arjuna','Partial Reincarnation of Moon','Chakravyuha','16 Years Old'],
+    desc:'Son of Arjuna and Subhadra, nephew of Krishna. At only 16, he entered the impenetrable Chakravyuha formation — knowing how to enter but not exit — and fought heroically before being slain.',
+    details:`<div class="modal-section"><h4>The Chakravyuha</h4><p>On the 13th day of war, Drona arranged the army in the spiral Chakravyuha formation — which only Krishna and Arjuna knew how to break. Abhimanyu had learned entry while in the womb (Subhadra fell asleep before Krishna could explain the exit). Brave as a lion, he entered and destroyed thousands of warriors. The Kaurava commanders then violated war codes — six great warriors surrounded and attacked him simultaneously, breaking his armor, bow, and chariot. Unarmed, he fought with a chariot wheel. He was slain.</p></div>`,
+    kingdom:'Indraprastha / Matsya (by marriage)',modernLocation:'Delhi region',
+    parents:'Arjuna & Subhadra',spouse:'Uttara (daughter of Virata)',
+  },
+  {
+    id:'ashwatthama',name:'Aśvatthāma',title:'The Immortal · Son of Drona',
+    side:'kaurava',symbol:'💎',
+    tags:['Immortal Cursed','Son of Drona','Brahmastra','Last Kaurava Commander'],
+    desc:'Son of Drona and Kripi, born with a gem (mani) in his forehead that made him immortal. After his father\'s death, he launched the most devastating attack of the war — the night massacre.',
+    details:`<div class="modal-section"><h4>The Night Massacre</h4><p>On the night after the war ended, burning with grief and vengeance for his father's dishonorable death, Ashwatthama entered the Pandava camp. He killed the five sons of Draupadi (Upapandavas) mistaking them for the Pandavas, and Dhrishtadyumna. He released the Narayanastra — but the Pandavas survived.</p></div>
+    <div class="modal-section"><h4>Immortal Wanderer</h4><p>When he released the Brahmastra at the Pandavas, Arjuna countered it. Vyasa intervened and made both withdraw — but Ashwatthama directed his astra at Uttara's womb (pregnant with Parikshit). Krishna revived the dead child. For this act against a woman and unborn child, Krishna cursed Ashwatthama to wander the earth for 3,000 years with a festering wound. He is said to still wander the earth, an immortal in agony.</p></div>`,
+    kingdom:'Hastinapur',modernLocation:'Asirgarh, Madhya Pradesh (claimed)',
+    parents:'Drona & Kripi',spouse:'Not prominent',
+  },
+  {
+    id:'gandhari',name:'Gāndhārī',title:'The Blindfolded Queen · Mother of 100',
+    side:'kaurava',symbol:'👁️',
+    tags:['Queen of Hastinapur','Blindfolded by choice','Mother of 100 Kauravas','Great Penance'],
+    desc:'Princess of Gandhara, wife of the blind king Dhritarashtra. Out of devotion to her husband, she permanently blindfolded herself — accumulating immense tapas (spiritual power) through this sacrifice.',
+    details:`<div class="modal-section"><h4>The Self-Imposed Blindfold</h4><p>When Gandhari learned she was to marry the blind Dhritarashtra, she chose to blindfold herself permanently — reasoning that she would not enjoy sight that her husband could not. This sacrifice accumulated enormous spiritual power (tapas) over 40 years, which made her a woman of near-divine authority.</p></div>
+    <div class="modal-section"><h4>100 Sons from One Pregnancy</h4><p>Gandhari was pregnant for two years (some texts say). In frustration, she struck her womb. Vyasa intervened — she delivered a ball of flesh which he divided into 101 pots (100 sons + 1 daughter Duhshala). The sons emerged over time, Duryodhana first.</p></div>
+    <div class="modal-section"><h4>Her Terrible Gaze</h4><p>After the war, Gandhari's gaze — charged with 40 years of tapas — could transform anyone it fell upon. Before Duryodhana's mace fight with Bhima, Gandhari removed her blindfold to see her son. Krishna (suspecting this) told Duryodhana to cover his body — but Duryodhana wore only a banana leaf below the waist. Her gaze made everything it touched iron — his torso became invulnerable. His thighs remained mortal.</p></div>`,
+    kingdom:'Hastinapur (by marriage)',modernLocation:'Gandhara — Kandahar, Afghanistan (origin)',
+    parents:'King Subala of Gandhara',spouse:'Dhritarashtra',
+  },
+  {
+    id:'dhritarashtra',name:'Dhritarāṣṭra',title:'The Blind King · Father of Kauravas',
+    side:'kaurava',symbol:'👑',
+    tags:['Blind from Birth','Father of 100 Kauravas','Regent of Hastinapur','Tragic King'],
+    desc:'Born blind, son of Vyasa and Ambika. Despite being the elder, he could not be king due to his blindness. His blind love (andhā sneha) for his son Duryodhana is the root cause of the entire catastrophe.',
+    details:`<div class="modal-section"><h4>The Tragic Father</h4><p>Dhritarashtra knew Duryodhana was wrong — Vidura told him repeatedly, Bhishma warned him, even his own instincts knew. But his love for his firstborn blinded him more completely than his physical blindness. He could hear his sons die each day through Sanjaya's narration. By the end, 100 sons — gone.</p></div>
+    <div class="modal-section"><h4>The Iron Embrace</h4><p>After the war, Dhritarashtra embraced Bhima with a grip of fury — but Krishna had substituted an iron statue. The king crushed it to powder. He then accepted Bhima's embrace and wept. His forgiveness — and recognition that his own actions caused everything — came too late.</p></div>`,
+    kingdom:'Hastinapur',modernLocation:'Near Meerut, Uttar Pradesh',
+    parents:'Sage Vyasa & Ambika',spouse:'Gandhari',
+  },
+  {
+    id:'jayadratha',name:'Jayadratha',title:'King of Sindhu · Abhimanyu\'s Avenger',
+    side:'kaurava',symbol:'🌙',
+    tags:['King of Sindhu','Shiva\'s boon','Blocked Pandavas','Arjuna\'s vow'],
+    desc:'King of Sindhu, who had received a boon from Shiva: the power to hold back the Pandavas (except Arjuna) for one day. He used this on Day 13 to trap Abhimanyu alone in the Chakravyuha.',
+    details:`<div class="modal-section"><h4>The Boon and Its Consequence</h4><p>Jayadratha had once tried to abduct Draupadi and was humiliated by the Pandavas. He performed intense penance to Shiva and received the boon to hold back the four Pandava brothers for one day. On Day 13, he stood at the Chakravyuha entrance — preventing everyone except Arjuna (who was diverted) from entering to help Abhimanyu.</p></div>
+    <div class="modal-section"><h4>Arjuna's Terrible Vow</h4><p>When Arjuna heard Abhimanyu was dead and Jayadratha had blocked his brothers, he vowed: "I will kill Jayadratha before sunset — or I will immolate myself." Krishna engineered a solar eclipse with his Sudarshana Chakra as evening approached, tricking the Kauravas to celebrate. When Jayadratha emerged — the sun reappeared — and Arjuna's arrow severed his head.</p></div>`,
+    kingdom:'Sindhu (Sindh region)',modernLocation:'Sindh, Pakistan',
+    parents:'King Vridhakshatra',spouse:'Duhshala (the only Kaurava daughter)',
+  },
+  {
+    id:'ghatotkacha',name:'Ghaṭotkaca',title:'The Rakshasa Warrior · Son of Bhima',
+    side:'pandava',symbol:'👹',
+    tags:['Son of Bhima','Half-Rakshasa','Night Fighter','Karna\'s Shakti'],
+    desc:'Son of Bhima and Hidimbi — half-human, half-rakshasa (demon). He could grow to enormous size, fly, and use magical illusions. His death forced Karna to use his one-use Shakti weapon — saving Arjuna.',
+    details:`<div class="modal-section"><h4>The Rakshasa Champion</h4><p>Ghatotkacha was devastating at night — rakshasas grow stronger after dark. On Day 14 (night battle), he single-handedly threatened to destroy the Kaurava army. Duryodhana desperately asked Karna to use his divine Shakti weapon (gifted by Indra, one-use, intended for Arjuna).</p></div>
+    <div class="modal-section"><h4>The Sacrifice That Saved Arjuna</h4><p>Karna released the Shakti against Ghatotkacha. It killed him — but it was gone. Karna's one weapon that could have killed the near-invulnerable Arjuna was expended. When Krishna heard Ghatotkacha fell, he laughed with joy — "Half the battle is won!" — for Arjuna was now safe from Karna's most dangerous weapon.</p></div>`,
+    kingdom:'Forest (Kamyaka)',modernLocation:'Himalayan forests',
+    parents:'Bhima & Hidimbi (demoness)',spouse:'Maurvi / Ahilawati',
+  },
+  {
+    id:'subhadra',name:'Subhadrā',title:'Krishna\'s Sister · Arjuna\'s Wife',
+    side:'pandava',symbol:'🌸',
+    tags:['Sister of Krishna & Balarama','Mother of Abhimanyu','Yadava Princess'],
+    desc:'Younger sister of Krishna and Balarama, princess of the Yadava clan of Dwarka. She was kidnapped (with her own consent and Krishna\'s blessing) by Arjuna at her svayamvara, making her Arjuna\'s second wife.',
+    details:`<div class="modal-section"><h4>The Elopement</h4><p>Balarama had promised Subhadra to Duryodhana. Krishna — knowing Subhadra loved Arjuna — told Arjuna to abduct her openly (a kshatriya custom). Subhadra herself drove the chariot as they fled, indicating her willing participation. Balarama was furious — but relented when Krishna argued it was a valid kshatriya marriage.</p></div>
+    <div class="modal-section"><h4>Mother of Abhimanyu</h4><p>Subhadra's son Abhimanyu is one of the Mahabharata's most beloved figures — the boy hero who died in the Chakravyuha at 16. Subhadra's grief at his death is one of the most moving moments of the Stri Parva. Her grandson Parikshit became the inheritor of the Pandava lineage.</p></div>`,
+    kingdom:'Dwarka / Indraprastha',modernLocation:'Dwarka, Gujarat',
+    parents:'Vasudeva & Rohini (Krishna\'s parents)',spouse:'Arjuna',
+  },
+  {
+    id:'shikhandi',name:'Śikhaṇḍī',title:'The Reborn Princess · Bhishma\'s Nemesis',
+    side:'pandava',symbol:'⚔️',
+    tags:['Reborn as Amba','Born Female Raised Male','Key to Bhishma\'s Fall','Panchala'],
+    desc:'Born as princess Amba in a previous life, reborn as Shikhandi specifically to avenge Bhishma\'s injustice. Born female but raised as a male warrior by King Drupada. Bhishma refused to strike someone born female.',
+    details:`<div class="modal-section"><h4>From Amba to Shikhandi</h4><p>Princess Amba, wronged by Bhishma, immolated herself with the vow to become the instrument of his death. She was reborn as Shikhandi, child of King Drupada of Panchala — born female, raised as male. Through the grace of a yaksha, Shikhandi acquired masculine characteristics.</p></div>
+    <div class="modal-section"><h4>The Fall of Bhishma</h4><p>On Day 10, Arjuna placed Shikhandi's chariot before his own. Bhishma — knowing Shikhandi was born female and bound by his honor code (never shoot at women, children, or those born female) — laid down his bow. Arjuna then shot Bhishma from behind Shikhandi. The grandsire fell — his body supported by arrows, awaiting Uttarayan.</p></div>`,
+    kingdom:'Panchala',modernLocation:'Kampilya, Farrukhabad, UP',
+    parents:'King Drupada (reborn as)',spouse:'Not prominent',
+  },
+  {
+    id:'parashurama',name:'Paraśurāma',title:'The Eternal Warrior-Sage · Sixth Avatar',
+    side:'neutral',symbol:'🪓',
+    tags:['Sixth Avatar of Vishnu','Brahmin Warrior','Teacher of Bhishma & Karna','Immortal'],
+    desc:'The sixth avatar of Vishnu — a brahmin who mastered all weapons. He cleared the earth of kshatriya kings 21 times. Teacher of Bhishma and Karna. Still alive (Chiranjivi — one of the seven immortals).',
+    details:`<div class="modal-section"><h4>Teacher of Legends</h4><p>Parashurama taught only brahmins the supreme weapons. Bhishma (as Devavrata, before his vow) was his student. Karna disguised himself as a brahmin to learn from him. When Parashurama discovered Karna's true identity (he fell asleep in Karna's lap; a bee stung Karna but he didn't move — kshatriyas bear pain silently), he cursed Karna.</p></div>
+    <div class="modal-section"><h4>Fight with Bhishma</h4><p>Amba appealed to Parashurama to fight Bhishma. They fought for 23 days — the only warrior who could match Bhishma. The battle ended in a draw when divine voices intervened. It established that Bhishma was truly invincible.</p></div>`,
+    kingdom:'Mahendragiri (hermitage)',modernLocation:'Mahendragiri, Odisha (claimed)',
+    parents:'Sage Jamadagni & Renuka',spouse:'None (brahmacharin warrior)',
+  },
+];
+
+/* ═══ QUOTES ═══ */
+const QUOTES = [
+  {text:"You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions.", source:"Bhagavad Gītā 2.47 — Lord Krishna to Arjuna"},
+  {text:"When a man sees that the God in himself is the same God in all that is, he hurts not himself by hurting others: then he goes, indeed, to the highest path.",source:"Mahābhārata, Udyoga Parva"},
+  {text:"There is no friend like knowledge, no enemy like disease, no affection like that of a mother, no happiness like that of contentment.",source:"Vidura Nīti, Udyoga Parva"},
+  {text:"The archer aiming at a distant target is not disturbed by the straw under his feet.",source:"Droṇācārya's teaching"},
+  {text:"Dharma is subtle. The path of righteousness is fine as the edge of a razor.",source:"Yaksha Praśna, Vana Parva — Yudhiṣṭhira"},
+  {text:"Even death is not to be feared by one who has lived wisely.",source:"Bhagavad Gītā 2.19"},
+  {text:"What is the most amazing thing in the world? Every day, people die. Yet the living believe they will never die.",source:"Yaksha Praśna — Yudhiṣṭhira's answer to the Yaksha"},
+];
+
+/* ═══ TIMELINE ═══ */
+const TIMELINE = [
+  {era:"Pre-War · Dynasty",emoji:"🌊",title:"Birth of the Kuru Line",text:"King Shantanu weds Ganga, who drowns seven infant sons. The eighth — Devavrata — survives. Shantanu later falls for Satyavati; Devavrata takes the terrible vow (Bhishma Pratigya) of celibacy and never claiming the throne.",tags:["Shantanu","Ganga","Bhishma","Vow"],phase:"pre-war"},
+  {era:"Pre-War · Birth",emoji:"🌟",title:"Birth of Dhritarashtra, Pandu & Vidura",text:"Sage Vyasa begets three sons on Satyavati's daughters-in-law. Ambika closes her eyes — Dhritarashtra is born blind. Ambalika turns pale — Pandu is born pale (meaning 'white'). The maid is calm — Vidura is born with all qualities.",tags:["Vyasa","Dhritarashtra","Pandu","Vidura"],phase:"pre-war"},
+  {era:"Pre-War · Kingdom",emoji:"🏰",title:"Division of the Kingdom",text:"Blind Dhritarashtra cannot be king. Pandu rules Hastinapur. After Pandu's curse (cannot touch a woman without death), he retires to the forest with wives Kunti and Madri. Dhritarashtra becomes regent.",tags:["Hastinapur","Division","Pandu Curse"],phase:"pre-war"},
+  {era:"Pre-War · Birth",emoji:"👶",title:"Birth of the Pandavas & Kauravas",text:"Kunti uses her boon: Dharma gives Yudhishthira, Vayu gives Bhima, Indra gives Arjuna. Madri summons the Ashwini Kumars for Nakula and Sahadeva. In Hastinapur, Gandhari delivers 100 sons from a mass of flesh Vyasa divides — the Kauravas. Duryodhana is eldest.",tags:["Pandavas","Kauravas","Birth","Gandhari"],phase:"pre-war"},
+  {era:"Pre-War · Education",emoji:"🏹",title:"Education under Dronacharya",text:"The princes are trained by Guru Drona at Hastinapur. Arjuna emerges as the supreme archer. Drona demands as guru dakshina: Ekalavya's right thumb (so Arjuna remains supreme) and the capture of Drupada.",tags:["Drona","Arjuna","Ekalavya","Education"],phase:"pre-war"},
+  {era:"Pre-War · Plot",emoji:"🔥",title:"House of Lac — Lakshagraha",text:"Duryodhana plots to burn the Pandavas alive in a palace of lac (highly flammable). Vidura secretly warns them and arranges a tunnel. The Pandavas escape, disguised as brahmins, while a woman and her five sons are accidentally burnt instead.",tags:["Lakshagraha","Duryodhana","Plot","Escape"],phase:"pre-war"},
+  {era:"Pre-War · Marriage",emoji:"🌺",title:"Draupadi's Svayamvara",text:"Drupada arranges his daughter's svayamvara (self-selection). The task: string a divine bow and shoot a revolving fish-target by looking at its reflection in water below. Only Arjuna, disguised as a brahmin, accomplishes this. All five Pandavas marry Draupadi.",tags:["Draupadi","Svayamvara","Arjuna","Panchala"],phase:"pre-war"},
+  {era:"Pre-War · Kingdom",emoji:"🏙️",title:"Founding of Indraprastha",text:"The Pandavas receive the barren Khandavaprastha land. With Krishna's help and architect Vishwakarma (divine craftsman Maya in some versions), they build the magnificent city of Indraprastha — so beautiful that Duryodhana, visiting, mistakes a floor for water and stumbles. Draupadi laughs — 'son of a blind man is also blind.'",tags:["Indraprastha","Kingdom","Krishna","Maya"],phase:"pre-war"},
+  {era:"Pre-War · Turning Point",emoji:"🎲",title:"The Fatal Dice Game",text:"Shakuni invites Yudhishthira to dice. Despite knowing it's a trap, Yudhishthira cannot refuse kshatriya honor. He loses his army, kingdom, brothers, himself, and finally Draupadi. Draupadi is dragged into court by her hair. She is nearly stripped before Krishna's divine intervention provides endless cloth. The Pandavas are banished for 13 years (12 exile + 1 incognito).",tags:["Dice Game","Shakuni","Draupadi","Exile"],phase:"pre-war"},
+  {era:"Pre-War · Exile",emoji:"🌳",title:"13 Years of Exile",text:"The Pandavas wander the forests (12 years) then must remain undetected for 1 year. During exile, Arjuna obtains divine weapons from the gods including Pashupatastra from Shiva. They serve anonymously in King Virata's court (Arjuna as dance teacher Brihannala). Abhimanyu is born. Keechaka incident occurs.",tags:["Exile","Arjuna","Virata","Aranyaka"],phase:"pre-war"},
+  {era:"Pre-War · Diplomacy",emoji:"🕊️",title:"Krishna's Peace Mission — Failure",text:"Before war, Krishna personally travels to Hastinapur as the Pandavas' ambassador and offers Duryodhana a final peace — just five villages for five brothers. Duryodhana refuses. 'I will not give land even the size of a needle's point.' Krishna reveals his Vishwarupa (cosmic form) to the court. War becomes inevitable.",tags:["Krishna","Peace","Diplomacy","Virata"],phase:"pre-war"},
+  {era:"Pre-War · Revelation",emoji:"☀️",title:"Kunti Reveals Karna's Secret",text:"Days before war, Kunti visits Karna at his sunrise worship and reveals she is his mother. She asks him to join the Pandavas — he would be the eldest Pandava. Karna refuses to betray Duryodhana but gives a promise: he will not kill any Pandava except Arjuna. 'You will always have five sons, mother.'",tags:["Kunti","Karna","Secret","Promise"],phase:"pre-war"},
+  {era:"Kurukshetra War · Day 1",emoji:"⚔️",title:"Day 1 — The Conches Sound",text:"Both armies assemble on Kurukshetra. Before the first arrow flies, Arjuna sees his kinsmen across the field — grandfathers, uncles, teachers, cousins — and is overcome with grief. He drops his Gandiva bow. Krishna delivers the Bhagavad Gita across 18 chapters. The war begins. Uttara (Abhimanyu's wife) is widowed's first casualty.",tags:["Day 1","Bhagavad Gita","Arjuna","Krishna"],phase:"kurukshetra"},
+  {era:"Kurukshetra War · Days 1-10",emoji:"🛡️",title:"Bhishma Commands — Days 1-10",text:"The grandsire Bhishma commands the Kaurava forces with devastating effect. He refuses to kill the Pandavas directly but wears their army down. On Day 10, with Shikhandi (born female) placed before Arjuna, Bhishma lays down his bow and falls onto a bed of arrows — choosing to wait for the auspicious time to die.",tags:["Bhishma","Days 1-10","Shikhandi","Shara Shaiyya"],phase:"kurukshetra"},
+  {era:"Kurukshetra War · Days 11-15",emoji:"🔥",title:"Drona Commands — Days 11-15",text:"Drona takes command, arranging the feared Chakravyuha on Day 13. Abhimanyu enters but cannot exit — he is killed by six warriors simultaneously (a war crime). Arjuna vows to kill Jayadratha (who blocked the other Pandavas) before sunset or enter fire. He succeeds. Drona is killed by Dhrishtadyumna after Yudhishthira's half-truth about 'Ashwatthama'.",tags:["Drona","Chakravyuha","Abhimanyu","Jayadratha"],phase:"kurukshetra"},
+  {era:"Kurukshetra War · Days 16-17",emoji:"☀️",title:"Karna Commands — Days 16-17",text:"Karna takes supreme command. His chariot wheel sinks in earth (fulfilling the brahmin's curse). His divine kavach-kundala are gone (given to Indra). His Brahmastra knowledge fails (Parashurama's curse). Arjuna shoots Karna while he attempts to free his wheel — fulfilling his vow but later tormented by the ethics.",tags:["Karna","Days 16-17","Brahmastra","Death"],phase:"kurukshetra"},
+  {era:"Kurukshetra War · Day 18",emoji:"🏳️",title:"Day 18 — War Ends",text:"Shalya (briefly) commands. Duryodhana is the last survivor — he hides in the Dvaipayana lake. Challenged to single combat, he fights Bhima with maces. Bhima breaks Duryodhana's thighs (Balarama is outraged — below the waist blows are illegal). That night, Ashwatthama massacres the Pandava camp, killing all five Upapandavas. The war is over — 18 days, millions dead.",tags:["Day 18","Duryodhana","Bhima","End"],phase:"kurukshetra"},
+  {era:"Post-War",emoji:"👑",title:"Coronation of Yudhishthira",text:"Yudhishthira is crowned Emperor of Hastinapur. Dhritarashtra and Gandhari mourn their 100 sons. Gandhari, in grief, casts her eyes (she kept them blindfolded for decades) on Yudhishthira's toe — it blackens. Krishna takes her wrath upon himself. The Ashwamedha sacrifice cleanses the war's spiritual debt.",tags:["Coronation","Hastinapur","Ashwamedha","Yudhishthira"],phase:"post-war"},
+  {era:"Post-War",emoji:"🌊",title:"Drowning of Dwarka",text:"36 years after the war, a civil war breaks out among the Yadavas (Krishna's clan) — they kill each other with grass reeds (Samba's curse). Krishna withdraws from the world, meditating under a tree. A hunter named Jara shoots an arrow, mistaking Krishna's foot for a deer — he ascends to his divine form. Dwarka is submerged beneath the sea.",tags:["Dwarka","Krishna","Yadavas","End"],phase:"post-war"},
+  {era:"Post-War",emoji:"🏔️",title:"The Final Journey (Mahaprasthan)",text:"The Pandavas and Draupadi, having ruled wisely for decades, renounce the kingdom to Parikshit (Abhimanyu's son). They set out on the final journey toward the Himalayas. One by one, they fall on the path: Draupadi first (too much attachment to Arjuna), then Sahadeva (pride in knowledge), Nakula (pride in appearance), Arjuna (pride in archery), Bhima (pride in strength). Only Yudhishthira reaches Swarga in his mortal body — accompanied by a dog (Dharma in disguise).",tags:["Final Journey","Swarga","Renunciation","Pandavas"],phase:"post-war"},
+];
+
+/* ═══ KINGDOMS ═══ */
+const KINGDOMS = [
+  {icon:"👑",name:"Kurujāngala / Hastinapur",ancient:"Capital of the Kuru Kingdom — seat of Dhritarashtra and Pandavas",modern:"Hastinapur, Uttar Pradesh (near Meerut)",desc:"The central kingdom of the epic. Archaeological excavations confirm a major ancient city here. The Mahabharata describes it as surrounded by rivers and featuring magnificent palaces. Modern Hastinapur has ruins and a local museum.",ruler:"Dhritarashtra / Yudhishthira",region:"UP"},
+  {icon:"🌆",name:"Indraprastha",ancient:"The Pandavas' magnificent capital, built on Khandavaprastha by divine architect Maya",modern:"Purana Qila area, Delhi",desc:"Built by the Pandavas after receiving barren Khandavaprastha. The palace was so splendid it confused guests. Excavations at Purana Qila (Old Fort) in Delhi have found PGW (Painted Grey Ware) pottery dating to 1000-600 BCE.",ruler:"Yudhishthira (Pandavas)",region:"Delhi"},
+  {icon:"🏹",name:"Pāñcāla",ancient:"Kingdom of King Drupada, father of Draupadi and Dhrishtadyumna",modern:"Bareilly & Kampilya region, Uttar Pradesh",desc:"Northern and Southern Panchala straddled the Ganga. King Drupada's capital Kampilya (Kampil) is now a village in Farrukhabad district, UP. Draupadi's svayamvara and birth from sacred fire occurred here.",ruler:"Drupada → Dhrishtadyumna",region:"UP"},
+  {icon:"🌊",name:"Matsya Kingdom",ancient:"Where Pandavas spent their 13th year of exile incognito under King Virata",modern:"Virat Nagar, Rajasthan (near Jaipur)",desc:"The Pandavas served in King Virata's court — Yudhishthira as dice teacher, Bhima as cook, Arjuna as dance teacher Brihannala, Nakula and Sahadeva as stable keepers, Draupadi as Sairandhri. The Kauravas' cattle raid here triggered the war's final events.",ruler:"King Virata",region:"Rajasthan"},
+  {icon:"🌿",name:"Gandhāra",ancient:"Kingdom of Dhritarashtra's queen Gandhari and her brother Shakuni",modern:"Kandahar & Peshawar region, Afghanistan/Pakistan",desc:"One of the 16 great Mahajanapadas. Famous for Gandhara art (Greek-Buddhist fusion). Shakuni's magic dice were made from his father Subala's bones. The kingdom was renowned for fine horses and textiles.",ruler:"Shakuni (King Subala's son)",region:"Afghanistan"},
+  {icon:"☀️",name:"Anga",ancient:"Kingdom gifted by Duryodhana to Karna — giving Karna royal status",modern:"Bhagalpur, Bihar",desc:"When Karna was jeered at Drona's tournament for low birth, Duryodhana crowned him King of Anga on the spot. This act bound Karna to Duryodhana in undying loyalty. Ancient Anga corresponds to modern Bhagalpur and Monghyr in Bihar.",ruler:"Karna (gifted by Duryodhana)",region:"Bihar"},
+  {icon:"🐘",name:"Magadha",ancient:"Powerful kingdom allied with Kurus, ruled by Jarasandha then Sahadeva",modern:"Patna (Pataliputra), Bihar",desc:"The great Jarasandha of Magadha was a constant enemy of Krishna and held 86 kings captive for sacrifice. He was killed by Bhima in a wrestling match (guided by Krishna). After Jarasandha's death, his son joined the Pandavas.",ruler:"Jarasandha → Sahadeva (son)",region:"Bihar"},
+  {icon:"🏔️",name:"Kāmboja",ancient:"Mountain kingdom sending warriors to both sides of Kurukshetra",modern:"Nuristan, Afghanistan / Badakhshan",desc:"The Kambojas were renowned horsemen from beyond the Hindu Kush. Their cavalry was feared by both sides. They feature prominently in the battle descriptions of the Drona Parva.",ruler:"Sudakshina Kamboja",region:"Afghanistan/NW Pakistan"},
+  {icon:"🌸",name:"Vidarbha",ancient:"Kingdom of Rukmini (Krishna's chief queen) and Damayanti (Nala's wife)",modern:"Nagpur region, Maharashtra",desc:"Vidarbha (Berar) in modern Maharashtra was a powerful Deccan kingdom. Rukmini, princess of Vidarbha, was kidnapped (at her own request) by Krishna from her svayamvara. The story of Nala and Damayanti in the Vana Parva is set here.",ruler:"King Bhishmaka (Rukmini's father)",region:"Maharashtra"},
+  {icon:"⚔️",name:"Kāśī (Varanasi)",ancient:"Holy city and kingdom, prominent in events before and after the war",modern:"Varanasi, Uttar Pradesh",desc:"Varanasi (Kashi/Benaras) is mentioned throughout the epic. King Bhishma abducted the three princesses of Kashi (Amba, Ambika, Ambalika) for his half-brother Vichitravirya. Kashi warriors fought on both sides at Kurukshetra.",ruler:"King Kasiraja (Divodasa era)",region:"UP"},
+  {icon:"🌺",name:"Chedi",ancient:"Kingdom of Shishupala — Krishna's cousin and greatest critic",modern:"Banda district, Madhya Pradesh / Bundelkhand",desc:"Shishupala, king of Chedi, was Krishna's first cousin (Shrutashrava was Krishna's aunt). He was born with three eyes and four arms — signs of future greatness/doom. At the Rajasuya sacrifice, Shishupala insulted Krishna 100 times (the forgiveness limit) and was beheaded by Krishna's Sudarshana Chakra.",ruler:"Shishupala (Krishna's cousin)",region:"MP / Bundelkhand"},
+  {icon:"🏛️",name:"Dwārakā",ancient:"Krishna's magnificent island city, built by Vishwakarma in the sea",modern:"Dwarka, Gujarat (submerged ruins offshore)",desc:"Krishna established Dwarka after abandoning Mathura (to prevent wars with Jarasandha). The city was built on an island in the sea. After Krishna's death, Dwarka was submerged. Marine archaeological surveys near Bet Dwarka and Dwarka shores have found ancient structures dated to ~1500-1200 BCE.",ruler:"Krishna (Yadava clan)",region:"Gujarat"},
+];
+
+/* ═══ SACRED SITES ═══ */
+const SACRED_SITES = [
+  {icon:"⚔️",name:"Kurukshetra",state:"Haryana",desc:"The sacred battlefield where the 18-day war was fought. Now a major pilgrimage site with Brahma Sarovar lake, Jyotisar (where Krishna delivered the Gita), and the Kurukshetra Panorama Museum.",visit:"Jyotisar tank, Brahma Sarovar, Panorama Museum — 160 km from Delhi"},
+  {icon:"🏹",name:"Jyotisar",state:"Haryana",desc:"The exact spot on the Kurukshetra battlefield where Krishna delivered the Bhagavad Gita to Arjuna. A 400-year-old banyan tree here is said to be a descendant of the original tree under which the divine discourse occurred.",visit:"3 km west of Kurukshetra city · Ancient banyan tree, temple complex"},
+  {icon:"🛕",name:"Hastinapur",state:"Uttar Pradesh",desc:"Capital of the Kuru kingdom, seat of Dhritarashtra and later Pandavas. Excavations by ASI found multiple cultural layers. The modern town has Draupadi Ghat, Pandeshwar Temple, and a Jain pilgrimage complex.",visit:"38 km from Meerut · Draupadi Ghat, Karna Temple, Archaeological Museum"},
+  {icon:"🌊",name:"Dwarka",state:"Gujarat",desc:"Krishna's legendary sunken city. Marine archaeology has found ancient structures offshore. The Dwarkadhish Temple (1200 CE) stands on the original site. Listed as one of the seven sacred cities (Sapta Puri) of Hinduism.",visit:"Dwarkadhish Temple, Bet Dwarka island, Nageshwar Jyotirlinga nearby"},
+  {icon:"🌸",name:"Kampilya (Panchala)",state:"Uttar Pradesh",desc:"Ancient capital of King Drupada, where Draupadi was born from the sacred fire and her svayamvara was held. Modern Kampil village in Farrukhabad district preserves the site of Draupadi's birthplace.",visit:"Farrukhabad district · Draupadi Kund, Agnikund, local temples"},
+  {icon:"🏔️",name:"Badrinath / Vyasa Cave",state:"Uttarakhand",desc:"Sage Vyasa is said to have composed the Mahabharata and Puranas in this Himalayan region. Vyasa Cave near Mana village (last Indian village before Tibet border) is one of the holiest spots of Char Dham pilgrimage.",visit:"Mana village, near Badrinath — Vyasa Gufa (cave), Ganesh Gufa"},
+  {icon:"🌿",name:"Virat Nagar",state:"Rajasthan",desc:"Ancient Matsya capital where Pandavas spent their 13th year (agyatvas) in disguise. Excavations reveal a major ancient city. Bairat (Viratnagar) has the remains of Ashoka's rock edicts and ancient Pandava temples.",visit:"80 km from Jaipur · Bijak ki Pahadi, Pandav ruins, Ashoka pillar site"},
+  {icon:"🏊",name:"Triveni Sangam, Prayagraj",state:"Uttar Pradesh",desc:"The holy confluence of Ganga, Yamuna, and the mythical Saraswati. Mentioned throughout the Mahabharata as the supreme pilgrimage site. The Kumbh Mela occurs here. Yudhishthira visited here during the Tirtha Yatra (forest pilgrimage).",visit:"Prayagraj (Allahabad) · Sangam point, Akshayavat, Saraswati Koop"},
+  {icon:"🌊",name:"Ganga at Haridwar",state:"Uttarakhand",desc:"Bhishma's mother Ganga — the sacred river personified. The Pandavas' forest exile took them through the Himalayan Ganga regions. Har ki Pauri ghat is considered where Ganga enters the plains.",visit:"Har ki Pauri, Chandi Devi, Mansa Devi temples — major pilgrimage center"},
+  {icon:"⛪",name:"Mathura & Vrindavan",state:"Uttar Pradesh",desc:"Krishna's birthplace (Mathura) and childhood home (Vrindavan/Gokul). The Janmabhoomi temple marks the exact prison cell where Krishna was born at midnight. Vrindavan has 5000+ temples.",visit:"150 km from Delhi · Janmabhoomi Temple, Kesava Deo, Prem Mandir, 84 Ghats"},
+  {icon:"🏛️",name:"Purana Qila (Indraprastha)",state:"Delhi",desc:"Archaeologists have found Painted Grey Ware (PGW) pottery and other ancient artifacts at Purana Qila (Old Fort) in Delhi, believed to be the site of ancient Indraprastha — the Pandavas' capital. The fort as visible today was built by Humayun/Sher Shah Suri.",visit:"Near India Gate, Delhi · Museum inside fort, Humayun's-era structures"},
+  {icon:"🌺",name:"Kurukshetra Brahma Sarovar",state:"Haryana",desc:"The sacred lake (sarovar) at Kurukshetra where a solar eclipse bathed is said to offer liberation. The lake spans 3,600 feet by 1,500 feet. During solar eclipses, millions of pilgrims gather here. The full moon of Kartik brings massive gatherings.",visit:"Central Kurukshetra · Largest solar eclipse pilgrimage lake in India"},
+];
+
+/* ═══ BHAGAVAD GITA CHAPTERS ═══ */
+const GITA_CHAPTERS = [
+  {num:"01",name:"Arjuna Viṣāda Yoga",sk:"अर्जुनविषादयोग",desc:"The Yoga of Arjuna's Grief — Arjuna surveys the battlefield, sees his kinsmen, and is overcome with grief and moral confusion. He drops his bow.",verses:47},
+  {num:"02",name:"Sānkhya Yoga",sk:"साङ्ख्ययोग",desc:"The Yoga of Knowledge — Krishna's first philosophical teachings: the soul is immortal, action without attachment, and the nature of the Sthitaprajna (steady-minded person).",verses:72},
+  {num:"03",name:"Karma Yoga",sk:"कर्मयोग",desc:"The Yoga of Action — Perform your duty without attachment to results. Action is superior to inaction. The nature of desire and anger.",verses:43},
+  {num:"04",name:"Jñāna Yoga",sk:"ज्ञानयोग",desc:"The Yoga of Knowledge — Krishna reveals his divine nature and past incarnations. 'Whenever dharma declines, I take form.' Knowledge and sacrifice.",verses:42},
+  {num:"05",name:"Karma Sanyāsa Yoga",sk:"कर्मसंन्यासयोग",desc:"The Yoga of Renunciation — The path of action and the path of renunciation both lead to liberation. The sage sees inaction in action.",verses:29},
+  {num:"06",name:"Dhyāna Yoga",sk:"ध्यानयोग",desc:"The Yoga of Meditation — How to practice meditation, control the mind, and attain union with the Supreme Self.",verses:47},
+  {num:"07",name:"Vijñāna Yoga",sk:"विज्ञानयोग",desc:"The Yoga of Wisdom — Krishna reveals his divine nature and the four kinds of devotees who come to him. Rare is the one who truly knows me.",verses:30},
+  {num:"08",name:"Akṣara Brahma Yoga",sk:"अक्षरब्रह्मयोग",desc:"The Yoga of the Imperishable — What happens at the moment of death, the path of no-return, and the imperishable Brahman.",verses:28},
+  {num:"09",name:"Rājavidyā Yoga",sk:"राजविद्यायोग",desc:"The Royal Knowledge — The most secret knowledge: Krishna pervades all creation yet is beyond it. Devotion is the supreme path.",verses:34},
+  {num:"10",name:"Vibhūti Yoga",sk:"विभूतियोग",desc:"The Yoga of Divine Glories — Krishna describes his infinite manifestations: 'I am the Ganga among rivers, Himalaya among mountains, Arjuna among the Pandavas.'",verses:42},
+  {num:"11",name:"Viśvarūpa Darśana",sk:"विश्वरूपदर्शनयोग",desc:"The Vision of the Cosmic Form — Arjuna is granted divine sight and sees Krishna's terrifying cosmic form encompassing all of existence, all gods, all time.",verses:55},
+  {num:"12",name:"Bhakti Yoga",sk:"भक्तियोग",desc:"The Yoga of Devotion — The path of loving devotion to God. Qualities of the ideal devotee — equanimous, compassionate, free from ego.",verses:20},
+  {num:"13",name:"Kṣetra-Kṣetrajña Yoga",sk:"क्षेत्रक्षेत्रज्ञयोग",desc:"The Field and Its Knower — The body is the field; the soul is the knower of the field. True knowledge is distinguishing between the two.",verses:35},
+  {num:"14",name:"Guṇatraya Vibhāga",sk:"गुणत्रयविभागयोग",desc:"The Three Modes — Tamas (inertia), Rajas (passion), and Sattva (clarity) govern all creation. The liberated soul transcends all three.",verses:27},
+  {num:"15",name:"Puruṣottama Yoga",sk:"पुरुषोत्तमयोग",desc:"The Supreme Person — The parable of the eternal Ashvattha tree (cosmic existence). Krishna is the Purushottama — beyond both the perishable and the imperishable.",verses:20},
+  {num:"16",name:"Daivāsura Vibhāga",sk:"दैवासुरसम्पद्विभागयोग",desc:"Divine and Demonic Natures — The divine qualities lead to liberation; the demoniac lead to bondage. Pride, arrogance, and ego are the enemies.",verses:24},
+  {num:"17",name:"Śraddhātraya Vibhāga",sk:"श्रद्धात्रयविभागयोग",desc:"The Three Types of Faith — Faith in Sattva, Rajas, and Tamas — and how they shape food, sacrifice, austerity, and charity.",verses:28},
+  {num:"18",name:"Mokṣa Sanyāsa Yoga",sk:"मोक्षसंन्यासयोग",desc:"The Yoga of Liberation — The final synthesis: surrender all dharmas and come to me alone. The most supreme teaching: divine grace as the ultimate liberation.",verses:78},
+];
+
+/* ═══ 18 PARVAS ═══ */
+const PARVAS = [
+  {num:"I",name:"Ādi Parva",sk:"आदि पर्व",chapters:"236 chapters, 8,884 verses",desc:"The Book of the Beginning. Origins of the epic, lineage of the Kurus, birth of Pandavas and Kauravas, education under Drona, lac house episode, and Draupadi's svayamvara."},
+  {num:"II",name:"Sabhā Parva",sk:"सभा पर्व",chapters:"78 chapters, 2,511 verses",desc:"The Book of the Assembly Hall. Building of Maya Sabha (Indraprastha), the Rajasuya sacrifice, killing of Jarasandha and Shishupala, and the catastrophic dice game."},
+  {num:"III",name:"Vana Parva",sk:"वन पर्व",chapters:"299 chapters, 11,664 verses",desc:"The Book of the Forest — the longest parva. The 12-year forest exile, Arjuna's divine weapon quest, stories of Nala-Damayanti, Savitri-Satyavan, Rama's story (Ramopakhyana), and Karna's golden armor gift."},
+  {num:"IV",name:"Virāṭa Parva",sk:"विराट पर्व",chapters:"67 chapters, 2,050 verses",desc:"The Book of Virata. The 13th year incognito in King Virata's court. The Kichaka episode (Bhima kills the general). Arjuna fights the Kaurava army single-handedly."},
+  {num:"V",name:"Udyoga Parva",sk:"उद्योग पर्व",chapters:"186 chapters, 6,698 verses",desc:"The Book of Effort. Diplomatic missions, Krishna's peace mission (failure), Sanjaya's reports to Dhritarashtra, and Vidura Niti — the masterwork of statecraft."},
+  {num:"VI",name:"Bhīṣma Parva",sk:"भीष्म पर्व",chapters:"117 chapters, 5,884 verses",desc:"The Book of Bhishma. Days 1-10 of the Kurukshetra War under Bhishma's command. Contains the BHAGAVAD GITA (chapters 23-40 of this parva). Bhishma's fall on the bed of arrows."},
+  {num:"VII",name:"Droṇa Parva",sk:"द्रोण पर्व",chapters:"173 chapters, 8,909 verses",desc:"The Book of Drona. Days 11-15 under Drona's command. Abhimanyu's death in the Chakravyuha. Arjuna's vow to kill Jayadratha. Drona's death. Karna's first full command."},
+  {num:"VIII",name:"Karṇa Parva",sk:"कर्ण पर्व",chapters:"69 chapters, 4,964 verses",desc:"The Book of Karna. Days 16-17, Karna as supreme commander. His curses manifest — chariot wheel sinks, weapons fail. Arjuna kills Karna — the most morally complex death of the epic."},
+  {num:"IX",name:"Śalya Parva",sk:"शल्य पर्व",chapters:"59 chapters, 3,220 verses",desc:"The Book of Shalya. Day 18 — Shalya commands briefly. Duryodhana escapes and hides in the lake. Bhima's mace fight with Duryodhana. Ashwatthama's night massacre."},
+  {num:"X",name:"Sauptika Parva",sk:"सौप्तिक पर्व",chapters:"18 chapters, 870 verses",desc:"The Book of the Sleeping Warriors. Ashwatthama's night attack on the sleeping Pandava camp — slaying the Upapandavas. The cursing of Ashwatthama. The most morally disturbing book."},
+  {num:"XI",name:"Strī Parva",sk:"स्त्री पर्व",chapters:"27 chapters, 775 verses",desc:"The Book of Women. Gandhari's lamentation over her hundred sons. Kunti's revelation about Karna. Dhritarashtra attempts to crush Bhima (iron statue). The cremation of the dead."},
+  {num:"XII",name:"Śānti Parva",sk:"शांति पर्व",chapters:"365 chapters, 14,732 verses",desc:"The Book of Peace — the second longest. Bhishma lying on the arrow-bed delivers comprehensive teachings on dharma, statecraft (rajadharma), and moksha to Yudhishthira."},
+  {num:"XIII",name:"Anuśāsana Parva",sk:"अनुशासन पर्व",chapters:"154 chapters, 8,000 verses",desc:"The Book of Instructions. Bhishma's final teachings before death — duties, ethics, the laws of giving, fasting, and the names of Vishnu (Vishnu Sahasranama)."},
+  {num:"XIV",name:"Āśvamedhika Parva",sk:"आश्वमेधिक पर्व",chapters:"96 chapters, 3,320 verses",desc:"The Book of the Horse Sacrifice. Yudhishthira performs the Ashwamedha to purge war-guilt. Arjuna accompanies the horse. Krishna recites the Anugita (a shorter recapitulation of the Gita)."},
+  {num:"XV",name:"Āśramavāsika Parva",sk:"आश्रमवासिक पर्व",chapters:"47 chapters, 1,506 verses",desc:"The Book of the Hermitage. Dhritarashtra and Gandhari retire to the forest. Vidura merges into Yudhishthira. Dhritarashtra, Gandhari, and Kunti perish in a forest fire — achieving liberation."},
+  {num:"XVI",name:"Mausala Parva",sk:"मौसल पर्व",chapters:"9 chapters, 320 verses",desc:"The Book of the Clubs. 36 years after the war, the Yadavas destroy each other at Prabhasa. Krishna's death. Dwarka submerges. Arjuna escorts survivors but his strength has left him."},
+  {num:"XVII",name:"Mahāprasthāna Parva",sk:"महाप्रस्थानिक पर्व",chapters:"3 chapters, 106 verses",desc:"The Book of the Great Journey. The Pandavas and Draupadi renounce the kingdom and begin their final northward journey toward the Himalayas. One by one they fall, until only Yudhishthira walks."},
+  {num:"XVIII",name:"Svargārohaṇa Parva",sk:"स्वर्गारोहण पर्व",chapters:"5 chapters, 209 verses",desc:"The Book of the Ascension to Heaven. Yudhishthira's test in heaven (he finds his brothers and Draupadi there). The full revelation — it was all dharma's play. The divine reunion."},
+];
+
+/* ═══════════════════════════════════════════════
+   RENDER FUNCTIONS
+═══════════════════════════════════════════════ */
+function renderChars(filter='all'){
+  const grid = document.getElementById('charsGrid');
+  grid.innerHTML='';
+  const list = filter==='all' ? CHARACTERS : CHARACTERS.filter(c=>c.side===filter);
+  if(!list.length){
+    grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">🔍</div><h3>No characters found</h3><p>Try a different filter above</p></div>`;
+    return;
+  }
+  list.forEach(c=>{
+    const div=document.createElement('div');
+    div.className=`char-card char-side-${c.side}`;
+    div.setAttribute('role','listitem');
+    div.setAttribute('tabindex','0');
+    div.setAttribute('aria-label',`${c.name} — ${c.title}`);
+    div.innerHTML=`
+      <div class="char-avatar">
+        <div class="char-avatar-bg"></div>
+        <div class="char-avatar-pattern"></div>
+        <span class="char-symbol" aria-hidden="true">${c.symbol}</span>
+      </div>
+      <div class="char-body">
+        <div class="char-name">${c.name}</div>
+        <div class="char-title">${c.title}</div>
+        <div class="char-desc">${c.desc}</div>
+        <div class="char-tags">${c.tags.map(t=>`<span class="char-tag">${t}</span>`).join('')}</div>
+      </div>`;
+    div.addEventListener('click',()=>openCharModal(c));
+    div.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openCharModal(c)});
+    grid.appendChild(div);
+  });
+}
+
+function openCharModal(c){
+  document.getElementById('modalEyebrow').textContent=c.side.charAt(0).toUpperCase()+c.side.slice(1)+' · '+c.kingdom;
+  document.getElementById('modalTitle').textContent=c.symbol+' '+c.name+' — '+c.title;
+  document.getElementById('modalBody').innerHTML=`
+    <div class="modal-section"><h4>Description</h4><p>${c.desc}</p></div>
+    ${c.details||''}
+    <div class="modal-section"><h4>Kingdom</h4><p>${c.kingdom}</p></div>
+    <div class="modal-section"><h4>Modern Location</h4><p>📍 ${c.modernLocation}</p></div>
+    ${c.parents?`<div class="modal-section"><h4>Parents (Divine/Earthly)</h4><p>${c.parents}</p></div>`:''}
+    ${c.spouse?`<div class="modal-section"><h4>Spouse(s)</h4><p>${c.spouse}</p></div>`:''}
+    <div class="modal-tags">${c.tags.map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div>`;
+  openModal();
+}
+
+function openModal(){
+  const overlay=document.getElementById('modalOverlay');
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('modalClose').focus();
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function renderFamilyTree(){
+  const tree=document.getElementById('familyTree');
+  const levels=[
+    [{name:'Parāśara',role:'Sage',type:'divine'},{name:'Satyavatī',role:'Queen Mother',type:'divine'}],
+    [{name:'Vyāsa',role:'Compiler / Sage',type:'divine'}],
+    [{name:'Śantanu',role:'King of Hastinapur',type:'patriarch'},{name:'Ganga',role:'Goddess',type:'divine'}],
+    [{name:'Bhīṣma',role:'Grandsire (Devavrata)',type:'patriarch'},{name:'Citrāṅgada',role:'Prince (died)',type:'patriarch'},{name:'Vicitravīrya',role:'Prince',type:'patriarch'}],
+    [{name:'Dhritarāṣṭra',role:'Blind King',type:'kaurava'},{name:'Pāṇḍu',role:'King (exiled)',type:'pandava'},{name:'Vidura',role:'Wise Minister',type:'patriarch'}],
+    [{name:'Duryodhana',role:'Eldest Kaurava',type:'kaurava'},{name:'Dushasana',role:'2nd Kaurava',type:'kaurava'},{name:'Yudh iṣṭhira',role:'Dharmaraja',type:'pandava'},{name:'Bhīma',role:'Mighty One',type:'pandava'},{name:'Arjuna',role:'Greatest Archer',type:'pandava'},{name:'Nakula',role:'4th Pandava',type:'pandava'},{name:'Sahadeva',role:'5th Pandava',type:'pandava'}],
+    [{name:'Abhimanyu',role:'Son of Arjuna',type:'pandava'},{name:'Ghaṭotkaca',role:'Son of Bhima',type:'pandava'},{name:'Karṇa',role:'Kunti\'s firstborn',type:'kaurava'}],
+    [{name:'Parīkṣit',role:'Heir, son of Abhimanyu',type:'pandava'}],
+  ];
+  tree.innerHTML=levels.map((level,li)=>`
+    <div class="tree-level" style="margin-bottom:${li===levels.length-1?'20px':'60px'}">
+      ${level.map(node=>`
+        <div class="tree-node">
+          ${li>0?'<div class="tree-connector" aria-hidden="true"></div>':''}
+          <div class="tree-node-card ${node.type}" tabindex="0" role="button" aria-label="${node.name}, ${node.role}">
+            <div class="node-name">${node.name}</div>
+            <div class="node-role">${node.role}</div>
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+function renderTimeline(phase='all-events'){
+  const container=document.getElementById('timelineContainer');
+  const events=phase==='all-events'?TIMELINE:TIMELINE.filter(e=>e.phase===phase);
+  container.innerHTML=events.map(e=>`
+    <div class="timeline-item">
+      <div class="timeline-dot" aria-hidden="true">${e.emoji}</div>
+      <div class="timeline-content">
+        <div class="timeline-era">${e.era}</div>
+        <div class="timeline-title">${e.title}</div>
+        <div class="timeline-text">${e.text}</div>
+        <div class="timeline-meta">${e.tags.map(t=>`<span class="timeline-tag">${t}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+  setTimeout(()=>{
+    document.querySelectorAll('.timeline-item').forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('visible'),i*80);
+    });
+  },50);
+}
+
+function renderKingdoms(){
+  const grid=document.getElementById('kingdomsGrid');
+  grid.innerHTML=KINGDOMS.map(k=>`
+    <div class="kingdom-card" role="listitem" tabindex="0" aria-label="${k.name} kingdom">
+      <span class="kingdom-icon" aria-hidden="true">${k.icon}</span>
+      <div class="kingdom-name">${k.name}</div>
+      <div class="kingdom-ancient">${k.ancient}</div>
+      <div class="kingdom-modern">📍 ${k.modern}</div>
+      <div class="kingdom-desc">${k.desc}</div>
+      <div class="kingdom-ruler">👑 Ruler: ${k.ruler}</div>
+    </div>`).join('');
+}
+
+function renderSites(){
+  const grid=document.getElementById('sitesGrid');
+  grid.innerHTML=SACRED_SITES.map(s=>`
+    <div class="site-card" role="listitem" tabindex="0" aria-label="${s.name} sacred site">
+      <div class="site-image" aria-hidden="true">
+        <div class="site-image-overlay"></div>
+        ${s.icon}
+      </div>
+      <div class="site-body">
+        <div class="site-name">${s.name}</div>
+        <div class="site-state">📍 ${s.state}</div>
+        <div class="site-desc">${s.desc}</div>
+        <div class="site-visit">🧭 ${s.visit}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderGita(){
+  const grid=document.getElementById('gitaGrid');
+  grid.innerHTML=GITA_CHAPTERS.map(c=>`
+    <div class="gita-card" role="listitem" tabindex="0" aria-label="Chapter ${c.num}: ${c.name}">
+      <div class="gita-chapter">${c.num}</div>
+      <div class="gita-name">${c.name}</div>
+      <div class="gita-sanskrit" lang="sa">${c.sk}</div>
+      <div class="gita-desc">${c.desc}</div>
+      <div style="margin-top:10px;font-size:11px;color:var(--text3);font-family:var(--font-serif)">${c.verses} verses</div>
+    </div>`).join('');
+}
+
+function renderParvas(){
+  const grid=document.getElementById('parvasGrid');
+  grid.innerHTML=PARVAS.map(p=>`
+    <div class="parva-card" role="listitem" tabindex="0" aria-label="Parva ${p.num}: ${p.name}">
+      <div class="parva-num">${p.num}</div>
+      <div class="parva-name">${p.name}</div>
+      <div class="parva-sanskrit" lang="sa">${p.sk}</div>
+      <div class="parva-chapters">${p.chapters}</div>
+      <div class="parva-desc">${p.desc}</div>
+    </div>`).join('');
+}
+
+/* ═══ QUOTES ═══ */
+let quoteIdx=0;
+function renderQuotes(){
+  const text=document.getElementById('quoteText');
+  const src=document.getElementById('quoteSource');
+  const dots=document.getElementById('quoteDots');
+  dots.innerHTML=QUOTES.map((_,i)=>`<button class="quote-dot${i===0?' active':''}" onclick="setQuote(${i})" aria-label="Quote ${i+1}" role="tab" aria-selected="${i===0}"></button>`).join('');
+  setQuote(0);
+  setInterval(()=>setQuote((quoteIdx+1)%QUOTES.length),6000);
+}
+function setQuote(i){
+  quoteIdx=i;
+  const text=document.getElementById('quoteText');
+  const src=document.getElementById('quoteSource');
+  text.style.opacity='0';text.style.transform='translateY(10px)';
+  setTimeout(()=>{
+    text.textContent='"'+QUOTES[i].text+'"';
+    src.textContent='— '+QUOTES[i].source;
+    text.style.opacity='';text.style.transform='';
+    text.style.transition='opacity .5s, transform .5s';
+  },300);
+  document.querySelectorAll('.quote-dot').forEach((d,j)=>{
+    d.classList.toggle('active',j===i);
+    d.setAttribute('aria-selected',j===i);
+  });
+}
+
+/* ═══ SEARCH ═══ */
+const ALL_SEARCHABLE=[
+  ...CHARACTERS.map(c=>({label:c.name,sub:c.title,type:'Character',click:()=>openCharModal(c)})),
+  ...KINGDOMS.map(k=>({label:k.name,sub:k.modern,type:'Kingdom',click:()=>showToast('📍 '+k.modern)})),
+  ...SACRED_SITES.map(s=>({label:s.name,sub:s.state,type:'Sacred Site',click:()=>showToast('🛕 '+s.name+' — '+s.state)})),
+  ...TIMELINE.map(e=>({label:e.title,sub:e.era,type:'Event',click:()=>{}})),
+  ...PARVAS.map(p=>({label:p.name,sub:p.chapters,type:'Parva',click:()=>{}})),
+  ...GITA_CHAPTERS.map(c=>({label:'Chapter '+c.num+': '+c.name,sub:c.sk,type:'Gītā',click:()=>{}})),
+  ...WEAPONS.map((w,i)=>({label:w.name,sub:w.type,type:'Weapon',click:()=>openWeaponModal(i)})),
+  ...STORIES.map((s,i)=>({label:s.title,sub:s.parva,type:'Story',click:()=>openStoryModal(i)})),
+  ...CONCEPTS.map((c,i)=>({label:c.term,sub:c.deva,type:'Concept',click:()=>openConceptModal(i)})),
+  ...WAR_DAYS.map((d,i)=>({label:'Day '+d.day+': '+d.key,sub:d.commander,type:'War Day',click:()=>openWarDayModal(i)})),
+];
+function doSearch(q){
+  const res=document.getElementById('searchResults');
+  if(!q.trim()){res.style.display='none';return}
+  const matches=ALL_SEARCHABLE.filter(i=>
+    i.label.toLowerCase().includes(q.toLowerCase())||
+    (i.sub&&i.sub.toLowerCase().includes(q.toLowerCase()))
+  ).slice(0,8);
+  if(!matches.length){
+    res.style.display='block';
+    res.innerHTML=`<div class="search-result-item"><span style="color:var(--text3);font-size:14px">No results for "${q}"</span></div>`;
+    return;
+  }
+  res.style.display='block';
+  res.innerHTML=matches.map((m,i)=>`
+    <div class="search-result-item" role="option" tabindex="0" data-idx="${i}">
+      <span class="result-tag">${m.type}</span>
+      <div><div style="font-size:14px;color:var(--text)">${m.label}</div>${m.sub?`<div style="font-size:12px;color:var(--text3)">${m.sub}</div>`:''}</div>
+    </div>`).join('');
+  res.querySelectorAll('.search-result-item').forEach((el,i)=>{
+    el.addEventListener('click',()=>{
+      matches[i].click();
+      document.getElementById('searchInput').value='';
+      res.style.display='none';
+    });
+  });
+}
+
+/* ═══ INIT ═══ */
+document.addEventListener('DOMContentLoaded',()=>{
+  renderChars();
+  renderFamilyTree();
+  renderTimeline();
+  renderKingdoms();
+  renderSites();
+  renderGita();
+  renderParvas();
+  renderQuotes();
+  renderWarDays();
+  renderWeapons();
+  renderStories();
+  renderConcepts();
+  renderChants();
+  renderQuiz();
+  initMap();
+
+  /* Theme toggle */
+  const themeBtn=document.getElementById('themeBtn');
+  themeBtn.addEventListener('click',()=>{
+    const html=document.documentElement;
+    const isDark=html.getAttribute('data-theme')==='dark';
+    html.setAttribute('data-theme',isDark?'light':'dark');
+    themeBtn.textContent=isDark?'🌙':'☀️';
+    showToast(isDark?'Light mode activated':'Dark mode activated');
+  });
+
+  /* Hamburger */
+  const ham=document.getElementById('hamburger');
+  const mob=document.getElementById('mobileNav');
+  ham.addEventListener('click',()=>{
+    const open=mob.classList.toggle('open');
+    ham.setAttribute('aria-expanded',open);
+    mob.setAttribute('aria-hidden',!open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+
+  /* Character filter */
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      renderChars(btn.dataset.filter);
+    });
+  });
+
+  /* Tabs */
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>{
+        b.classList.remove('active');
+        b.setAttribute('aria-selected','false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      renderTimeline(btn.dataset.tab);
+    });
+  });
+
+  /* Modal close */
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  document.getElementById('modalOverlay').addEventListener('click',e=>{
+    if(e.target===e.currentTarget)closeModal();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape')closeModal();
+  });
+
+  /* Search */
+  const inp=document.getElementById('searchInput');
+  inp.addEventListener('input',e=>doSearch(e.target.value));
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('#searchSection'))
+      document.getElementById('searchResults').style.display='none';
+  });
+
+  /* Scroll progress + back to top */
+  window.addEventListener('scroll',()=>{
+    const scroll=window.scrollY;
+    const total=document.documentElement.scrollHeight-window.innerHeight;
+    document.getElementById('progressBar').style.width=(scroll/total*100)+'%';
+    const back=document.getElementById('backTop');
+    back.classList.toggle('visible',scroll>400);
+
+    /* Timeline reveal */
+    document.querySelectorAll('.timeline-item:not(.visible)').forEach(el=>{
+      if(el.getBoundingClientRect().top<window.innerHeight-80)
+        el.classList.add('visible');
+    });
+
+    /* Active nav */
+    const sections=['home','characters','family-tree','timeline','kingdoms','sacred-sites','war-stats','weapons','map','stories','gita','concepts','verses','parvas','quiz'];
+    let active='home';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&el.getBoundingClientRect().top<=80)active=id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.classList.toggle('active',a.getAttribute('href')==='#'+active);
+    });
+  });
+
+  /* Back to top */
+  document.getElementById('backTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  /* PWA */
+  if('serviceWorker' in navigator)
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+});
+
+function closeMobileNav(){
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('hamburger').setAttribute('aria-expanded','false');
+  document.getElementById('mobileNav').setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+function setLang(lang){
+  showToast(lang==='hi'?'हिन्दी सक्रिय':lang==='sa'?'संस्कृत सक्रिय':'English activated');
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active',b.textContent.includes(lang==='en'?'Eng':lang==='hi'?'हिन्दी':'संस्कृत'));
+  });
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+/* ═══════════════════════════════════════════════
+   DATA — WAR DAYS
+═══════════════════════════════════════════════ */
+const WAR_DAYS=[
+  {day:1,commander:"Bhīṣma",side:"kaurava",event:"Conches sound. Arjuna's grief. Bhagavad Gita delivered. First blood — Uttara killed.",key:"Bhagavad Gīta"},
+  {day:2,commander:"Bhīṣma",side:"kaurava",event:"Bhishma unleashes havoc. Arjuna fights Bhishma reluctantly. Abhimanyu's brilliance shown.",key:"Bhishma's fury"},
+  {day:3,commander:"Bhīṣma",side:"kaurava",event:"Bhishma decimates Pandava forces. Krishna nearly abandons chariot-role to kill Bhishma Himself.",key:"Krishna draws wheel"},
+  {day:4,commander:"Bhīṣma",side:"kaurava",event:"Bhima kills 8 of Dhritarashtra's sons. Elephant corps clashes. Gatotkacha appears briefly.",key:"8 Kauravas fall"},
+  {day:5,commander:"Bhīṣma",side:"kaurava",event:"Bhishma continues his decimation. Satyaki saves Arjuna. Many great warriors wounded.",key:"Armies weaken"},
+  {day:6,commander:"Bhīṣma",side:"kaurava",event:"Drona forms a counter-formation. Both armies rested and reformed at dusk. Karna watches from sidelines.",key:"Drona counter"},
+  {day:7,commander:"Bhīṣma",side:"kaurava",event:"Drona fails to capture Yudhishthira (who fled). Bhima kills more Kaurava brothers. 8 more fall.",key:"Capture attempt fails"},
+  {day:8,commander:"Bhīṣma",side:"kaurava",event:"Bhishma's Narayanastra-like onslaught. Iravan (Arjuna's son by Ulupi) killed by Alambusha.",key:"Iravan dies"},
+  {day:9,commander:"Bhīṣma",side:"kaurava",event:"Bhishma invincible. Pandava morale collapses. Krishna whispers strategy to Arjuna — use Shikhandi.",key:"Shikhandi plan"},
+  {day:10,commander:"Bhīṣma",side:"kaurava",event:"Shikhandi placed before Arjuna. Bhishma lays down bow. Arjuna's arrows pierce him. He falls on Shara Shaiyya.",key:"Bhishma falls ⭐"},
+  {day:11,commander:"Droṇa",side:"kaurava",event:"Drona takes command. Promises Duryodhana he will capture Yudhishthira alive.",key:"Drona commands"},
+  {day:12,commander:"Droṇa",side:"kaurava",event:"Drona's Garuda formation. Arjuna almost reaches Drona but is diverted by Susharma.",key:"Garuda formation"},
+  {day:13,commander:"Droṇa",side:"kaurava",event:"Chakravyuha formation. Abhimanyu enters, cannot exit. Six warriors kill him. Arjuna's terrible vow.",key:"Abhimanyu dies 💔"},
+  {day:14,commander:"Droṇa",side:"kaurava",event:"Arjuna vows to kill Jayadratha before sunset. He succeeds with seconds to spare. Krishna hides the sun.",key:"Jayadratha slain"},
+  {day:15,commander:"Droṇa",side:"kaurava",event:"'Ashwatthama is dead' — Yudhishthira's half-truth breaks Drona's spirit. Dhrishtadyumna kills Drona.",key:"Drona falls"},
+  {day:16,commander:"Karṇa",side:"kaurava",event:"Karna commands brilliantly. Bhima fights Karna and is nearly killed. Karna spares him (vow to Kunti).",key:"Karna commands"},
+  {day:17,commander:"Karṇa",side:"kaurava",event:"Karna vs Arjuna — epic duel. Wheel sinks. Parashurama's curse. Arjuna kills Karna. Yudhishthira weeps.",key:"Karna falls ⭐"},
+  {day:18,commander:"Shalya",side:"kaurava",event:"Shalya killed by Yudhishthira. Duryodhana hides in lake. Bhima breaks his thighs. Night massacre by Ashwatthama.",key:"War ends 🏳️"},
+];
+
+/* ═══ WEAPONS DATA ═══ */
+const WEAPONS=[
+  {icon:"🏹",name:"Gāṇḍīva",sk:"गाण्डीव",type:"Divine Bow",power:95,
+   desc:"The celestial bow of Arjuna, gifted by the fire god Agni (via Varuna). Made of celestial wood, it never wears, produces inexhaustible arrows, and roars like thunder when drawn. Even the sound of its string could stun enemies.",
+   wielders:"Arjuna (primary wielder)",origin:"Created by Brahma, held by Varuna, given to Arjuna via Agni"},
+  {icon:"🌀",name:"Brahmastra",sk:"ब्रह्मास्त्र",type:"Nuclear Astra",power:100,
+   desc:"The ultimate weapon invoked by chanting Brahma's mantra. When released, it creates a massive fireball causing universal destruction. Could destroy entire armies and the earth itself. Only another Brahmastra or Brahmanda-astra could counter it.",
+   wielders:"Drona, Ashwatthama, Arjuna, Brahmin warriors",origin:"Gift of Brahma — the Creator"},
+  {icon:"💥",name:"Pāśupatāstra",sk:"पाशुपतास्त्र",type:"Supreme Astra",power:100,
+   desc:"Shiva's personal weapon — the most terrifying astra in existence. It can destroy the universe. Arjuna received it personally from Shiva after intense penance in the Himalayas. Never used in the war (too destructive), but Arjuna possessed it.",
+   wielders:"Arjuna (received from Shiva), Shiva",origin:"Given by Lord Shiva to Arjuna"},
+  {icon:"☀️",name:"Sudarśana Chakra",sk:"सुदर्शन चक्र",type:"Divine Disc",power:98,
+   desc:"Krishna's spinning disc weapon — the Sudarshana (beautiful vision). A spinning wheel of blinding light that returns to the thrower after striking. Used to kill Shishupala (severed his head). It is an aspect of Vishnu's cosmic power.",
+   wielders:"Krishna / Vishnu",origin:"Forged by Vishwakarma from solar rays"},
+  {icon:"🔱",name:"Āgneyāstra",sk:"अग्न्यस्त्र",type:"Fire Astra",power:80,
+   desc:"Invokes the fire god Agni — releases a burst of flames upon the enemy. Countered by the Varunastra (water). Used extensively in the Kurukshetra war. Drona and Arjuna both wielded it.",
+   wielders:"Arjuna, Drona, Karna",origin:"Boon of Agni — god of fire"},
+  {icon:"💧",name:"Vāruṇāstra",sk:"वारुणास्त्र",type:"Water Astra",power:75,
+   desc:"Invokes Varuna, god of water and cosmic order. Releases torrential floods that can extinguish fire weapons. The natural counter to Agneyastra. Could summon rain, storms, and oceanic forces.",
+   wielders:"Arjuna, various",origin:"Gift of Varuna — god of water"},
+  {icon:"⚡",name:"Vajra",sk:"वज्र",type:"Thunder Weapon",power:90,
+   desc:"Indra's thunderbolt weapon — the Vajra, made from the bones of sage Dadhichi. Wielded by Indra, it was the weapon that slew Vritra and established Indra's dominance. Arjuna, as Indra's son, received special weapons from his father.",
+   wielders:"Indra (god of thunder), Arjuna (gifts from Indra)",origin:"Made from sage Dadhichi's bones"},
+  {icon:"🌪️",name:"Nārāyaṇāstra",sk:"नारायणास्त्र",type:"Supreme Astra",power:99,
+   desc:"Vishnu's personal weapon — released by Ashwatthama against the Pandava army. It creates an unstoppable storm of fire, wind, and weapons pursuing enemies. The only counter: lay down all weapons and surrender. If resisted, it grows stronger.",
+   wielders:"Ashwatthama (released against Pandavas)",origin:"Gift of Narayana (Vishnu)"},
+  {icon:"🏋️",name:"Kaumodakī Gadā",sk:"कौमोदकी गदा",type:"Divine Mace",power:85,
+   desc:"Krishna's personal mace — Kaumodaki (the Intoxicator). One of the four attributes of Vishnu. Also, Bhima carried a massive mace weighing the same as ten thousand elephants. Bhima's mace combat was supreme — Duryodhana acknowledged himself equal only to Bhima.",
+   wielders:"Bhima, Krishna (Kaumodaki)",origin:"Kaumodaki gifted by Varuna to Vishnu"},
+  {icon:"🗡️",name:"Chandrahāsa",sk:"चन्द्रहास",type:"Divine Sword",power:88,
+   desc:"The crescent-moon sword (Chandrahasa — laugh of the moon) given by Shiva to demon Ravana. Also referenced in the Mahabharata as a celestial sword used by great warriors. Karna wielded a special sword gifted by the god Narada.",
+   wielders:"Various great warriors",origin:"Gift of Shiva"},
+  {icon:"🌙",name:"Sammohana Astra",sk:"सम्मोहन अस्त्र",type:"Illusion Astra",power:70,
+   desc:"The weapon of illusion — causes mass confusion and sleep in the enemy army. Arjuna used it during the cattle raid (Virata Parva) to single-handedly defeat the entire Kaurava army that had come to steal Virata's cows.",
+   wielders:"Arjuna",origin:"Celestial weapon of sleep/illusion"},
+  {icon:"🔥",name:"Kavacha-Kuṇḍala",sk:"कवच-कुण्डल",type:"Divine Armor",power:96,
+   desc:"Karna's supernatural armor (kavacha) and earrings (kundala) — born fused to his body, making him invincible. He cut them from his living flesh and donated them to Indra (in disguise as a brahmin). Without them, Karna became mortal.",
+   wielders:"Karna (birth right, later surrendered)",origin:"Birth gift from Surya — the Sun god"},
+];
+
+/* ═══ NOTABLE STORIES ═══ */
+const STORIES=[
+  {parva:"Vana Parva",title:"Nala &amp; Damayantī",chars:["King Nala","Damayanti","Kali","Pushkara"],
+   preview:"The most celebrated love story in the Mahabharata. Nala, king of Nishadha, falls in love with Damayanti through a swan's message. At her svayamvara, even the gods disguise themselves as Nala — but Damayanti recognizes her beloved by his unblinking, unsweating eyes. They marry, but Kali (the demon of Kali Yuga) enters Nala and makes him lose his kingdom at dice. Abandoned in the forest, Nala and Damayanti are separated. After years of wandering (Nala disguised as the charioteer Bahuka), they reunite and Nala reclaims his kingdom.",
+   moral:"Devoted love and dharmic patience overcome the darkest of fates"},
+  {parva:"Vana Parva",title:"Sāvitrī &amp; Satyavān",chars:["Savitri","Satyavan","Yama","Dyumatsena"],
+   preview:"Savitri, daughter of King Aswapati, chooses to marry Satyavan despite knowing he will die in one year (as predicted by the divine sage Narada). On the fateful day, Yama (god of death) arrives to take Satyavan's soul. Savitri follows Yama for three days, arguing with unprecedented brilliance. She wins three boons — each more cleverly worded than the last — until she finally asks for 'many sons born of Satyavan' — forcing Yama to restore her husband's life.",
+   moral:"The power of a devoted wife (pativrata) can overcome death itself"},
+  {parva:"Adi Parva",title:"Shakuntala &amp; Dushyanta",chars:["Shakuntala","Dushyanta","Bharata","Sage Kanva"],
+   preview:"King Dushyanta meets and marries the forest maiden Shakuntala (daughter of Menaka the apsara and sage Vishwamitra). He gives her his signet ring as promise. When she travels to his palace, the distracted king — under sage Durvasa's curse — denies knowing her. She produces the ring... but has lost it in the river. Only when a fisherman finds the ring in a fish's belly does Dushyanta's memory return. Their son Bharata gave India the name 'Bharatavarsha'.",
+   moral:"Origin of the Bharata dynasty and the name 'India' (Bharatavarsha)"},
+  {parva:"Vana Parva",title:"Yaksha Praśna",chars:["Yudhishthira","Yaksha (Dharma)"],
+   preview:"While the Pandavas are in exile, a deer steals their fire-making equipment. Pursuing it, one by one each brother drinks from a lake — despite warnings from a voice — and falls dead. Only Yudhishthira approaches and answers the Yaksha's riddles. The Yaksha asks: 'What is heavier than earth? What is faster than wind? What is more numerous than grass? What is the most amazing thing in the world?' Yudhishthira answers each perfectly. The Yaksha reveals himself as Yama (dharma) — and revives the brothers.",
+   moral:"True wisdom and dharma are tested in moments of crisis"},
+  {parva:"Adi Parva",title:"Ekalavya &amp; Guru Dākṣiṇā",chars:["Ekalavya","Dronacharya","Arjuna"],
+   preview:"Ekalavya, a tribal (Nishada) prince, goes to Drona to learn archery. Drona refuses — he teaches only kshatriyas, and must keep Arjuna supreme. Ekalavya returns to the forest and builds a clay statue of Drona, practicing before it as his guru. He becomes arguably the greatest archer of his age. When Drona discovers him, he demands guru dakshina: Ekalavya's right thumb. Without hesitation, Ekalavya cuts it off and offers it. Even one-thumbed, he adapted and fought.",
+   moral:"One of the epic's most contested ethical episodes — devotion vs. social injustice"},
+  {parva:"Adi Parva",title:"Amba's Revenge",chars:["Amba","Bhishma","Shikhandi","Parashurama"],
+   preview:"Bhishma abducted three Kashi princesses for his half-brother. Two agreed to marry; Amba revealed she loved King Shalva. Sent to Shalva, he rejected her (she had been abducted — 'impure'). She returned to Bhishma demanding he marry her — Bhishma refused (his celibacy vow). She sought champions to fight Bhishma; none could. Even Parashurama fought Bhishma to a 23-day standstill. Amba immolated herself, vowing rebirth for revenge. She was reborn as Shikhandi — the weapon that finally felled Bhishma.",
+   moral:"Injustice done to women echoes across lifetimes"},
+  {parva:"Udyoga Parva",title:"The Blind King's Grief",chars:["Dhritarashtra","Vidura","Sanjaya","Gandhari"],
+   preview:"Dhritarashtra, blind from birth, always loved his son Duryodhana — even as he watched him destroy dharma. Vidura repeatedly warned him. Sanjaya was gifted divine sight by Vyasa to narrate the war to the blind king. Every morning Dhritarashtra heard his sons die. Gandhari, who had blindfolded herself for 40 years out of loyalty to her husband, finally opened her eyes at the war's end — and her gaze, filled with tapas (penance energy), scorched Yudhishthira's toe when directed at him.",
+   moral:"Blind parental love (andhā sneha) is the epic's central human tragedy"},
+  {parva:"Shanti Parva",title:"Bhishma on the Bed of Arrows",chars:["Bhishma","Pandavas","Krishna","Yudhishthira"],
+   preview:"After falling on the 10th day, Bhishma lay on a bed of arrows for 58 days waiting for Uttarayan (auspicious death time). Thousands gathered to hear him. Krishna granted him clarity of mind. He delivered the entire Shanti Parva and Anushasana Parva — over 14,000 verses on dharma, statecraft, women's rights, moksha, and the Vishnu Sahasranama. When Yudhishthira felt unworthy to hear teachings from the man who had wronged Draupadi, Bhishma said: 'A man of dharma errs — but his dharma, not his errors, defines him.'",
+   moral:"Even a flawed life of dharmic intent can illuminate generations"},
+];
+
+/* ═══ DIVINE CONCEPTS ═══ */
+const CONCEPTS=[
+  {term:"Dharma",deva:"धर्म",desc:"Cosmic order, righteous duty, moral law — the central concept of the entire epic. Every character's tragedy arises from a conflict of dharmas: Bhishma's vow vs. his love for Pandavas; Arjuna's kshatriya duty vs. his love for kinsmen. 'Dharmasya tattvam nihitam guhayam' — the essence of dharma is hidden in a cave.",ref:"Referenced 3,000+ times throughout the Mahabharata"},
+  {term:"Karma",deva:"कर्म",desc:"Action and its consequences — the cosmic law of cause and effect. The Gita's central teaching: act without attachment to fruit (nishkama karma). Karna's fate is the epic's greatest illustration — great merit, terrible karma from past lives, and the weight of curses intersecting.",ref:"Core of Bhagavad Gita chapters 3, 4, 18"},
+  {term:"Moksha",deva:"मोक्ष",desc:"Liberation from the cycle of birth and death (samsara). The ultimate goal of human life according to the Mahabharata. Bhishma achieves it through conscious dying on the winter solstice. The Shanti Parva devotes thousands of verses to Moksha Dharma.",ref:"Moksha Dharma — Shanti Parva sections 168-353"},
+  {term:"Ahimsa",deva:"अहिंसा",desc:"Non-violence — the highest virtue. Yet the Mahabharata, a text of war, explores when violence is dharmic (just war, protection of dharma) vs. adharmic. The paradox is deliberate: how does a dharmic person act when all choices involve violence?",ref:"Shanti Parva, Anushasana Parva"},
+  {term:"Māyā",deva:"माया",desc:"Illusion — the creative power of the Divine that makes the phenomenal world appear real. The Maya Sabha of the Pandavas (where Duryodhana stumbled) was built by the demon Maya. On a cosmic level, Maya is why souls forget their divine nature.",ref:"Bhagavad Gita chapters 7, 9, 13"},
+  {term:"Yoga",deva:"योग",desc:"Union with the Divine — the Bhagavad Gita describes four paths: Karma Yoga (action), Jnana Yoga (knowledge), Bhakti Yoga (devotion), Raja Yoga (meditation). The epic demonstrates each path through its characters: Arjuna (karma), Vidura (jnana), Draupadi (bhakti).",ref:"Bhagavad Gita — all 18 chapters"},
+  {term:"Svadharma",deva:"स्वधर्म",desc:"One's own duty according to one's nature and station. Krishna to Arjuna: 'Better is one's own dharma, poorly performed, than the dharma of another, well performed.' The tragedy of the epic: every character is trapped in their svadharma.",ref:"Bhagavad Gita 3.35, 18.41-44"},
+  {term:"Kshatriya Dharma",deva:"क्षत्रिय धर्म",desc:"The code of the warrior-king: protect the weak, never refuse a challenge, die in battle (not in bed). Yudhishthira could not refuse Shakuni's dice challenge — kshatriya honor forbade it. Karna could not refuse Indra's request for his armor — dana (giving) dharma demanded it.",ref:"Throughout Adi and Udyoga Parva"},
+  {term:"Guru-Shishya",deva:"गुरु-शिष्य",desc:"The sacred teacher-student relationship — the foundation of knowledge transmission in ancient India. Drona-Arjuna represents its height; Drona-Ekalavya represents its darkest moment. The Gita itself is the ultimate guru-shishya dialogue.",ref:"Adi Parva, Drona Parva"},
+  {term:"Sanātana Dharma",deva:"सनातन धर्म",desc:"The eternal religion — the timeless cosmic order underlying all creation. The Mahabharata's deepest teaching: Sanatan Dharma is not a fixed code but a living response to context, guided by ahimsa, satya (truth), and karuna (compassion) as immovable foundations.",ref:"Shanti Parva, conclusion"},
+  {term:"Yugas",deva:"युग",desc:"The four world-ages: Satya (golden), Treta, Dvapara, and Kali. The Mahabharata war marks the transition from Dvapara Yuga to Kali Yuga — the present age of moral decline. Krishna's death and Dwarka's submersion signal Kali Yuga's beginning.",ref:"Moksha Dharma, Vana Parva"},
+  {term:"Nishkama Karma",deva:"निष्काम कर्म",desc:"Desireless action — perform your duty without attachment to results. The Gita's most practical teaching: the fruits belong to God (or karma), not to you. Act from duty, not desire. This is the antidote to both inaction and selfish action.",ref:"Bhagavad Gita 2.47 — the most famous verse"},
+];
+
+/* ═══ SACRED VERSES ═══ */
+const CHANTS=[
+  {title:"Karmanye Vadhikaraste",source:"Bhagavad Gītā 2.47",
+   text:"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥",
+   translation:"You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself the cause of results, and never be attached to not doing your duty."},
+  {title:"Yada Yada Hi Dharmasya",source:"Bhagavad Gītā 4.7-8",
+   text:"यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।\nअभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥",
+   translation:"Whenever there is a decline in righteousness and an increase in unrighteousness, O Arjuna, at that time I manifest Myself on earth. To protect the good, to destroy evil, and to re-establish dharma, I appear in every age."},
+  {title:"Aham Sarvasya Prabhavo",source:"Bhagavad Gītā 10.8",
+   text:"अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते।\nइति मत्वा भजन्ते मां बुधा भावसमन्विताः॥",
+   translation:"I am the origin of all creation; everything proceeds from Me. Knowing this, the wise worship Me with all their heart and being."},
+  {title:"Sarve Bhavantu Sukhinah",source:"Brihadāraṇyaka Upanishad / Mahābhārata tradition",
+   text:"सर्वे भवन्तु सुखिनः। सर्वे सन्तु निरामयाः।\nसर्वे भद्राणि पश्यन्तु। मा कश्चिद् दुःखभाग् भवेत्॥",
+   translation:"May all beings be happy. May all be free from illness. May all see auspiciousness. May no one suffer."},
+  {title:"Yaksha Praśna — The Great Question",source:"Vana Parva — Yudhiṣṭhira's answer",
+   text:"अहन्यहनि भूतानि गच्छन्तीह यमालयम्।\nशेषाः स्थावरमिच्छन्ति किमाश्चर्यमतः परम्॥",
+   translation:"Every day, beings go to Yama's abode (death). Yet those who remain wish to live forever. What is more amazing than this?"},
+  {title:"The Vishnu Sahasranāma Opening",source:"Anushasana Parva — spoken by Bhīṣma",
+   text:"विश्वं विष्णुर्वषट्कारो भूतभव्यभवत्प्रभुः।\nभूतकृद्भूतभृद्भावो भूतात्मा भूतभावनः॥",
+   translation:"He who is the universe, Vishnu, the one who sanctifies all offerings, the Lord of the past, present and future — the creator of all beings, the one who sustains them, the soul within all, the one who manifests the world."},
+];
+
+/* ═══ QUIZ DATA ═══ */
+const QUIZ_QUESTIONS=[
+  {q:"Who was Arjuna's charioteer at Kurukshetra?",opts:["Balarama","Krishna","Sanjaya","Satyaki"],ans:1,exp:"Krishna served as Arjuna's charioteer (sarathi), though he was a mighty warrior himself. This was at Arjuna's own choice — when offered Krishna's army vs. Krishna personally, Arjuna chose Krishna."},
+  {q:"What is an 'Akshauhini'?",opts:["A type of celestial weapon","A complete military division of chariots, elephants, cavalry, and infantry","A river mentioned in the Mahabharata","A type of royal vow"],ans:1,exp:"One Akshauhini = 21,870 chariots + 21,870 elephants + 65,610 cavalry + 109,350 infantry = 218,700 warriors total. The war had 18 Akshauhinis — 11 Kaurava + 7 Pandava."},
+  {q:"How many days did the Kurukshetra War last?",opts:["12 days","18 days","21 days","7 days"],ans:1,exp:"The Kurukshetra War lasted exactly 18 days — a significant number in the Mahabharata (18 parvas, 18 Akshauhinis, 18 chapters in Bhagavad Gita, Arjuna's grief on Day 1)."},
+  {q:"What was the name of Karna's impenetrable armor that he was born with?",opts:["Vajra Kavach","Kavacha-Kundala","Narayanastra","Brahmastra"],ans:1,exp:"Karna was born with divine armor (kavacha) and earrings (kundala) fused to his skin — gifts from his divine father Surya. They made him invulnerable until he donated them to Indra."},
+  {q:"Who taught Arjuna archery at the highest level?",opts:["Parashurama","Bhishma","Drona","Krishna"],ans:2,exp:"Dronacharya was the primary teacher of both Pandavas and Kauravas. Arjuna was his favorite student and became the supreme archer under Drona's guidance."},
+  {q:"Which formation killed Abhimanyu?",opts:["Garuda Vyuha","Makara Vyuha","Chakra Vyuha","Padma Vyuha"],ans:2,exp:"The Chakravyuha (wheel/spiral formation) was arranged by Drona on Day 13. Abhimanyu knew how to enter but not exit, as he had only heard the entry method in the womb."},
+  {q:"What did Yudhishthira wager last in the dice game?",opts:["His kingdom","Himself","Draupadi","The Pandava army"],ans:2,exp:"In sequence: Yudhishthira lost his army, his kingdom Indraprastha, his treasury, then his brothers one by one, then himself — and finally Draupadi, their shared wife."},
+  {q:"Who wrote the Mahabharata (dictated it)?",opts:["Valmiki","Vyasa","Ganesha","Narada"],ans:1,exp:"Vyasa (Krishna Dvaipayana) composed and dictated the entire Mahabharata to Lord Ganesha, who wrote it. Condition: Ganesha would write only if Vyasa dictated without pause; Vyasa would only if Ganesha understood each verse first."},
+  {q:"Where did Karna receive his archery training?",opts:["Hastinapur","Panchala","With Parashurama as a brahmin","From Drona"],ans:2,exp:"Drona refused to teach Karna (caste discrimination). Karna disguised himself as a brahmin and learned from Parashurama (who taught only brahmins). Parashurama later cursed him when he discovered Karna was a kshatriya."},
+  {q:"Which Kaurava warrior killed Abhimanyu?",opts:["Drona alone","Karna alone","Multiple warriors simultaneously including Karna, Drona, Kripacharya","Duryodhana"],ans:2,exp:"Abhimanyu was surrounded and attacked by six great warriors simultaneously — Drona, Karna, Kripacharya, Kritavarma, Ashwatthama, and Shalya. This was considered a war crime."},
+  {q:"What was the name of Arjuna's divine bow?",opts:["Gandiva","Sharanga","Pinaka","Kodanda"],ans:0,exp:"Arjuna's bow was the Gandiva — a celestial bow created by Brahma, held by Varuna, gifted to Arjuna by Agni. It had 100 bow-strings, never wore out, and its twang could stun armies."},
+  {q:"Who was the father of Dhritarashtra, Pandu, and Vidura?",opts:["Shantanu","Bhishma","Sage Vyasa","Chitravirya"],ans:2,exp:"Sage Vyasa fathered all three by Niyoga (levirate). Satyavati asked Vyasa to father heirs for her dead sons' widows. Ambika (eyes closed) → blind Dhritarashtra; Ambalika (pale) → pale Pandu; maid (serene) → wise Vidura."},
+  {q:"What is the significance of the number 18 in the Mahabharata?",opts:["Days of war only","Days of war, Parvas of the text, chapters in Bhagavad Gita, and total Akshauhinis","Age of Abhimanyu at death","Years of exile"],ans:1,exp:"18 appears everywhere: 18 days of war, 18 Parvas (books), 18 chapters in Bhagavad Gita, 18 Akshauhinis (army divisions), 18 Kaurava brothers who survived each day of battle."},
+  {q:"Who cursed Ashwatthama to wander the earth immortally?",opts:["Arjuna","Yudhishthira","Krishna","Draupadi"],ans:2,exp:"Krishna cursed Ashwatthama to wander for 3,000 years with festering wounds and no human contact after he used the Brahmastra against Uttara's unborn child (Parikshit). Krishna first revived Parikshit, then issued the curse."},
+  {q:"Modern Kurukshetra is in which Indian state?",opts:["Uttar Pradesh","Punjab","Haryana","Rajasthan"],ans:2,exp:"Kurukshetra is in Haryana, about 160 km from Delhi. The district has numerous sites including Brahma Sarovar, Jyotisar (Gita delivery site), and the Kurukshetra Panorama & Science Centre."},
+];
+
+/* ═════════════════════════════════════════════
+   RENDER — WAR DAYS
+═════════════════════════════════════════════ */
+function renderWarDays(){
+  const strip=document.getElementById('warDaysStrip');
+  if(!strip)return;
+  strip.innerHTML=WAR_DAYS.map(d=>`
+    <div class="war-day-card" role="listitem" tabindex="0"
+         onclick="openWarDayModal(${d.day-1})"
+         onkeydown="if(event.key==='Enter')openWarDayModal(${d.day-1})"
+         aria-label="Day ${d.day}: ${d.key}">
+      <div class="war-day-num">Day ${d.day}</div>
+      <div class="war-day-commander" style="color:${d.side==='pandava'?'#4fc3f7':'#ef9a9a'}">${d.commander}</div>
+      <div class="war-day-event">${d.key}</div>
+    </div>`).join('');
+}
+function openWarDayModal(idx){
+  const d=WAR_DAYS[idx];
+  document.getElementById('modalEyebrow').textContent=`Day ${d.day} of 18 · Kurukshetra War`;
+  document.getElementById('modalTitle').textContent=`⚔️ Day ${d.day} — ${d.key}`;
+  document.getElementById('modalBody').innerHTML=`
+    <div class="modal-section">
+      <h4>Supreme Commander</h4>
+      <p style="color:${d.side==='pandava'?'#4fc3f7':'#ef9a9a'};font-family:var(--font-serif);font-size:18px">${d.commander} (${d.side.charAt(0).toUpperCase()+d.side.slice(1)})</p>
+    </div>
+    <div class="modal-section"><h4>Key Events</h4><p>${d.event}</p></div>
+    ${idx>0?`<div style="margin-top:16px"><button class="btn-secondary" style="padding:8px 18px;font-size:12px" onclick="closeModal();setTimeout(()=>openWarDayModal(${idx-1}),50)">← Day ${idx}</button></div>`:''}
+    ${idx<17?`<div style="margin-top:8px"><button class="btn-primary" style="padding:8px 18px;font-size:12px" onclick="closeModal();setTimeout(()=>openWarDayModal(${idx+1}),50)">Day ${idx+2} →</button></div>`:''}`;
+  openModal();
+}
+
+/* ═════════════════════════════════════════════
+   RENDER — WEAPONS
+═════════════════════════════════════════════ */
+function renderWeapons(){
+  const grid=document.getElementById('weaponsGrid');
+  if(!grid)return;
+  grid.innerHTML=WEAPONS.map((w,i)=>`
+    <div class="weapon-card" role="listitem" tabindex="0"
+         onclick="openWeaponModal(${i})"
+         onkeydown="if(event.key==='Enter')openWeaponModal(${i})"
+         aria-label="${w.name} — ${w.type}">
+      <span class="weapon-icon" aria-hidden="true">${w.icon}</span>
+      <div class="weapon-name">${w.name}</div>
+      <div class="weapon-sanskrit" lang="sa">${w.sk}</div>
+      <div class="weapon-type">${w.type}</div>
+      <div class="weapon-desc">${w.desc.substring(0,120)}…</div>
+      <div class="weapon-wielders">⚔️ ${w.wielders}</div>
+      <div class="weapon-power">
+        <div class="weapon-power-fill" style="width:0%" data-power="${w.power}"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:4px">
+        <span style="font-size:10px;color:var(--text3);font-family:var(--font-serif)">Power Level</span>
+        <span style="font-size:11px;color:var(--gold);font-family:var(--font-serif)">${w.power}/100</span>
+      </div>
+    </div>`).join('');
+  // Animate power bars on scroll
+  setTimeout(()=>{
+    document.querySelectorAll('.weapon-power-fill').forEach(el=>{
+      el.style.width=el.dataset.power+'%';
+    });
+  },300);
+}
+function openWeaponModal(idx){
+  const w=WEAPONS[idx];
+  document.getElementById('modalEyebrow').textContent=w.type+' · Power: '+w.power+'/100';
+  document.getElementById('modalTitle').textContent=w.icon+' '+w.name+' — '+w.sk;
+  document.getElementById('modalBody').innerHTML=`
+    <div class="modal-section"><h4>Description</h4><p>${w.desc}</p></div>
+    <div class="modal-section"><h4>Primary Wielder(s)</h4><p>${w.wielders}</p></div>
+    <div class="modal-section"><h4>Divine Origin</h4><p>${w.origin}</p></div>
+    <div class="modal-section">
+      <h4>Power Rating</h4>
+      <div class="weapon-power" style="height:8px;margin-top:8px">
+        <div class="weapon-power-fill" style="width:${w.power}%"></div>
+      </div>
+      <div style="text-align:right;margin-top:4px;font-size:12px;color:var(--gold);font-family:var(--font-serif)">${w.power} / 100</div>
+    </div>`;
+  openModal();
+}
+
+/* ═════════════════════════════════════════════
+   RENDER — MAP TOOLTIPS
+═════════════════════════════════════════════ */
+function initMap(){
+  const tooltip=document.getElementById('mapTooltip');
+  if(!tooltip)return;
+  const wrapper=document.querySelector('.india-map-wrapper');
+  document.querySelectorAll('.map-dot').forEach(dot=>{
+    dot.addEventListener('mouseenter',e=>{
+      const d=dot.dataset;
+      tooltip.innerHTML=`<strong style="color:var(--gold-light);font-family:var(--font-serif)">${d.name}</strong><br/><span style="font-size:11px;color:var(--text3)">📍 ${d.modern}</span><br/><span style="font-size:12px;color:var(--text2)">${d.desc}</span>`;
+      tooltip.classList.add('show');
+    });
+    dot.addEventListener('mousemove',e=>{
+      const rect=wrapper.getBoundingClientRect();
+      let x=e.clientX-rect.left+12,y=e.clientY-rect.top-10;
+      if(x+210>rect.width)x=e.clientX-rect.left-220;
+      tooltip.style.left=x+'px';tooltip.style.top=y+'px';
+    });
+    dot.addEventListener('mouseleave',()=>tooltip.classList.remove('show'));
+    dot.addEventListener('click',()=>{
+      const d=dot.dataset;
+      document.getElementById('modalEyebrow').textContent=d.type.charAt(0).toUpperCase()+d.type.slice(1)+' · Ancient India';
+      document.getElementById('modalTitle').textContent='📍 '+d.name;
+      document.getElementById('modalBody').innerHTML=`
+        <div class="modal-section"><h4>Ancient Name</h4><p>${d.name}</p></div>
+        <div class="modal-section"><h4>Modern Location</h4><p>${d.modern}</p></div>
+        <div class="modal-section"><h4>Significance</h4><p>${d.desc}</p></div>`;
+      openModal();
+    });
+    dot.setAttribute('tabindex','0');
+    dot.setAttribute('role','button');
+    dot.setAttribute('aria-label',dot.dataset.name+' — '+dot.dataset.modern);
+    dot.addEventListener('keydown',e=>{if(e.key==='Enter')dot.dispatchEvent(new Event('click'))});
+  });
+}
+
+/* ═════════════════════════════════════════════
+   RENDER — NOTABLE STORIES
+═════════════════════════════════════════════ */
+function renderStories(){
+  const grid=document.getElementById('storiesGrid');
+  if(!grid)return;
+  grid.innerHTML=STORIES.map((s,i)=>`
+    <div class="story-card" role="listitem" tabindex="0"
+         onclick="openStoryModal(${i})"
+         onkeydown="if(event.key==='Enter')openStoryModal(${i})"
+         aria-label="${s.title}">
+      <div class="story-parva">${s.parva}</div>
+      <div class="story-title">${s.title}</div>
+      <div class="story-chars">${s.chars.map(c=>`<span class="story-char">${c}</span>`).join('')}</div>
+      <div class="story-preview">${s.preview.substring(0,180)}…</div>
+      <div class="story-read-more">Read full story <span>→</span></div>
+    </div>`).join('');
+}
+function openStoryModal(idx){
+  const s=STORIES[idx];
+  document.getElementById('modalEyebrow').textContent=s.parva+' · Notable Sub-tale';
+  document.getElementById('modalTitle').textContent=s.title;
+  document.getElementById('modalBody').innerHTML=`
+    <div class="modal-section"><h4>Characters</h4><div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">${s.chars.map(c=>`<span class="modal-tag">${c}</span>`).join('')}</div></div>
+    <div class="modal-section"><h4>The Story</h4><p style="line-height:1.85">${s.preview}</p></div>
+    ${s.moral?`<div class="modal-section"><h4>Moral / Significance</h4><p style="color:var(--gold);font-style:italic">${s.moral}</p></div>`:''}`;
+  openModal();
+}
+
+/* ═════════════════════════════════════════════
+   RENDER — CONCEPTS
+═════════════════════════════════════════════ */
+function renderConcepts(){
+  const grid=document.getElementById('conceptsGrid');
+  if(!grid)return;
+  grid.innerHTML=CONCEPTS.map((c,i)=>`
+    <div class="concept-card" role="listitem" tabindex="0"
+         onclick="openConceptModal(${i})"
+         onkeydown="if(event.key==='Enter')openConceptModal(${i})"
+         aria-label="${c.term}">
+      <div class="concept-term">${c.term}</div>
+      <div class="concept-devanagari" lang="sa">${c.deva}</div>
+      <div class="concept-desc">${c.desc.substring(0,140)}…</div>
+      <div class="concept-ref">${c.ref}</div>
+    </div>`).join('');
+}
+function openConceptModal(idx){
+  const c=CONCEPTS[idx];
+  document.getElementById('modalEyebrow').textContent='Philosophical Concept · Dharmic Vocabulary';
+  document.getElementById('modalTitle').textContent=c.term+' — '+c.deva;
+  document.getElementById('modalBody').innerHTML=`
+    <div class="modal-section"><h4>Meaning &amp; Significance</h4><p style="line-height:1.85">${c.desc}</p></div>
+    <div class="modal-section"><h4>Primary References</h4><p>${c.ref}</p></div>`;
+  openModal();
+}
+
+/* ═════════════════════════════════════════════
+   RENDER — CHANTS / VERSES
+═════════════════════════════════════════════ */
+function renderChants(){
+  const grid=document.getElementById('chantsGrid');
+  if(!grid)return;
+  grid.innerHTML=CHANTS.map((c,i)=>`
+    <div class="chant-card" role="listitem">
+      <div class="chant-title">${c.title}</div>
+      <div class="chant-source">${c.source}</div>
+      <div class="chant-text" lang="sa" dir="ltr">${c.text.replace(/\n/g,'<br/>')}</div>
+      <div class="chant-translation">${c.translation}</div>
+      <div class="chant-bar" role="button" tabindex="0" aria-label="Read verse ${i+1}"
+           onclick="copyVerse(${i})" onkeydown="if(event.key==='Enter')copyVerse(${i})">
+        <div class="chant-play-btn" aria-hidden="true">📋</div>
+        <div class="chant-wave">
+          <div class="chant-wave-fill" id="wave-${i}"></div>
+        </div>
+        <span style="font-size:11px;color:var(--text3);font-family:var(--font-serif);white-space:nowrap">Copy verse</span>
+      </div>
+    </div>`).join('');
+}
+function copyVerse(idx){
+  const c=CHANTS[idx];
+  const text=c.text+'\n\n'+c.translation+'\n— '+c.source;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>showToast('✨ Verse copied to clipboard'));
+  } else {
+    showToast('✨ '+c.title);
+  }
+  // Animate wave
+  const wave=document.getElementById('wave-'+idx);
+  if(wave){wave.style.width='100%';setTimeout(()=>wave.style.width='0%',1200)}
+}
+
+/* ═════════════════════════════════════════════
+   QUIZ ENGINE
+═════════════════════════════════════════════ */
+let quizState={current:0,score:0,answered:false,total:QUIZ_QUESTIONS.length};
+function renderQuiz(){
+  const container=document.getElementById('quizCard');
+  if(!container)return;
+  const q=QUIZ_QUESTIONS[quizState.current];
+  const progress=((quizState.current)/quizState.total*100);
+  document.getElementById('quizProgress').style.width=progress+'%';
+  container.innerHTML=`
+    <div class="quiz-card">
+      <div class="quiz-q-num">Question ${quizState.current+1} of ${quizState.total}</div>
+      <div class="quiz-question">${q.q}</div>
+      <div class="quiz-options">
+        ${q.opts.map((opt,i)=>`
+          <button class="quiz-option" onclick="answerQuiz(${i})" aria-label="Option ${String.fromCharCode(65+i)}: ${opt}">
+            <span class="quiz-option-letter">${String.fromCharCode(65+i)}</span>
+            ${opt}
+          </button>`).join('')}
+      </div>
+      <div class="quiz-explanation" id="quizExp">${q.exp}</div>
+      <div class="quiz-nav">
+        <span style="font-size:13px;color:var(--text3);font-family:var(--font-serif)">Score: <span style="color:var(--gold)">${quizState.score}</span>/${quizState.current}</span>
+        <button class="btn-secondary" id="quizNextBtn" style="display:none;padding:10px 24px;font-size:13px" onclick="nextQuestion()">Next Question →</button>
+      </div>
+    </div>`;
+}
+function answerQuiz(idx){
+  if(quizState.answered)return;
+  quizState.answered=true;
+  const q=QUIZ_QUESTIONS[quizState.current];
+  const opts=document.querySelectorAll('.quiz-option');
+  opts.forEach((btn,i)=>{
+    btn.disabled=true;
+    if(i===q.ans)btn.classList.add('correct');
+    else if(i===idx&&idx!==q.ans)btn.classList.add('wrong');
+  });
+  if(idx===q.ans){quizState.score++;showToast('✅ Correct!')}
+  else showToast('❌ Not quite — see explanation');
+  document.getElementById('quizExp').classList.add('show');
+  document.getElementById('quizNextBtn').style.display='block';
+}
+function nextQuestion(){
+  quizState.current++;
+  quizState.answered=false;
+  if(quizState.current>=quizState.total){showQuizResult();return}
+  renderQuiz();
+}
+function showQuizResult(){
+  const pct=Math.round(quizState.score/quizState.total*100);
+  const grade=pct>=90?'🏆 Mahābhārata Scholar!':pct>=70?'🌟 Dharma Warrior':pct>=50?'⚔️ Kshatriya Initiate':'📖 Begin Your Journey';
+  document.getElementById('quizProgress').style.width='100%';
+  document.getElementById('quizCard').innerHTML=`
+    <div class="quiz-card">
+      <div class="quiz-score-display">
+        <div class="quiz-score-num">${quizState.score}/${quizState.total}</div>
+        <div class="quiz-score-label">${grade}</div>
+        <div class="quiz-score-sub">${pct}% correct · ${pct>=70?'Yudhishthira would be proud':'Keep reading the Parvas!'}</div>
+        <button class="btn-primary" onclick="resetQuiz()" style="margin-top:8px">Try Again</button>
+      </div>
+    </div>`;
+}
+function resetQuiz(){
+  quizState={current:0,score:0,answered:false,total:QUIZ_QUESTIONS.length};
+  // Shuffle questions
+  for(let i=QUIZ_QUESTIONS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[QUIZ_QUESTIONS[i],QUIZ_QUESTIONS[j]]=[QUIZ_QUESTIONS[j],QUIZ_QUESTIONS[i]];}
+  renderQuiz();
+}
+
+</script>
+</body>
+</html>

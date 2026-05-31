@@ -1,0 +1,47 @@
+MIT License
+
+Copyright (c) 2026 Sudhakar Saptasagar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+CONTENT NOTICE
+The software code (HTML, CSS, JavaScript) is licensed under MIT above.
+
+The Mahābhārata text, Sanskrit verses, and story content reproduced in this
+application are derived from ancient works in the public domain, including:
+
+  - The Mahābhārata (Sanskrit original, ~400 BCE – 400 CE)
+    Compiler: Sage Vyāsa (Krishnadvaipāyana)
+
+  - K.M. Ganguli English translation (1883–1896) — public domain
+    Published by Pratap Chandra Roy, Calcutta
+
+  - The Bhagavad Gītā (Sanskrit original) — public domain
+
+  - Monier-Williams Sanskrit-English Dictionary (1899) — public domain
+
+These ancient texts are part of humanity's shared cultural and spiritual
+heritage and are not subject to copyright. Modern scholarly translations
+cited in the app (Wisdomlib, BORI Critical Edition) are used for reference
+only; no substantial portions are reproduced.
+
+The web application code itself is original work and is freely licensed
+under MIT. Attribution appreciated but not required.
