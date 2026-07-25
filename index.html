@@ -8,7 +8,7 @@
 <link rel="manifest" href="manifest.json"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&family=Noto+Sans+Kannada:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <title>Mahābhārata — The Great Epic</title>
 <style>
 :root{
@@ -33,7 +33,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:var(--fb);background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden;line-height:1.7;font-size:16px}
+body{font-family:var(--fb);background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden;line-height:1.75;font-size:18px}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:5px}
@@ -84,7 +84,7 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 [data-theme=light] nav.mnav{background:rgba(253,248,240,.9)}
 .ni{display:flex;align-items:center;justify-content:space-between;
   height:64px;max-width:1400px;margin:0 auto}
-.nlogo{font-family:var(--fd);font-size:clamp(12px,2vw,18px);color:var(--gold);
+.nlogo{font-family:var(--fd);font-size:clamp(14px,2.2vw,21px);color:var(--gold);
   letter-spacing:.05em;display:flex;align-items:center;gap:9px}
 .om{font-size:1.4em;animation:pglow 3s ease-in-out infinite}
 @keyframes pglow{0%,100%{text-shadow:0 0 10px rgba(200,150,30,.4)}50%{text-shadow:0 0 30px rgba(200,150,30,.9)}}
@@ -116,7 +116,7 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 #home{min-height:100vh;display:flex;align-items:center;justify-content:center;
   padding:100px 5vw 60px;text-align:center;position:relative;overflow:hidden}
 .hcon{max-width:900px;position:relative;z-index:1}
-.hsk{font-family:var(--fh);font-size:clamp(12px,2.3vw,19px);color:var(--gold);
+.hsk{font-family:var(--fh);font-size:clamp(14px,2.5vw,22px);color:var(--gold);
   opacity:.75;letter-spacing:.14em;margin-bottom:18px;animation:fdD .8s both}
 .htit{font-family:var(--fd);font-size:clamp(36px,8vw,92px);line-height:1.05;
   background:linear-gradient(135deg,var(--gp) 0%,var(--gold) 40%,var(--cu) 70%,var(--gl) 100%);
@@ -124,26 +124,26 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
   filter:drop-shadow(0 0 30px rgba(200,150,30,.4));animation:fdD .8s .1s both}
 .hsub{font-family:var(--fs);font-size:clamp(11px,1.8vw,16px);color:var(--t2);
   letter-spacing:.2em;text-transform:uppercase;margin:14px 0 24px;animation:fdD .8s .2s both}
-.hdesc{font-size:clamp(14px,2vw,18px);color:var(--t3);max-width:640px;margin:0 auto 36px;
+.hdesc{font-size:clamp(16px,2.2vw,21px);color:var(--t3);max-width:640px;margin:0 auto 36px;
   line-height:1.8;animation:fdU .8s .35s both;font-style:italic}
 .hsts{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-bottom:40px;animation:fdU .8s .45s both}
 .scard{padding:13px 20px;border-radius:var(--r);background:var(--s1);border:1px solid var(--b1);
   backdrop-filter:blur(12px);text-align:center;transition:all .3s}
 .scard:hover{background:var(--s2);border-color:var(--b2);transform:translateY(-3px);box-shadow:var(--gw)}
 .sn{font-family:var(--fs);font-size:clamp(18px,2.8vw,28px);color:var(--gold);font-weight:700}
-.sl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-top:3px}
+.sl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-top:3px}
 .ctag{display:flex;flex-wrap:wrap;gap:11px;justify-content:center;animation:fdU .8s .55s both}
 .bp{padding:13px 30px;border-radius:50px;background:linear-gradient(135deg,var(--gold),var(--cu));
-  color:#1a0d00;font-family:var(--fs);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  color:#1a0d00;font-family:var(--fs);font-size:15px;letter-spacing:.1em;text-transform:uppercase;
   font-weight:700;transition:all .3s;box-shadow:0 4px 20px rgba(200,150,30,.4)}
 .bp:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,150,30,.6)}
 .bs{padding:12px 30px;border-radius:50px;background:transparent;color:var(--gold);
-  font-family:var(--fs);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  font-family:var(--fs);font-size:15px;letter-spacing:.1em;text-transform:uppercase;
   border:1.5px solid var(--b2);transition:all .3s}
 .bs:hover{background:var(--s1);border-color:var(--gold);transform:translateY(-2px)}
 .shy{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:7px;
-  color:var(--t3);font-size:10px;letter-spacing:.14em;text-transform:uppercase;animation:fdI 1s 1.2s both}
+  color:var(--t3);font-size:12px;letter-spacing:.14em;text-transform:uppercase;animation:fdI 1s 1.2s both}
 .sarr{width:19px;height:28px;border:2px solid var(--b2);border-radius:10px;position:relative}
 .sarr::after{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);
   width:3px;height:7px;border-radius:2px;background:var(--gold);animation:sdot 2s ease-in-out infinite}
@@ -157,14 +157,14 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 /* SECTIONS */
 .sec{padding:clamp(56px,7vw,100px) 5vw;max-width:1400px;margin:0 auto}
 .sechd{text-align:center;margin-bottom:clamp(40px,5.5vw,68px)}
-.ey{font-family:var(--fs);font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+.ey{font-family:var(--fs);font-size:12px;letter-spacing:.25em;text-transform:uppercase;
   color:var(--gold);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:11px}
 .ey::before,.ey::after{content:'';width:34px;height:1px;background:var(--gold);opacity:.5}
-.stit{font-family:var(--fd);font-size:clamp(24px,4.8vw,50px);
+.stit{font-family:var(--fd);font-size:clamp(28px,5.2vw,56px);
   background:linear-gradient(135deg,var(--gp),var(--gold));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   margin-bottom:12px;line-height:1.15}
-.sdesc{font-size:clamp(14px,1.8vw,17px);color:var(--t2);max-width:570px;margin:0 auto;line-height:1.8;font-style:italic}
+.sdesc{font-size:clamp(16px,2vw,19px);color:var(--t2);max-width:570px;margin:0 auto;line-height:1.8;font-style:italic}
 .dvd{width:100%;max-width:1400px;margin:0 auto;height:1px;
   background:linear-gradient(90deg,transparent,var(--b2),transparent)}
 
@@ -175,15 +175,16 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
   display:flex;align-items:center;backdrop-filter:blur(20px);transition:all .3s}
 .sbar:focus-within{border-color:var(--gold);box-shadow:var(--gw)}
 .sico{position:absolute;left:17px;color:var(--gold);font-size:16px;pointer-events:none}
-.sbar input{background:none;border:none;outline:none;color:var(--t1);font-family:var(--fb);font-size:16px;width:100%}
+.sbar input{background:none;border:none;outline:none;color:var(--t1);font-family:var(--fb);font-size:17px;width:100%}
 .sbar input::placeholder{color:var(--t3)}
 .sres{position:absolute;top:calc(100% + 7px);left:0;right:0;background:var(--bg2);
   border:1px solid var(--b1);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);z-index:50;display:none}
-.sri{padding:10px 16px;border-bottom:1px solid var(--b1);cursor:pointer;transition:background .2s;
+
+.sri{padding:12px 16px;border-bottom:1px solid var(--b1);cursor:pointer;transition:background .2s;
   display:flex;align-items:center;gap:9px}
 .sri:last-child{border-bottom:none}
 .sri:hover{background:var(--s1)}
-.stag{font-size:9px;padding:2px 7px;border-radius:4px;background:var(--s2);color:var(--gold);
+.stag{font-size:11px;padding:2px 7px;border-radius:4px;background:var(--s2);color:var(--gold);
   font-family:var(--fs);letter-spacing:.07em;white-space:nowrap}
 
 /* QUOTES */
@@ -194,7 +195,7 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
   color:var(--gold);opacity:.04;font-family:serif;line-height:1;pointer-events:none}
 .qtxt{font-size:clamp(16px,2.8vw,24px);font-style:italic;color:var(--t1);
   line-height:1.65;max-width:660px;margin:0 auto 16px;transition:opacity .5s,transform .5s}
-.qsrc{font-family:var(--fs);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.qsrc{font-family:var(--fs);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
 .qdots{display:flex;justify-content:center;gap:7px;margin-top:22px}
 .qdot{width:7px;height:7px;border-radius:50%;background:var(--b2);cursor:pointer;transition:all .3s;border:none}
 .qdot.on{background:var(--gold);transform:scale(1.35)}
@@ -202,7 +203,7 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 /* CHARACTERS */
 .fgrp{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px}
 .fb{padding:7px 16px;border-radius:50px;background:var(--s1);border:1px solid var(--b1);
-  color:var(--t2);font-family:var(--fs);font-size:11px;letter-spacing:.07em;text-transform:uppercase;transition:all .25s}
+  color:var(--t2);font-family:var(--fs);font-size:13px;letter-spacing:.07em;text-transform:uppercase;transition:all .25s}
 .fb:hover,.fb.on{background:linear-gradient(135deg,var(--gold),var(--cu));color:#1a0d00;border-color:transparent}
 .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:20px}
 .ccard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rl);
@@ -216,10 +217,10 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 .csym{position:relative;z-index:1;filter:drop-shadow(0 0 14px rgba(200,150,30,.55))}
 .cbd{padding:16px}
 .cnam{font-family:var(--fs);font-size:clamp(16px,2.2vw,20px);color:var(--gl);margin-bottom:3px}
-.ctit{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:9px;font-family:var(--fs)}
-.cdesc{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:12px}
+.ctit{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:9px;font-family:var(--fs)}
+.cdesc{font-size:15px;color:var(--t2);line-height:1.6;margin-bottom:12px}
 .ctags{display:flex;flex-wrap:wrap;gap:4px}
-.ctg{font-size:9px;padding:3px 8px;border-radius:4px;background:var(--s2);color:var(--gold);font-family:var(--fs)}
+.ctg{font-size:11px;padding:3px 8px;border-radius:4px;background:var(--s2);color:var(--gold);font-family:var(--fs)}
 .p{border-left:3px solid #4fc3f7}.k{border-left:3px solid #c62828}
 .n{border-left:3px solid var(--gold)}.d{border-left:3px solid #ab47bc}
 
@@ -235,8 +236,8 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 .tc:hover{background:var(--s2);border-color:var(--gold);transform:scale(1.06)}
 .tc.tp{border-top:2px solid #4fc3f7}.tc.tk{border-top:2px solid #c62828}
 .tc.td{border-top:2px solid #ab47bc}.tc.tt{border-top:2px solid var(--gold)}
-.tnm{font-family:var(--fs);font-size:11px;color:var(--gl);font-weight:600}
-.trl{font-size:9px;color:var(--t3);margin-top:2px}
+.tnm{font-family:var(--fs);font-size:13px;color:var(--gl);font-weight:600}
+.trl{font-size:11px;color:var(--t3);margin-top:2px}
 .tcon{position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:2px;height:26px;background:var(--b2)}
 
 /* TIMELINE — items always visible */
@@ -253,16 +254,16 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 .tlb{flex:1;background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);
   padding:clamp(13px,2.2vw,22px);transition:all .3s}
 .tlb:hover{border-color:var(--b2);background:var(--s2)}
-.tlera{font-family:var(--fs);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.tlera{font-family:var(--fs);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
 .tltit{font-family:var(--fs);font-size:clamp(15px,2.1vw,20px);color:var(--gl);margin-bottom:6px}
-.tltxt{font-size:clamp(12px,1.6vw,14px);color:var(--t2);line-height:1.72}
+.tltxt{font-size:clamp(14px,1.8vw,17px);color:var(--t2);line-height:1.72}
 .tlmet{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
-.tltag{font-size:9px;padding:2px 8px;border-radius:4px;background:var(--s2);color:var(--t3);font-family:var(--fs)}
+.tltag{font-size:11px;padding:2px 8px;border-radius:4px;background:var(--s2);color:var(--t3);font-family:var(--fs)}
 
 /* TABS */
 .tabs{display:flex;gap:3px;flex-wrap:wrap;background:var(--s1);border-radius:50px;
   padding:3px;margin-bottom:32px;border:1px solid var(--b1);justify-content:center}
-.tab{padding:8px 20px;border-radius:50px;font-family:var(--fs);font-size:11px;
+.tab{padding:9px 22px;border-radius:50px;font-family:var(--fs);font-size:13px;
   letter-spacing:.07em;text-transform:uppercase;color:var(--t2);transition:all .25s}
 .tab.on{background:linear-gradient(135deg,var(--gold),var(--cu));color:#1a0d00}
 .tab:hover:not(.on){color:var(--gold)}
@@ -278,11 +279,11 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 .kcard:hover::after{transform:scaleX(1)}
 .kico{font-size:32px;margin-bottom:9px;display:block}
 .knam{font-family:var(--fs);font-size:clamp(16px,2.1vw,20px);color:var(--gl);margin-bottom:3px}
-.kanc{font-size:11px;color:var(--t3);margin-bottom:7px;font-style:italic}
-.kmod{font-size:11px;color:var(--gold);background:var(--s2);padding:4px 10px;border-radius:5px;
+.kanc{font-size:13px;color:var(--t3);margin-bottom:7px;font-style:italic}
+.kmod{font-size:13px;color:var(--gold);background:var(--s2);padding:4px 10px;border-radius:5px;
   display:inline-flex;align-items:center;gap:4px;margin-bottom:9px;font-family:var(--fs)}
-.kdesc{font-size:12px;color:var(--t2);line-height:1.65}
-.krul{margin-top:9px;padding-top:9px;border-top:1px solid var(--b1);font-size:11px;color:var(--t3);font-family:var(--fs)}
+.kdesc{font-size:14px;color:var(--t2);line-height:1.65}
+.krul{margin-top:9px;padding-top:9px;border-top:1px solid var(--b1);font-size:13px;color:var(--t3);font-family:var(--fs)}
 
 /* SACRED SITES */
 .sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:17px}
@@ -292,10 +293,10 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
   display:flex;align-items:center;justify-content:center;font-size:50px;position:relative;overflow:hidden}
 .ssov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent,rgba(10,5,0,.55))}
 .ssbd{padding:15px}
-.ssnm{font-family:var(--fs);font-size:16px;color:var(--gl);margin-bottom:3px}
-.ssst{font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-family:var(--fs)}
-.ssdc{font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:9px}
-.ssvi{font-size:10px;color:var(--t3);display:flex;align-items:flex-start;gap:4px;font-style:italic;line-height:1.5}
+.ssnm{font-family:var(--fs);font-size:18px;color:var(--gl);margin-bottom:3px}
+.ssst{font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-family:var(--fs)}
+.ssdc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:9px}
+.ssvi{font-size:12px;color:var(--t3);display:flex;align-items:flex-start;gap:4px;font-style:italic;line-height:1.5}
 
 /* WAR STATS */
 .wsdash{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:17px;margin-bottom:32px}
@@ -304,22 +305,22 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 .wsn{font-family:var(--fd);font-size:clamp(28px,4.5vw,46px);
   background:linear-gradient(135deg,var(--gp),var(--gold));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
-.wsl{font-family:var(--fs);font-size:11px;color:var(--t2);margin-top:4px}
-.wss{font-size:10px;color:var(--t3);margin-top:3px;font-style:italic}
+.wsl{font-family:var(--fs);font-size:13px;color:var(--t2);margin-top:4px}
+.wss{font-size:12px;color:var(--t3);margin-top:3px;font-style:italic}
 .mbars{margin-top:13px}
 .mb{display:flex;align-items:center;gap:7px;margin-bottom:6px}
-.mbl{font-size:9px;color:var(--t3);min-width:76px;text-align:right;font-family:var(--fs)}
+.mbl{font-size:11px;color:var(--t3);min-width:76px;text-align:right;font-family:var(--fs)}
 .mbt{flex:1;height:5px;background:var(--s2);border-radius:3px;overflow:hidden}
 .mbf{height:100%;border-radius:3px;transition:width 1.2s var(--ease)}
-.mbv{font-size:9px;color:var(--gold);min-width:28px;font-family:var(--fs)}
+.mbv{font-size:11px;color:var(--gold);min-width:28px;font-family:var(--fs)}
 .dstrip{display:flex;gap:7px;overflow-x:auto;padding:10px 0;
   scrollbar-width:thin;scrollbar-color:var(--gold) var(--bg)}
 .dcard{flex:0 0 148px;background:var(--s1);border:1px solid var(--b1);
   border-radius:var(--r);padding:13px;cursor:pointer;transition:all .3s}
 .dcard:hover{background:var(--s2);border-color:var(--b2);transform:translateY(-3px);box-shadow:var(--gw)}
-.dnum{font-family:var(--fd);font-size:19px;color:var(--gold);margin-bottom:3px;line-height:1}
-.dcmd{font-family:var(--fs);font-size:10px;margin-bottom:3px}
-.devt{font-size:9px;color:var(--t3);line-height:1.4}
+.dnum{font-family:var(--fd);font-size:21px;color:var(--gold);margin-bottom:3px;line-height:1}
+.dcmd{font-family:var(--fs);font-size:12px;margin-bottom:3px}
+.devt{font-size:11px;color:var(--t3);line-height:1.4}
 
 /* WEAPONS */
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:17px}
@@ -329,30 +330,30 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
   border-radius:0 var(--rl) 0 65px;background:linear-gradient(135deg,var(--gold),transparent);opacity:.07}
 .wcard:hover{transform:translateY(-4px);box-shadow:var(--gw);border-color:var(--b2)}
 .wico{font-size:36px;margin-bottom:9px;display:block}
-.wnam{font-family:var(--fs);font-size:18px;color:var(--gl);margin-bottom:3px}
-.wsk{font-family:var(--fh);font-size:11px;color:var(--t3);margin-bottom:6px}
-.wtyp{display:inline-block;padding:3px 10px;border-radius:20px;font-size:9px;
+.wnam{font-family:var(--fs);font-size:20px;color:var(--gl);margin-bottom:3px}
+.wsk{font-family:var(--fh);font-size:13px;color:var(--t3);margin-bottom:6px}
+.wtyp{display:inline-block;padding:4px 11px;border-radius:20px;font-size:11px;
   letter-spacing:.1em;text-transform:uppercase;font-family:var(--fs);margin-bottom:8px;
   background:linear-gradient(135deg,rgba(200,150,30,.14),rgba(181,84,26,.14));
   border:1px solid var(--b2);color:var(--gold)}
-.wdesc{font-size:12px;color:var(--t2);line-height:1.65;margin-bottom:9px}
-.wwld{font-size:10px;color:var(--t3);font-family:var(--fs);margin-bottom:7px}
+.wdesc{font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:9px}
+.wwld{font-size:12px;color:var(--t3);font-family:var(--fs);margin-bottom:7px}
 .wpbar{height:4px;background:var(--s2);border-radius:2px;overflow:hidden;margin-bottom:3px}
 .wpf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--cu))}
-.wplbl{display:flex;justify-content:space-between;font-size:9px;color:var(--t3);font-family:var(--fs)}
+.wplbl{display:flex;justify-content:space-between;font-size:11px;color:var(--t3);font-family:var(--fs)}
 
 /* MAP */
 .mout{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rl);padding:clamp(16px,2.8vw,32px);overflow:hidden}
 .mrel{position:relative;max-width:670px;margin:0 auto}
 .mrel svg{width:100%;height:auto}
 .mtip{position:absolute;background:var(--bg2);border:1px solid var(--b2);border-radius:var(--r);
-  padding:8px 12px;font-family:var(--fs);font-size:11px;color:var(--t1);pointer-events:none;
+  padding:9px 13px;font-family:var(--fs);font-size:13px;color:var(--t1);pointer-events:none;
   z-index:10;max-width:185px;box-shadow:var(--sh);opacity:0;transition:opacity .2s;line-height:1.5}
 .mtip.on{opacity:1}
 .mdot{cursor:pointer;transition:all .2s}
 .mdot:hover{filter:brightness(1.6) drop-shadow(0 0 8px var(--gold))}
 .mleg{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;justify-content:center}
-.mli{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--t2);font-family:var(--fs)}
+.mli{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--t2);font-family:var(--fs)}
 .mld{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
 /* STORIES */
@@ -360,86 +361,86 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 .stcard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rl);
   padding:20px;cursor:pointer;transition:all .35s}
 .stcard:hover{transform:translateY(-4px);box-shadow:var(--gw);border-color:var(--b2)}
-.stpv{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-family:var(--fs)}
-.sttit{font-family:var(--fs);font-size:18px;color:var(--gl);margin-bottom:6px}
+.stpv{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-family:var(--fs)}
+.sttit{font-family:var(--fs);font-size:20px;color:var(--gl);margin-bottom:6px}
 .stch{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
-.stc{font-size:9px;padding:2px 7px;border-radius:4px;background:var(--s2);color:var(--t3);font-family:var(--fs)}
-.stprev{font-size:12px;color:var(--t2);line-height:1.65}
-.stmore{margin-top:11px;font-size:11px;color:var(--gold);font-family:var(--fs)}
+.stc{font-size:11px;padding:2px 7px;border-radius:4px;background:var(--s2);color:var(--t3);font-family:var(--fs)}
+.stprev{font-size:14px;color:var(--t2);line-height:1.65}
+.stmore{margin-top:11px;font-size:13px;color:var(--gold);font-family:var(--fs)}
 
 /* GITA */
 .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .gcard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);
   padding:17px;cursor:pointer;transition:all .3s}
 .gcard:hover{transform:translateY(-3px);border-color:var(--b2);box-shadow:var(--gw)}
-.gnum{font-family:var(--fd);font-size:24px;color:var(--gold);opacity:.3;margin-bottom:3px}
-.gnam{font-family:var(--fs);font-size:15px;color:var(--gl);margin-bottom:4px}
-.gsk{font-family:var(--fh);font-size:11px;color:var(--t3);margin-bottom:6px}
-.gdesc{font-size:11px;color:var(--t2);line-height:1.6}
-.gvs{font-size:9px;color:var(--t3);margin-top:7px;font-family:var(--fs)}
+.gnum{font-family:var(--fd);font-size:27px;color:var(--gold);opacity:.3;margin-bottom:3px}
+.gnam{font-family:var(--fs);font-size:17px;color:var(--gl);margin-bottom:4px}
+.gsk{font-family:var(--fh);font-size:13px;color:var(--t3);margin-bottom:6px}
+.gdesc{font-size:14px;color:var(--t2);line-height:1.6}
+.gvs{font-size:11px;color:var(--t3);margin-top:7px;font-family:var(--fs)}
 
 /* CONCEPTS */
 .cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .cocard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);
   padding:17px;cursor:pointer;transition:all .3s}
 .cocard:hover{border-color:var(--b2);background:var(--s2);transform:translateY(-2px)}
-.coterm{font-family:var(--fs);font-size:18px;color:var(--gl);margin-bottom:3px}
-.codeva{font-family:var(--fh);font-size:14px;color:var(--t3);margin-bottom:6px}
-.codesc{font-size:11px;color:var(--t2);line-height:1.65}
-.coref{font-size:9px;color:var(--gold);margin-top:7px;font-family:var(--fs)}
+.coterm{font-family:var(--fs);font-size:20px;color:var(--gl);margin-bottom:3px}
+.codeva{font-family:var(--fh);font-size:16px;color:var(--t3);margin-bottom:6px}
+.codesc{font-size:14px;color:var(--t2);line-height:1.65}
+.coref{font-size:11px;color:var(--gold);margin-top:7px;font-family:var(--fs)}
 
 /* VERSES */
 .vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:14px}
 .vcard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:17px}
-.vtit{font-family:var(--fs);font-size:15px;color:var(--gl);margin-bottom:2px}
-.vsrc{font-size:10px;color:var(--t3);margin-bottom:9px;font-style:italic}
-.vtxt{font-family:var(--fh);font-size:14px;color:var(--t1);line-height:1.85;margin-bottom:6px}
-.vtr{font-size:11px;color:var(--t2);line-height:1.65;font-style:italic;margin-bottom:11px}
+.vtit{font-family:var(--fs);font-size:17px;color:var(--gl);margin-bottom:2px}
+.vsrc{font-size:12px;color:var(--t3);margin-bottom:9px;font-style:italic}
+.vtxt{font-family:var(--fh);font-size:17px;color:var(--t1);line-height:1.85;margin-bottom:6px}
+.vtr{font-size:14px;color:var(--t2);line-height:1.65;font-style:italic;margin-bottom:11px}
 .vcopy{height:34px;background:var(--s2);border-radius:var(--r);display:flex;align-items:center;
   padding:0 11px;gap:7px;cursor:pointer;border:1px solid var(--b1);transition:all .2s}
 .vcopy:hover{border-color:var(--b2);background:var(--s1)}
 .vcpb{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--cu));
   display:flex;align-items:center;justify-content:center;font-size:11px;color:#1a0d00;flex-shrink:0}
-.vcpt{font-size:10px;color:var(--t3);font-family:var(--fs)}
+.vcpt{font-size:12px;color:var(--t3);font-family:var(--fs)}
 
 /* PARVAS */
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:13px}
 .pcard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);
   padding:17px;cursor:pointer;transition:all .3s;position:relative}
 .pcard:hover{transform:translateY(-3px);box-shadow:var(--gw);border-color:var(--b2)}
-.pnum{font-family:var(--fd);font-size:32px;color:var(--gold);opacity:.26;
+.pnum{font-family:var(--fd);font-size:35px;color:var(--gold);opacity:.26;
   position:absolute;right:13px;top:9px;line-height:1}
-.pnam{font-family:var(--fs);font-size:16px;color:var(--gl);margin-bottom:3px}
-.psk{font-family:var(--fh);font-size:12px;color:var(--t3);margin-bottom:5px}
-.pch{font-size:10px;color:var(--gold);font-family:var(--fs);letter-spacing:.06em;margin-bottom:7px}
-.pdesc{font-size:11px;color:var(--t2);line-height:1.6}
+.pnam{font-family:var(--fs);font-size:18px;color:var(--gl);margin-bottom:3px}
+.psk{font-family:var(--fh);font-size:14px;color:var(--t3);margin-bottom:5px}
+.pch{font-size:12px;color:var(--gold);font-family:var(--fs);letter-spacing:.06em;margin-bottom:7px}
+.pdesc{font-size:14px;color:var(--t2);line-height:1.6}
 
 /* QUIZ */
 .qwrap{max-width:680px;margin:0 auto}
 .qpbar{height:5px;background:var(--s2);border-radius:3px;margin-bottom:26px;overflow:hidden}
 .qpf{height:100%;background:linear-gradient(90deg,var(--gold),var(--cu));border-radius:3px;transition:width .5s}
 .qcard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rl);padding:clamp(20px,3.5vw,36px)}
-.qqn{font-family:var(--fs);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
-.qqq{font-family:var(--fs);font-size:clamp(16px,2.1vw,21px);color:var(--t1);line-height:1.5;margin-bottom:22px}
+.qqn{font-family:var(--fs);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.qqq{font-family:var(--fs);font-size:clamp(18px,2.3vw,23px);color:var(--t1);line-height:1.5;margin-bottom:22px}
 .qopts{display:grid;gap:9px}
 .qopt{padding:12px 16px;border-radius:var(--r);background:var(--s2);border:1.5px solid var(--b1);
-  color:var(--t2);font-family:var(--fs);font-size:13px;text-align:left;transition:all .25s;
+  color:var(--t2);font-family:var(--fs);font-size:15px;text-align:left;transition:all .25s;
   cursor:pointer;display:flex;align-items:center;gap:9px}
 .qopt:hover:not(:disabled){background:var(--s1);border-color:var(--b2);color:var(--gold)}
 .qopt.correct{background:rgba(27,94,32,.3);border-color:#4caf50;color:#81c784}
 .qopt.wrong{background:rgba(139,26,26,.3);border-color:#e57373;color:#ef9a9a}
-.qlet{width:24px;height:24px;border-radius:50%;background:var(--s1);border:1px solid var(--b1);
-  display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;font-family:var(--fs);color:var(--gold)}
+.qlet{width:26px;height:26px;border-radius:50%;background:var(--s1);border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;font-family:var(--fs);color:var(--gold)}
 .qexp{margin-top:16px;padding:13px 16px;background:rgba(200,150,30,.07);border:1px solid var(--b2);
-  border-radius:var(--r);font-size:12px;color:var(--t2);line-height:1.65;display:none}
+  border-radius:var(--r);font-size:14px;color:var(--t2);line-height:1.65;display:none}
 .qexp.on{display:block;animation:fdI .4s}
 .qnav{display:flex;gap:9px;margin-top:18px;justify-content:space-between;align-items:center}
 .qscr{text-align:center;padding:40px 20px}
 .qsnum{font-family:var(--fd);font-size:clamp(48px,9vw,86px);
   background:linear-gradient(135deg,var(--gp),var(--gold));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:9px}
-.qslbl{font-family:var(--fs);font-size:17px;color:var(--t2);margin-bottom:6px}
-.qssub{font-size:13px;color:var(--t3);margin-bottom:26px;font-style:italic}
+.qslbl{font-family:var(--fs);font-size:19px;color:var(--t2);margin-bottom:6px}
+.qssub{font-size:15px;color:var(--t3);margin-bottom:26px;font-style:italic}
 
 /* DHARMA DIVIDER */
 .dhdiv{text-align:center;padding:clamp(38px,5.5vw,68px) 5vw;max-width:1400px;margin:0 auto}
@@ -459,22 +460,22 @@ nav.mnav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;
 .mov.open .modal{transform:none}
 .mhd{padding:22px 22px 16px;border-bottom:1px solid var(--b1);position:sticky;top:0;
   background:var(--bg2);z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.mey{font-size:9px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;font-family:var(--fs);margin-bottom:4px}
+.mey{font-size:11px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;font-family:var(--fs);margin-bottom:4px}
 .mttl{font-family:var(--fs);font-size:clamp(17px,2.7vw,24px);color:var(--gl)}
 .mcls{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   background:var(--s1);color:var(--t2);font-size:16px;transition:all .2s;flex-shrink:0}
 .mcls:hover{background:var(--s2);color:var(--gold)}
 .mbd{padding:20px 22px 24px}
 .ms{margin-bottom:16px}
-.ms h4{font-family:var(--fs);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-.ms p{color:var(--t2);line-height:1.75;font-size:13px}
+.ms h4{font-family:var(--fs);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.ms p{color:var(--t2);line-height:1.8;font-size:16px}
 .mtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.mtag{padding:4px 12px;border-radius:20px;background:var(--s1);border:1px solid var(--b1);font-size:10px;color:var(--gold);font-family:var(--fs)}
+.mtag{padding:5px 13px;border-radius:20px;background:var(--s1);border:1px solid var(--b1);font-size:12px;color:var(--gold);font-family:var(--fs)}
 
 /* TOAST */
 .toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(16px);
   background:var(--bg2);border:1px solid var(--b2);border-radius:50px;padding:10px 20px;
-  font-family:var(--fs);font-size:11px;color:var(--gl);box-shadow:var(--sh);
+  font-family:var(--fs);font-size:13px;color:var(--gl);box-shadow:var(--sh);
   z-index:300;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
@@ -491,23 +492,83 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 .fti{max-width:1400px;margin:0 auto}
 .ftg{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px;margin-bottom:32px}
 .ftbr{font-family:var(--fd);font-size:clamp(14px,1.8vw,19px);color:var(--gold);margin-bottom:9px}
-.ftdc{font-size:12px;color:var(--t3);line-height:1.7;max-width:260px;margin-bottom:14px}
-.ftcl h5{font-family:var(--fs);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.ftcl a{display:block;color:var(--t3);font-size:12px;margin-bottom:8px;transition:color .2s}
+.ftdc{font-size:14px;color:var(--t3);line-height:1.7;max-width:260px;margin-bottom:14px}
+.ftcl h5{font-family:var(--fs);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.ftcl a{display:block;color:var(--t3);font-size:14px;margin-bottom:8px;transition:color .2s}
 .ftcl a:hover{color:var(--gl)}
 .ftbt{border-top:1px solid var(--b1);padding-top:20px;display:flex;flex-wrap:wrap;
-  justify-content:space-between;align-items:center;gap:9px;font-size:10px;color:var(--t3)}
+  justify-content:space-between;align-items:center;gap:9px;font-size:12px;color:var(--t3)}
 .ftbt a{color:var(--t3);transition:color .2s}
 .ftbt a:hover{color:var(--gold)}
 .odot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#4caf50;
   animation:blink 2s ease-in-out infinite;margin-right:4px}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .lgrp{display:flex;gap:5px;flex-wrap:wrap}
-.lbtn{padding:4px 12px;border-radius:20px;background:var(--s1);border:1px solid var(--b1);
-  color:var(--t3);font-size:10px;font-family:var(--fs);transition:all .2s}
+.lbtn{padding:5px 14px;border-radius:20px;background:var(--s1);border:1px solid var(--b1);
+  color:var(--t3);font-size:12px;font-family:var(--fs);transition:all .2s}
 .lbtn.on,.lbtn:hover{background:var(--s2);color:var(--gold);border-color:var(--b2)}
 @media(max-width:780px){.ftg{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.ftg{grid-template-columns:1fr}}
+
+/* ── KANNADA LANGUAGE OVERRIDE ── */
+:root{--fk:'Noto Sans Kannada',sans-serif}
+[data-lang=kn] .stit,[data-lang=kn] .ey,[data-lang=kn] .sdesc,
+[data-lang=kn] .nlinks a,[data-lang=kn] .fb,[data-lang=kn] .tab,
+[data-lang=kn] .htit,[data-lang=kn] .hsub,[data-lang=kn] .hdesc,
+[data-lang=kn] .bp,[data-lang=kn] .bs,[data-lang=kn] .sl,
+[data-lang=kn] .cnam,[data-lang=kn] .ctit,
+[data-lang=kn] .ftbr,[data-lang=kn] .ftcl h5,
+[data-lang=kn] .ftcl a,[data-lang=kn] .dh-q{
+  font-family:var(--fk)!important;letter-spacing:0!important;
+}
+[data-lang=kn] .htit{font-family:var(--fk)!important;font-size:clamp(32px,7vw,80px)!important}
+
+/* ── SUDARSHANA CHAKRA NAV ICON ── */
+.chakra-wrap{display:flex;align-items:center;animation:spn 22s linear infinite;
+  filter:drop-shadow(0 0 7px rgba(200,150,30,.55));flex-shrink:0}
+.chakra-wrap svg{color:var(--gold)}
+@media(prefers-reduced-motion:reduce){.chakra-wrap{animation:none}}
+
+/* ── AUDIO ORACLE FAB ── */
+.audio-fab{position:fixed;bottom:22px;left:22px;z-index:90;display:flex;
+  flex-direction:column-reverse;align-items:flex-start;gap:9px}
+.audio-main{width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--bg3),var(--bg2));
+  border:1.5px solid var(--b2);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .3s;box-shadow:0 4px 18px rgba(0,0,0,.45);
+  font-size:20px;color:var(--t2);position:relative}
+.audio-main:hover,.audio-main.live{
+  background:linear-gradient(135deg,rgba(200,150,30,.22),rgba(181,84,26,.18));
+  border-color:var(--gold);color:var(--gold);
+  box-shadow:0 4px 22px rgba(200,150,30,.38)}
+.audio-main.live::after{content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid var(--gold);animation:pulse-ring 2s ease-out infinite;opacity:.6}
+@keyframes pulse-ring{0%{transform:scale(.95);opacity:.7}100%{transform:scale(1.3);opacity:0}}
+.audio-panel{background:var(--bg2);border:1px solid var(--b2);border-radius:18px;
+  padding:16px 18px;display:none;flex-direction:column;gap:12px;
+  box-shadow:var(--sh);min-width:192px;backdrop-filter:blur(24px)}
+.audio-panel.open{display:flex;animation:fdU .3s both}
+.audio-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.audio-lbl{font-family:var(--fs);font-size:13px;color:var(--t2);letter-spacing:.08em;
+  text-transform:uppercase}
+.audio-tog{width:42px;height:23px;background:var(--s2);border-radius:12px;
+  position:relative;cursor:pointer;border:1px solid var(--b1);transition:all .3s}
+.audio-tog.on{background:linear-gradient(135deg,var(--gold),var(--cu))}
+.audio-tog::after{content:'';position:absolute;width:17px;height:17px;background:var(--t3);
+  border-radius:50%;top:2px;left:2px;transition:all .3s}
+.audio-tog.on::after{left:21px;background:#1a0d00}
+.audio-narrate-btn{width:100%;padding:9px 0;border-radius:10px;
+  background:linear-gradient(135deg,rgba(200,150,30,.15),rgba(181,84,26,.12));
+  border:1px solid var(--b2);color:var(--gold);font-family:var(--fs);
+  font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  transition:all .25s;text-align:center}
+.audio-narrate-btn:hover{background:linear-gradient(135deg,rgba(200,150,30,.25),rgba(181,84,26,.2));
+  border-color:var(--gold)}
+.audio-narrate-btn.speaking{color:var(--cu);animation:pulse-glow 1.5s ease-in-out infinite}
+.audio-divider{height:1px;background:var(--b1);margin:2px 0}
+.audio-section-lbl{font-size:11px;color:var(--t3);font-family:var(--fs);
+  letter-spacing:.1em;text-transform:uppercase;text-align:center;margin-top:-4px}
+
 @media(max-width:480px){.tl::before{left:13px}.tld{width:30px;height:30px;font-size:13px;margin-left:0}.tli{gap:12px}}
 </style>
 </head>
@@ -518,19 +579,53 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- NAV -->
 <nav class="mnav" role="navigation" aria-label="Main navigation">
   <div class="ni">
-    <a href="#home" class="nlogo"><span class="om" aria-hidden="true">ॐ</span><span>Mahābhārata</span></a>
+    <a href="#home" class="nlogo">
+      <span class="chakra-wrap" aria-hidden="true">
+        <svg viewBox="0 0 44 44" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer serrated ring: 16 triangular teeth -->
+          <path d="M22 2.5 L23.8 8.8 L28.5 4.5 L28 11 L34 8 L31.5 14 L38 13.5 L34 18.5 L40.5 20.5 L35.5 23.5 L40.5 27 L34.5 27.5 L37 33.5 L31 31 L32 37.5 L27 33.5 L25.5 40 L22 35.5 L18.5 40 L17 33.5 L12 37.5 L13 31 L7 33.5 L9.5 27.5 L3.5 27 L8.5 23.5 L3.5 20.5 L10 18.5 L6 13.5 L12.5 14 L10 8 L16 11 L15.5 4.5 L20.2 8.8 Z" stroke="currentColor" stroke-width="0.7" fill="rgba(200,150,30,0.09)"/>
+          <!-- Outer circle -->
+          <circle cx="22" cy="22" r="16.5" stroke="currentColor" stroke-width="1.3"/>
+          <!-- Middle ring -->
+          <circle cx="22" cy="22" r="10.5" stroke="currentColor" stroke-width="1"/>
+          <!-- Inner ring -->
+          <circle cx="22" cy="22" r="5.5" stroke="currentColor" stroke-width="0.9"/>
+          <!-- 16 spokes -->
+          <g stroke="currentColor" stroke-width="0.85" opacity="0.88">
+            <line x1="22" y1="5.5" x2="22" y2="11.5"/><line x1="22" y1="32.5" x2="22" y2="38.5"/>
+            <line x1="5.5" y1="22" x2="11.5" y2="22"/><line x1="32.5" y1="22" x2="38.5" y2="22"/>
+            <line x1="9.5" y1="9.5" x2="13.8" y2="13.8"/><line x1="30.2" y1="30.2" x2="34.5" y2="34.5"/>
+            <line x1="34.5" y1="9.5" x2="30.2" y2="13.8"/><line x1="13.8" y1="30.2" x2="9.5" y2="34.5"/>
+            <line x1="6.8" y1="15" x2="12.4" y2="17.8"/><line x1="31.6" y1="26.2" x2="37.2" y2="29"/>
+            <line x1="6.8" y1="29" x2="12.4" y2="26.2"/><line x1="31.6" y1="17.8" x2="37.2" y2="15"/>
+            <line x1="15" y1="6.8" x2="17.8" y2="12.4"/><line x1="26.2" y1="31.6" x2="29" y2="37.2"/>
+            <line x1="29" y1="6.8" x2="26.2" y2="12.4"/><line x1="17.8" y1="31.6" x2="15" y2="37.2"/>
+          </g>
+          <!-- Hub -->
+          <circle cx="22" cy="22" r="3.2" fill="currentColor" opacity="0.8"/>
+          <!-- Cardinal dots -->
+          <g fill="currentColor" opacity="0.55">
+            <circle cx="22" cy="5.5" r="1.1"/><circle cx="22" cy="38.5" r="1.1"/>
+            <circle cx="5.5" cy="22" r="1.1"/><circle cx="38.5" cy="22" r="1.1"/>
+            <circle cx="9.5" cy="9.5" r="0.9"/><circle cx="34.5" cy="34.5" r="0.9"/>
+            <circle cx="34.5" cy="9.5" r="0.9"/><circle cx="9.5" cy="34.5" r="0.9"/>
+          </g>
+        </svg>
+      </span>
+      <span data-i18n="brand">Mahābhārata</span>
+    </a>
     <div class="nlinks">
-      <a href="#characters">Characters</a>
-      <a href="#family-tree">Family Tree</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#kingdoms">Kingdoms</a>
-      <a href="#sacred-sites">Sites</a>
-      <a href="#war-stats">War Stats</a>
-      <a href="#weapons">Weapons</a>
-      <a href="#map">Map</a>
-      <a href="#gita">Gītā</a>
-      <a href="#parvas">Parvas</a>
-      <a href="#quiz">Quiz</a>
+      <a href="#characters" data-i18n="nav.chars">Characters</a>
+      <a href="#family-tree" data-i18n="nav.tree">Family Tree</a>
+      <a href="#timeline" data-i18n="nav.timeline">Timeline</a>
+      <a href="#kingdoms" data-i18n="nav.kingdoms">Kingdoms</a>
+      <a href="#sacred-sites" data-i18n="nav.sites">Sites</a>
+      <a href="#war-stats" data-i18n="nav.war">War Stats</a>
+      <a href="#weapons" data-i18n="nav.weapons">Weapons</a>
+      <a href="#map" data-i18n="nav.map">Map</a>
+      <a href="#gita" data-i18n="nav.gita">Gītā</a>
+      <a href="#parvas" data-i18n="nav.parvas">Parvas</a>
+      <a href="#quiz" data-i18n="nav.quiz">Quiz</a>
     </div>
     <div class="nact">
       <button class="ibtn" id="themeBtn" aria-label="Toggle theme" title="Toggle dark/light mode">🌙</button>
@@ -541,21 +636,21 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 
 <!-- MOBILE NAV -->
 <nav class="mnb" id="mobNav" aria-hidden="true" aria-label="Mobile navigation">
-  <a href="#home" onclick="closeNav()">Home</a>
-  <a href="#characters" onclick="closeNav()">Characters</a>
-  <a href="#family-tree" onclick="closeNav()">Family Tree</a>
-  <a href="#timeline" onclick="closeNav()">Timeline</a>
-  <a href="#kingdoms" onclick="closeNav()">Kingdoms</a>
-  <a href="#sacred-sites" onclick="closeNav()">Sacred Sites</a>
-  <a href="#war-stats" onclick="closeNav()">War Statistics</a>
-  <a href="#weapons" onclick="closeNav()">Weapons</a>
-  <a href="#map" onclick="closeNav()">Ancient Map</a>
-  <a href="#stories" onclick="closeNav()">Sub-Stories</a>
-  <a href="#gita" onclick="closeNav()">Bhagavad Gītā</a>
-  <a href="#concepts" onclick="closeNav()">Philosophy</a>
-  <a href="#verses" onclick="closeNav()">Sacred Verses</a>
-  <a href="#parvas" onclick="closeNav()">18 Parvas</a>
-  <a href="#quiz" onclick="closeNav()">Quiz</a>
+  <a href="#home" onclick="closeNav()" data-i18n="nav.home">Home</a>
+  <a href="#characters" onclick="closeNav()" data-i18n="nav.chars">Characters</a>
+  <a href="#family-tree" onclick="closeNav()" data-i18n="nav.tree">Family Tree</a>
+  <a href="#timeline" onclick="closeNav()" data-i18n="nav.timeline">Timeline</a>
+  <a href="#kingdoms" onclick="closeNav()" data-i18n="nav.kingdoms">Kingdoms</a>
+  <a href="#sacred-sites" onclick="closeNav()" data-i18n="nav.sites2">Sacred Sites</a>
+  <a href="#war-stats" onclick="closeNav()" data-i18n="nav.war2">War Statistics</a>
+  <a href="#weapons" onclick="closeNav()" data-i18n="nav.weapons">Weapons</a>
+  <a href="#map" onclick="closeNav()" data-i18n="nav.map2">Ancient Map</a>
+  <a href="#stories" onclick="closeNav()" data-i18n="nav.stories">Sub-Stories</a>
+  <a href="#gita" onclick="closeNav()" data-i18n="nav.gita2">Bhagavad Gītā</a>
+  <a href="#concepts" onclick="closeNav()" data-i18n="nav.concepts">Philosophy</a>
+  <a href="#verses" onclick="closeNav()" data-i18n="nav.verses">Sacred Verses</a>
+  <a href="#parvas" onclick="closeNav()" data-i18n="nav.parvas2">18 Parvas</a>
+  <a href="#quiz" onclick="closeNav()" data-i18n="nav.quiz">Quiz</a>
 </nav>
 
 <!-- HERO -->
@@ -575,21 +670,21 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
     <circle cx="10" cy="250" r="4" fill="#c8961e"/><circle cx="490" cy="250" r="4" fill="#c8961e"/>
   </svg>
   <div class="hcon">
-    <div class="hsk" lang="sa">धर्मो रक्षति रक्षितः — Dharma protects those who protect it</div>
-    <h1 class="htit">Mahābhārata</h1>
-    <div class="hsub">महाभारत · The Great Epic of Bhārata</div>
-    <p class="hdesc">The world's longest epic poem — 100,000 verses, 18 sacred books, the eternal dialogue of the Bhagavad Gītā, and the great war that ended an age.</p>
+    <div class="hsk" lang="sa" data-i18n="hero.sk">धर्मो रक्षति रक्षितः — Dharma protects those who protect it</div>
+    <h1 class="htit" data-i18n="hero.title">Mahābhārata</h1>
+    <div class="hsub" data-i18n="hero.sub">महाभारत · The Great Epic of Bhārata</div>
+    <p class="hdesc" data-i18n="hero.desc">The world's longest epic poem — 100,000 verses, 18 sacred books, the eternal dialogue of the Bhagavad Gītā, and the great war that ended an age.</p>
     <div class="hsts">
-      <div class="scard"><div class="sn">100,000+</div><div class="sl">Sanskrit Verses</div></div>
-      <div class="scard"><div class="sn">18</div><div class="sl">Parvas (Books)</div></div>
-      <div class="scard"><div class="sn">3,000+</div><div class="sl">Characters</div></div>
-      <div class="scard"><div class="sn">~3102 BCE</div><div class="sl">Traditional Date</div></div>
-      <div class="scard"><div class="sn">18 Days</div><div class="sl">Kurukshetra War</div></div>
+      <div class="scard"><div class="sn">100,000+</div><div class="sl" data-i18n="st.verses">Sanskrit Verses</div></div>
+      <div class="scard"><div class="sn">18</div><div class="sl" data-i18n="st.parvas">Parvas (Books)</div></div>
+      <div class="scard"><div class="sn">3,000+</div><div class="sl" data-i18n="st.chars">Characters</div></div>
+      <div class="scard"><div class="sn">~3102 BCE</div><div class="sl" data-i18n="st.date">Traditional Date</div></div>
+      <div class="scard"><div class="sn">18 Days</div><div class="sl" data-i18n="st.war">Kurukshetra War</div></div>
     </div>
     <div class="ctag">
-      <a href="#characters" class="bp">Explore Characters</a>
-      <a href="#timeline" class="bs">View Timeline</a>
-      <a href="#gita" class="bs">Bhagavad Gītā</a>
+      <a href="#characters" class="bp" data-i18n="hero.cta1">Explore Characters</a>
+      <a href="#timeline" class="bs" data-i18n="hero.cta2">View Timeline</a>
+      <a href="#gita" class="bs" data-i18n="hero.cta3">Bhagavad Gītā</a>
     </div>
   </div>
   <div class="shy" aria-hidden="true"><div class="sarr"></div><span>Scroll</span></div>
@@ -599,7 +694,7 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <div class="sw" id="searchSec">
   <div class="sbar" role="search">
     <span class="sico" aria-hidden="true">🔍</span>
-    <input type="search" id="searchIn" placeholder="Search characters, kingdoms, events, weapons, Gita chapters…" aria-label="Search"/>
+    <input type="search" id="searchIn" placeholder="Search characters, kingdoms, events, weapons, Gita chapters…" data-i18n-ph="search.ph" aria-label="Search"/>
     <div class="sres" id="sRes" role="listbox" aria-label="Search results"></div>
   </div>
 </div>
@@ -614,16 +709,16 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- CHARACTERS -->
 <section id="characters" class="sec" aria-label="Characters">
   <div class="sechd">
-    <div class="ey">The Great Protagonists</div>
-    <h2 class="stit">Characters of the Epic</h2>
-    <p class="sdesc">From divine avatars to tragic warriors — 24 immortal souls whose dharma and adharma shaped the fate of Bhārata</p>
+    <div class="ey" data-i18n="ey.chars">The Great Protagonists</div>
+    <h2 class="stit" data-i18n="tit.chars">Characters of the Epic</h2>
+    <p class="sdesc" data-i18n="d.chars">From divine avatars to tragic warriors — 24 immortal souls whose dharma and adharma shaped the fate of Bhārata</p>
   </div>
   <div class="fgrp" role="group" aria-label="Filter characters">
-    <button class="fb on" data-f="all">All Characters</button>
-    <button class="fb" data-f="pandava">🔵 Pāṇḍavas</button>
-    <button class="fb" data-f="kaurava">🔴 Kauravas</button>
-    <button class="fb" data-f="divine">🟣 Divine</button>
-    <button class="fb" data-f="neutral">🟡 Sages &amp; Others</button>
+    <button class="fb on" data-f="all" data-i18n="filter.all">All Characters</button>
+    <button class="fb" data-f="pandava" data-i18n="filter.pandava">🔵 Pāṇḍavas</button>
+    <button class="fb" data-f="kaurava" data-i18n="filter.kaurava">🔴 Kauravas</button>
+    <button class="fb" data-f="divine" data-i18n="filter.divine">🟣 Divine</button>
+    <button class="fb" data-f="neutral" data-i18n="filter.neutral">🟡 Sages &amp; Others</button>
   </div>
   <div class="cgrid" id="charsGrid" role="list" aria-label="Character cards"></div>
 </section>
@@ -632,9 +727,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- FAMILY TREE -->
 <section id="family-tree" class="sec" aria-label="Family Tree">
   <div class="sechd">
-    <div class="ey">Lineage of Bharata</div>
-    <h2 class="stit">The Royal Family Tree</h2>
-    <p class="sdesc">From sage Parāśara through Vyāsa to the Pāṇḍavas and Kauravas — the Kuru dynasty that shook the world</p>
+    <div class="ey" data-i18n="ey.tree">Lineage of Bharata</div>
+    <h2 class="stit" data-i18n="tit.tree">The Royal Family Tree</h2>
+    <p class="sdesc" data-i18n="d.tree">From sage Parāśara through Vyāsa to the Pāṇḍavas and Kauravas — the Kuru dynasty that shook the world</p>
   </div>
   <div class="tw" tabindex="0" aria-label="Scrollable family tree">
     <div class="ti" id="treeEl"></div>
@@ -645,15 +740,15 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- TIMELINE -->
 <section id="timeline" class="sec" aria-label="Timeline of Events">
   <div class="sechd">
-    <div class="ey">From Creation to Kali Yuga</div>
-    <h2 class="stit">Complete Timeline of Events</h2>
-    <p class="sdesc">Every major event of the Mahābhārata — from the birth of the Kuru lineage to the end of Dvāpara Yuga</p>
+    <div class="ey" data-i18n="ey.timeline">From Creation to Kali Yuga</div>
+    <h2 class="stit" data-i18n="tit.timeline">Complete Timeline of Events</h2>
+    <p class="sdesc" data-i18n="d.timeline">Every major event of the Mahābhārata — from the birth of the Kuru lineage to the end of Dvāpara Yuga</p>
   </div>
   <div class="tabs" role="tablist" aria-label="Filter timeline">
-    <button class="tab on" data-tab="all" role="tab" aria-selected="true">All Events</button>
-    <button class="tab" data-tab="pre" role="tab" aria-selected="false">Pre-War</button>
-    <button class="tab" data-tab="war" role="tab" aria-selected="false">Kurukshetra War</button>
-    <button class="tab" data-tab="post" role="tab" aria-selected="false">Post-War</button>
+    <button class="tab on" data-tab="all" role="tab" aria-selected="true" data-i18n="tab.all">All Events</button>
+    <button class="tab" data-tab="pre" role="tab" aria-selected="false" data-i18n="tab.pre">Pre-War</button>
+    <button class="tab" data-tab="war" role="tab" aria-selected="false" data-i18n="tab.war">Kurukshetra War</button>
+    <button class="tab" data-tab="post" role="tab" aria-selected="false" data-i18n="tab.post">Post-War</button>
   </div>
   <div class="tl" id="tlEl" aria-label="Timeline events"></div>
 </section>
@@ -662,9 +757,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- KINGDOMS -->
 <section id="kingdoms" class="sec" aria-label="Ancient Kingdoms">
   <div class="sechd">
-    <div class="ey">Janapadas of Āryāvarta</div>
-    <h2 class="stit">Kingdoms of Ancient India</h2>
-    <p class="sdesc">The mighty realms that sent their armies to Kurukshetra — and where to find them in modern India today</p>
+    <div class="ey" data-i18n="ey.kingdoms">Janapadas of Āryāvarta</div>
+    <h2 class="stit" data-i18n="tit.kingdoms">Kingdoms of Ancient India</h2>
+    <p class="sdesc" data-i18n="d.kingdoms">The mighty realms that sent their armies to Kurukshetra — and where to find them in modern India today</p>
   </div>
   <div class="kgrid" id="kgrid" role="list" aria-label="Kingdoms"></div>
 </section>
@@ -673,9 +768,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- SACRED SITES -->
 <section id="sacred-sites" class="sec" aria-label="Sacred Sites">
   <div class="sechd">
-    <div class="ey">Pilgrimage Across Bhārata</div>
-    <h2 class="stit">Sacred Sites &amp; Locations</h2>
-    <p class="sdesc">Ancient battlefields, holy rivers, and sacred forests — where the Mahābhārata lives on in modern India</p>
+    <div class="ey" data-i18n="ey.sites">Pilgrimage Across Bhārata</div>
+    <h2 class="stit" data-i18n="tit.sites">Sacred Sites &amp; Locations</h2>
+    <p class="sdesc" data-i18n="d.sites">Ancient battlefields, holy rivers, and sacred forests — where the Mahābhārata lives on in modern India</p>
   </div>
   <div class="sgrid" id="sgrid" role="list" aria-label="Sacred sites"></div>
 </section>
@@ -684,23 +779,23 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- DHARMA BREAK -->
 <div class="dhdiv" aria-hidden="true">
   <div class="dhwhl">☸️</div>
-  <div class="dhq">यदा यदा हि धर्मस्य ग्लानिर्भवति भारत</div>
-  <p style="font-size:12px;color:var(--t3);margin-top:10px;font-style:italic">"Whenever dharma declines, I manifest myself" — Bhagavad Gītā 4.7, Lord Krishna</p>
+  <div class="dhq" data-i18n="dharma.q">यदा यदा हि धर्मस्य ग्लानिर्भवति भारत</div>
+  <p style="font-size:14px;color:var(--t3);margin-top:10px;font-style:italic" data-i18n="dharma.sub">"Whenever dharma declines, I manifest myself" — Bhagavad Gītā 4.7, Lord Krishna</p>
 </div>
 <div class="dvd"></div>
 
 <!-- WAR STATS -->
 <section id="war-stats" class="sec" aria-label="War Statistics">
   <div class="sechd">
-    <div class="ey">18 Days · 18 Akshauhinis</div>
-    <h2 class="stit">The War in Numbers</h2>
-    <p class="sdesc">The staggering scale of the Kurukshetra War — the most documented epic conflict in ancient literature</p>
+    <div class="ey" data-i18n="ey.war">18 Days · 18 Akshauhinis</div>
+    <h2 class="stit" data-i18n="tit.war">The War in Numbers</h2>
+    <p class="sdesc" data-i18n="d.war">The staggering scale of the Kurukshetra War — the most documented epic conflict in ancient literature</p>
   </div>
   <div class="wsdash" id="wsDash" aria-label="War statistics dashboard"></div>
   <div class="sechd" style="margin-top:48px;margin-bottom:18px">
-    <div class="ey">Day by Day</div>
-    <h3 class="stit" style="font-size:clamp(19px,3.2vw,34px)">18 Days of Kurukshetra</h3>
-    <p class="sdesc" style="font-size:13px">Click any day card for the complete account of that day's events</p>
+    <div class="ey" data-i18n="ey.days">Day by Day</div>
+    <h3 class="stit" style="font-size:clamp(19px,3.2vw,34px)" data-i18n="tit.days">18 Days of Kurukshetra</h3>
+    <p class="sdesc" style="font-size:15px" data-i18n="d.days">Click any day card for the complete account of that day's events</p>
   </div>
   <div class="dstrip" id="daysStrip" role="list" aria-label="Day by day war events"></div>
 </section>
@@ -709,9 +804,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- WEAPONS -->
 <section id="weapons" class="sec" aria-label="Divine Weapons">
   <div class="sechd">
-    <div class="ey">Astras &amp; Shastras</div>
-    <h2 class="stit">Divine Weapons Encyclopedia</h2>
-    <p class="sdesc">From Gāṇḍīva to Brahmastra — the supernatural weapons that could invoke gods, destroy armies, and end ages</p>
+    <div class="ey" data-i18n="ey.weapons">Astras &amp; Shastras</div>
+    <h2 class="stit" data-i18n="tit.weapons">Divine Weapons Encyclopedia</h2>
+    <p class="sdesc" data-i18n="d.weapons">From Gāṇḍīva to Brahmastra — the supernatural weapons that could invoke gods, destroy armies, and end ages</p>
   </div>
   <div class="wgrid" id="wgrid" role="list" aria-label="Weapons"></div>
 </section>
@@ -720,9 +815,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- MAP -->
 <section id="map" class="sec" aria-label="Ancient India Map">
   <div class="sechd">
-    <div class="ey">Then &amp; Now</div>
-    <h2 class="stit">Ancient India — Mahābhārata Map</h2>
-    <p class="sdesc">15 key locations from the epic plotted across the Indian subcontinent — click any marker for details</p>
+    <div class="ey" data-i18n="ey.map">Then &amp; Now</div>
+    <h2 class="stit" data-i18n="tit.map">Ancient India — Mahābhārata Map</h2>
+    <p class="sdesc" data-i18n="d.map">15 key locations from the epic plotted across the Indian subcontinent — click any marker for details</p>
   </div>
   <div class="mout">
     <div class="mrel">
@@ -790,9 +885,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- STORIES -->
 <section id="stories" class="sec" aria-label="Sub-stories">
   <div class="sechd">
-    <div class="ey">Stories Within the Story</div>
-    <h2 class="stit">Sub-tales &amp; Upākhyānas</h2>
-    <p class="sdesc">The Mahābhārata contains hundreds of nested stories — each a complete universe of dharma, love, sacrifice, and wisdom</p>
+    <div class="ey" data-i18n="ey.stories">Stories Within the Story</div>
+    <h2 class="stit" data-i18n="tit.stories">Sub-tales &amp; Upākhyānas</h2>
+    <p class="sdesc" data-i18n="d.stories">The Mahābhārata contains hundreds of nested stories — each a complete universe of dharma, love, sacrifice, and wisdom</p>
   </div>
   <div class="stgrid" id="stgrid" role="list" aria-label="Sub-stories"></div>
 </section>
@@ -801,9 +896,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- GITA -->
 <section id="gita" class="sec" aria-label="Bhagavad Gita">
   <div class="sechd">
-    <div class="ey">The Song of God · Bhīṣma Parva, Chapters 23–40</div>
-    <h2 class="stit">Bhagavad Gītā — All 18 Chapters</h2>
-    <p class="sdesc">The eternal dialogue between Arjuna and Lord Krishna on the battlefield of Kurukshetra — 700 verses of timeless wisdom</p>
+    <div class="ey" data-i18n="ey.gita">The Song of God · Bhīṣma Parva, Chapters 23–40</div>
+    <h2 class="stit" data-i18n="tit.gita">Bhagavad Gītā — All 18 Chapters</h2>
+    <p class="sdesc" data-i18n="d.gita">The eternal dialogue between Arjuna and Lord Krishna on the battlefield of Kurukshetra — 700 verses of timeless wisdom</p>
   </div>
   <div class="ggrid" id="ggrid" role="list" aria-label="Bhagavad Gita chapters"></div>
 </section>
@@ -812,9 +907,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- CONCEPTS -->
 <section id="concepts" class="sec" aria-label="Philosophical Concepts">
   <div class="sechd">
-    <div class="ey">The Philosophy</div>
-    <h2 class="stit">Key Dharmic Concepts</h2>
-    <p class="sdesc">The philosophical vocabulary of the Mahābhārata — from Dharma to Moksha, Karma to Yoga, Ahimsa to Svadharma</p>
+    <div class="ey" data-i18n="ey.concepts">The Philosophy</div>
+    <h2 class="stit" data-i18n="tit.concepts">Key Dharmic Concepts</h2>
+    <p class="sdesc" data-i18n="d.concepts">The philosophical vocabulary of the Mahābhārata — from Dharma to Moksha, Karma to Yoga, Ahimsa to Svadharma</p>
   </div>
   <div class="cogrid" id="cogrid" role="list" aria-label="Philosophical concepts"></div>
 </section>
@@ -823,9 +918,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- VERSES -->
 <section id="verses" class="sec" aria-label="Sacred Verses">
   <div class="sechd">
-    <div class="ey">Shlokas &amp; Mantras</div>
-    <h2 class="stit">Sacred Verses</h2>
-    <p class="sdesc">The most celebrated shlokas from the Mahābhārata and Bhagavad Gītā — in Devanāgarī with transliteration and English translation</p>
+    <div class="ey" data-i18n="ey.verses">Shlokas &amp; Mantras</div>
+    <h2 class="stit" data-i18n="tit.verses">Sacred Verses</h2>
+    <p class="sdesc" data-i18n="d.verses">The most celebrated shlokas from the Mahābhārata and Bhagavad Gītā — in Devanāgarī with transliteration and English translation</p>
   </div>
   <div class="vgrid" id="vgrid" role="list" aria-label="Sacred verses"></div>
 </section>
@@ -834,9 +929,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- PARVAS -->
 <section id="parvas" class="sec" aria-label="18 Parvas">
   <div class="sechd">
-    <div class="ey">The 18 Sacred Books</div>
-    <h2 class="stit">The Eighteen Parvas</h2>
-    <p class="sdesc">100,000 verses organized into 18 Parvas — the complete structure of the world's longest epic poem, authored by Sage Vyāsa</p>
+    <div class="ey" data-i18n="ey.parvas">The 18 Sacred Books</div>
+    <h2 class="stit" data-i18n="tit.parvas">The Eighteen Parvas</h2>
+    <p class="sdesc" data-i18n="d.parvas">100,000 verses organized into 18 Parvas — the complete structure of the world's longest epic poem, authored by Sage Vyāsa</p>
   </div>
   <div class="pgrid" id="pgrid" role="list" aria-label="18 Parvas"></div>
 </section>
@@ -845,9 +940,9 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
 <!-- QUIZ -->
 <section id="quiz" class="sec" aria-label="Knowledge Quiz">
   <div class="sechd">
-    <div class="ey">Test Your Knowledge</div>
-    <h2 class="stit">Mahābhārata Quiz</h2>
-    <p class="sdesc">15 shuffled questions across characters, war events, weapons, philosophy, and Bhagavad Gītā — with explanations</p>
+    <div class="ey" data-i18n="ey.quiz">Test Your Knowledge</div>
+    <h2 class="stit" data-i18n="tit.quiz">Mahābhārata Quiz</h2>
+    <p class="sdesc" data-i18n="d.quiz">15 shuffled questions across characters, war events, weapons, philosophy, and Bhagavad Gītā — with explanations</p>
   </div>
   <div class="qwrap">
     <div class="qpbar"><div class="qpf" id="qProg" style="width:0%"></div></div>
@@ -860,16 +955,16 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
   <div class="fti">
     <div class="ftg">
       <div>
-        <div class="ftbr">ॐ Mahābhārata</div>
-        <p class="ftdc">A world-class digital companion to the greatest epic ever written — every character, kingdom, event, weapon, and sacred site of Bhārata.</p>
+        <div class="ftbr" data-i18n="brand.full">ॐ Mahābhārata</div>
+        <p class="ftdc" data-i18n="ft.desc">A world-class digital companion to the greatest epic ever written — every character, kingdom, event, weapon, and sacred site of Bhārata.</p>
         <div class="lgrp">
           <button class="lbtn on" onclick="setLang('en')">English</button>
           <button class="lbtn" onclick="setLang('hi')">हिन्दी</button>
-          <button class="lbtn" onclick="setLang('sa')">संस्कृत</button>
+          <button class="lbtn" onclick="setLang('kn')">ಕನ್ನಡ</button>
         </div>
       </div>
       <div class="ftcl">
-        <h5>Explore</h5>
+        <h5 data-i18n="ft.explore">Explore</h5>
         <a href="#characters">Characters</a>
         <a href="#family-tree">Family Tree</a>
         <a href="#timeline">Timeline</a>
@@ -880,7 +975,7 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
         <a href="#map">Ancient Map</a>
       </div>
       <div class="ftcl">
-        <h5>Texts &amp; Wisdom</h5>
+        <h5 data-i18n="ft.texts">Texts &amp; Wisdom</h5>
         <a href="#gita">Bhagavad Gītā</a>
         <a href="#parvas">18 Parvas</a>
         <a href="#stories">Sub-tales</a>
@@ -889,7 +984,7 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
         <a href="#quiz">Quiz</a>
       </div>
       <div class="ftcl">
-        <h5>References</h5>
+        <h5 data-i18n="ft.refs">References</h5>
         <a href="https://www.sacred-texts.com/hin/maha/" target="_blank" rel="noopener noreferrer">Sacred Texts Archive</a>
         <a href="https://www.wisdomlib.org/hinduism/book/mahabharata" target="_blank" rel="noopener noreferrer">Wisdom Library</a>
         <a href="https://www.bori.ac.in/" target="_blank" rel="noopener noreferrer">BORI Critical Edition</a>
@@ -906,6 +1001,31 @@ footer{border-top:1px solid var(--b1);padding:clamp(38px,5.5vw,68px) 5vw clamp(2
     </div>
   </div>
 </footer>
+
+<!-- AUDIO ORACLE FAB -->
+<div class="audio-fab" id="audioFab" aria-label="Audio oracle controls">
+  <div class="audio-panel" id="audioPanel" role="region" aria-label="Audio controls">
+    <div class="audio-row">
+      <span class="audio-lbl" data-i18n="audio.ambient">Temple Sounds</span>
+      <div class="audio-tog" id="ambientTog" role="switch" aria-checked="false" tabindex="0"
+           onclick="toggleAmbient()" onkeydown="if(event.key==='Enter'||event.key===' ')toggleAmbient()"
+           title="Toggle ambient temple drone and bells"></div>
+    </div>
+    <div class="audio-divider"></div>
+    <button class="audio-narrate-btn" id="narrateBtn"
+            onclick="toggleOracle()" aria-label="Oracle narration">
+      🔮 <span data-i18n="audio.narrate">Oracle Voice</span>
+    </button>
+    <div class="audio-section-lbl" id="oracleSectionLbl">— awaiting the cosmic moment —</div>
+  </div>
+  <button class="audio-main" id="audioMainBtn"
+          onclick="toggleAudioPanel()"
+          aria-label="Toggle audio oracle panel"
+          aria-expanded="false"
+          title="Summon the Oracle">
+    🪬
+  </button>
+</div>
 
 <button class="b2t" id="b2t" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1557,13 +1677,66 @@ const TREELVLS=[
 ];
 
 
+
+/* =====================================================
+   KANNADA DATA TRANSLATIONS
+   Character names, kingdoms, weapons, Gita chapters
+===================================================== */
+const KN_DATA = {
+chars:{krishna:['ಶ್ರೀಕೃಷ್ಣ','ಪರಮಾತ್ಮ · ಯೋಗೇಶ್ವರ · ಪಾರ್ಥಸಾರಥಿ'],
+arjuna:['ಅರ್ಜುನ','ಶ್ರೇಷ್ಠ ಬಿಲ್ಲುಗಾರ · ಸವ್ಯಸಾಚಿ · ಪಾರ್ಥ'],
+yudhishthira:['ಯುಧಿಷ್ಠಿರ','ಧರ್ಮರಾಜ · ಅಜಾತಶತ್ರು'],
+bhima:['ಭೀಮ','ಮಹಾಬಲಿ · ವೃಕೋದರ · ವಾಯುಪುತ್ರ'],
+nakula:['ನಕುಲ','ಸುಂದರ ಅವಳಿ · ಅಶ್ವಿನಿ ಪುತ್ರ'],
+sahadeva:['ಸಹದೇವ','ಜ್ಯೋತಿಷಿ · ಜ್ಞಾನಿ ಅವಳಿ'],
+draupadi:['ದ್ರೌಪದಿ','ಕೃಷ್ಣೆ · ಪಾಂಚಾಲಿ · ಯಾಜ್ಞಸೇನಿ'],
+karna:['ಕರ್ಣ','ದುರಂತ ನಾಯಕ · ರಾಧೇಯ · ಸೂರ್ಯಪುತ್ರ'],
+duryodhana:['ದುರ್ಯೋಧನ','ಕುರುಗಳ ಗರ್ವ · ಸುಯೋಧನ'],
+bhishma:['ಭೀಷ್ಮ','ಪಿತಾಮಹ · ದೇವವ್ರತ · ಗಂಗಾಪುತ್ರ'],
+drona:['ದ್ರೋಣಾಚಾರ್ಯ','ಪರಮ ಗುರು · ಸರ್ವ ಯೋಧರ ಆಚಾರ್ಯ'],
+kunti:['ಕುಂತಿ','ಮಾತೃದೇವತೆ · ಪೃಥಾ'],
+gandhari:['ಗಾಂಧಾರಿ','ಕಣ್ಣುಕಟ್ಟಿದ ರಾಣಿ · ನೂರು ಮಕ್ಕಳ ತಾಯಿ'],
+vidura:['ವಿದುರ','ಪರಮ ಜ್ಞಾನಿ · ಧರ್ಮಪುತ್ರ'],
+shakuni:['ಶಕುನಿ','ಪಗಡೆಯ ಮಾಂತ್ರಿಕ · ಗಾಂಧಾರ ರಾಜಕುಮಾರ'],
+abhimanyu:['ಅಭಿಮನ್ಯು','ಬಾಲ ವೀರ · ಸೌಭದ್ರ'],
+ashwatthama:['ಅಶ್ವತ್ಥಾಮ','ಚಿರಂಜೀವಿ · ದ್ರೋಣ ಪುತ್ರ'],
+karna2:['ಸುಭದ್ರಾ','ಕೃಷ್ಣನ ಸಹೋದರಿ · ಅರ್ಜುನನ ಪತ್ನಿ'],
+dhritarashtra:['ಧೃತರಾಷ್ಟ್ರ','ಅಂಧ ರಾಜ · ಕೌರವರ ತಂದೆ'],
+parashurama:['ಪರಶುರಾಮ','ಚಿರಂಜೀವಿ ಯೋಧ ಋಷಿ · ಷಷ್ಠ ಅವತಾರ'],
+vyasa:['ವ್ಯಾಸ','ಮಹಾಭಾರತದ ಕರ್ತೃ · ಕೃಷ್ಣದ್ವೈಪಾಯನ'],
+shikhandi:['ಶಿಖಂಡಿ','ಪುನರ್ಜನ್ಮ ಪಡೆದ ಅಂಬೆ · ಭೀಷ್ಮನ ಅಂತ್ಯ'],
+ghatotkacha:['ಘಟೋತ್ಕಚ','ರಾಕ್ಷಸ ವೀರ · ಭೀಮ ಪುತ್ರ'],
+jayadratha:['ಜಯದ್ರಥ','ಸಿಂಧು ರಾಜ · ಅಭಿಮನ್ಯುವಿನ ದ್ವಾರಪಾಲಕ']},
+filters:{all:'ಎಲ್ಲಾ',pandava:'ಪಾಂಡವರು',kaurava:'ಕೌರವರು',divine:'ದೈವಿಕ',neutral:'ಋಷಿಗಳು'},
+gita:['ಅರ್ಜುನ ವಿಷಾದ ಯೋಗ','ಸಾಂಖ್ಯ ಯೋಗ','ಕರ್ಮ ಯೋಗ','ಜ್ಞಾನ ಕರ್ಮ ಸನ್ಯಾಸ ಯೋಗ',
+'ಕರ್ಮ ಸನ್ಯಾಸ ಯೋಗ','ಧ್ಯಾನ ಯೋಗ','ವಿಜ್ಞಾನ ಯೋಗ','ಅಕ್ಷರ ಬ್ರಹ್ಮ ಯೋಗ',
+'ರಾಜವಿದ್ಯಾ ರಾಜಗುಹ್ಯ ಯೋಗ','ವಿಭೂತಿ ಯೋಗ','ವಿಶ್ವರೂಪ ದರ್ಶನ ಯೋಗ','ಭಕ್ತಿ ಯೋಗ',
+'ಕ್ಷೇತ್ರ ಕ್ಷೇತ್ರಜ್ಞ ವಿಭಾಗ ಯೋಗ','ಗುಣತ್ರಯ ವಿಭಾಗ ಯೋಗ','ಪುರುಷೋತ್ತಮ ಯೋಗ',
+'ದೈವಾಸುರ ಸಂಪದ್ ವಿಭಾಗ ಯೋಗ','ಶ್ರದ್ಧಾತ್ರಯ ವಿಭಾಗ ಯೋಗ','ಮೋಕ್ಷ ಸನ್ಯಾಸ ಯೋಗ'],
+parvas:['ಆದಿ ಪರ್ವ','ಸಭಾ ಪರ್ವ','ವನ ಪರ್ವ','ವಿರಾಟ ಪರ್ವ','ಉದ್ಯೋಗ ಪರ್ವ','ಭೀಷ್ಮ ಪರ್ವ',
+'ದ್ರೋಣ ಪರ್ವ','ಕರ್ಣ ಪರ್ವ','ಶಲ್ಯ ಪರ್ವ','ಸೌಪ್ತಿಕ ಪರ್ವ','ಸ್ತ್ರೀ ಪರ್ವ','ಶಾಂತಿ ಪರ್ವ',
+'ಅನುಶಾಸನ ಪರ್ವ','ಆಶ್ವಮೇಧಿಕ ಪರ್ವ','ಆಶ್ರಮವಾಸಿಕ ಪರ್ವ','ಮೌಸಲ ಪರ್ವ',
+'ಮಹಾಪ್ರಸ್ಥಾನಿಕ ಪರ್ವ','ಸ್ವರ್ಗಾರೋಹಣ ಪರ್ವ'],
+weapons:['ಗಾಂಡೀವ','ಬ್ರಹ್ಮಾಸ್ತ್ರ','ಪಾಶುಪತಾಸ್ತ್ರ','ಸುದರ್ಶನ ಚಕ್ರ','ವಜ್ರ',
+'ವಾರುಣಾಸ್ತ್ರ ಮತ್ತು ಆಗ್ನೇಯಾಸ್ತ್ರ','ನಾರಾಯಣಾಸ್ತ್ರ','ಕವಚ-ಕುಂಡಲ','ಶಕ್ತಿ (ಇಂದ್ರನ ಶೂಲ)',
+'ತ್ರಿಶೂಲ','ಸಮ್ಮೋಹನ ಅಸ್ತ್ರ','ಬ್ರಹ್ಮಶಿರ'],
+kingdoms:['ಕುರುಜಾಂಗಲ / ಹಸ್ತಿನಾಪುರ','ಇಂದ್ರಪ್ರಸ್ಥ','ಪಾಂಚಾಲ','ಮತ್ಸ್ಯ','ಗಾಂಧಾರ','ಅಂಗ',
+'ಮಗಧ','ಕಾಂಬೋಜ','ವಿದರ್ಭ','ಕಾಶಿ (ವಾರಾಣಸಿ)','ಚೇದಿ','ದ್ವಾರಕಾ'],
+concepts:['ಧರ್ಮ','ಕರ್ಮ','ಮೋಕ್ಷ','ಅಹಿಂಸೆ','ಮಾಯೆ','ಸ್ವಧರ್ಮ','ಯೋಗ','ನಿಷ್ಕಾಮ ಕರ್ಮ',
+'ಕ್ಷತ್ರಿಯ ಧರ್ಮ','ಗುರು-ಶಿಷ್ಯ ಪರಂಪರೆ','ಯುಗಧರ್ಮ','ಸತ್ಯ']
+};
+
 /* =====================================================
    RENDER — CHARACTERS
 ===================================================== */
 function renderChars(filter){
   const grid=document.getElementById('charsGrid');
   const list=filter&&filter!=='all'?CHARS.filter(c=>c.side===filter):CHARS;
-  grid.innerHTML=list.map(c=>`
+  const kn=CURRENT_LANG==='kn';
+  grid.innerHTML=list.map(c=>{
+    const kd=kn&&KN_DATA.chars[c.id];
+    const dispName=kd?kd[0]:c.name, dispTitle=kd?kd[1]:c.title;
+    return `
     <div class="ccard ${c.side==='pandava'?'p':c.side==='kaurava'?'k':c.side==='divine'?'d':'n'}"
          role="listitem" tabindex="0" onclick="openChar('${c.id}')"
          onkeydown="if(event.key==='Enter'||event.key===' ')openChar('${c.id}')"
@@ -1571,12 +1744,12 @@ function renderChars(filter){
       <div class="cav"><div class="cavbg"></div><div class="cavp"></div>
         <span class="csym" aria-hidden="true">${c.sym}</span></div>
       <div class="cbd">
-        <div class="cnam">${c.name}</div>
-        <div class="ctit">${c.title}</div>
+        <div class="cnam">${dispName}</div>
+        <div class="ctit">${dispTitle}</div>
         <div class="cdesc">${c.desc}</div>
         <div class="ctags">${c.tags.slice(0,4).map(t=>`<span class="ctg">${t}</span>`).join('')}</div>
       </div>
-    </div>`).join('');
+    </div>`;}).join('');
 }
 function openChar(id){
   const c=CHARS.find(x=>x.id===id);if(!c)return;
@@ -1635,12 +1808,13 @@ function renderTimeline(tab){
    RENDER — KINGDOMS
 ===================================================== */
 function renderKingdoms(){
+  const kn=CURRENT_LANG==='kn';
   document.getElementById('kgrid').innerHTML=KINGDOMS.map((k,i)=>`
     <div class="kcard" role="listitem" tabindex="0"
          onclick="openKingdom(${i})" onkeydown="if(event.key==='Enter')openKingdom(${i})"
          aria-label="${k.name}">
       <span class="kico" aria-hidden="true">${k.ico}</span>
-      <div class="knam">${k.name}</div>
+      <div class="knam">${kn?KN_DATA.kingdoms[i]:k.name}</div>
       <div class="kanc">${k.anc}</div>
       <div class="kmod">${k.mod}</div>
       <div class="kdesc">${k.desc.substring(0,130)}…</div>
@@ -1772,12 +1946,13 @@ function openDay(i){
    RENDER — WEAPONS
 ===================================================== */
 function renderWeapons(){
+  const kn=CURRENT_LANG==='kn';
   document.getElementById('wgrid').innerHTML=WEAPONS.map((w,i)=>`
     <div class="wcard" role="listitem" tabindex="0"
          onclick="openWeapon(${i})" onkeydown="if(event.key==='Enter')openWeapon(${i})"
          aria-label="${w.nm} — ${w.typ}">
       <span class="wico" aria-hidden="true">${w.ico}</span>
-      <div class="wnam">${w.nm}</div>
+      <div class="wnam">${kn?KN_DATA.weapons[i]:w.nm}</div>
       <div class="wsk" lang="sa">${w.sk}</div>
       <div class="wtyp">${w.typ}</div>
       <div class="wdesc">${w.desc.substring(0,130)}…</div>
@@ -1866,12 +2041,13 @@ function openStory(i){
    RENDER — GITA (18 chapters)
 ===================================================== */
 function renderGita(){
+  const kn=CURRENT_LANG==='kn';
   document.getElementById('ggrid').innerHTML=GITA.map((g,i)=>`
     <div class="gcard" role="listitem" tabindex="0"
          onclick="openGita(${i})" onkeydown="if(event.key==='Enter')openGita(${i})"
          aria-label="Chapter ${g.n}: ${g.nm}">
       <div class="gnum">${g.n}</div>
-      <div class="gnam">${g.nm}</div>
+      <div class="gnam">${kn?KN_DATA.gita[i]:g.nm}</div>
       <div class="gsk" lang="sa">${g.sk}</div>
       <div class="gdesc">${g.desc.substring(0,130)}…</div>
       <div class="gvs">${g.vs} verses</div>
@@ -1892,11 +2068,12 @@ function openGita(i){
    RENDER — CONCEPTS
 ===================================================== */
 function renderConcepts(){
+  const kn=CURRENT_LANG==='kn';
   document.getElementById('cogrid').innerHTML=CONCEPTS.map((c,i)=>`
     <div class="cocard" role="listitem" tabindex="0"
          onclick="openConcept(${i})" onkeydown="if(event.key==='Enter')openConcept(${i})"
          aria-label="${c.t}">
-      <div class="coterm">${c.t}</div>
+      <div class="coterm">${kn?KN_DATA.concepts[i]:c.t}</div>
       <div class="codeva" lang="sa">${c.d}</div>
       <div class="codesc">${c.desc.substring(0,120)}…</div>
       <div class="coref">${c.ref}</div>
@@ -1938,12 +2115,13 @@ function copyVerse(i){
    RENDER — PARVAS
 ===================================================== */
 function renderParvas(){
+  const kn=CURRENT_LANG==='kn';
   document.getElementById('pgrid').innerHTML=PARVAS.map((p,i)=>`
     <div class="pcard" role="listitem" tabindex="0"
          onclick="openParva(${i})" onkeydown="if(event.key==='Enter')openParva(${i})"
          aria-label="Parva ${p.n}: ${p.nm}">
       <div class="pnum">${p.n}</div>
-      <div class="pnam">${p.nm}</div>
+      <div class="pnam">${kn?KN_DATA.parvas[i]:p.nm}</div>
       <div class="psk" lang="sa">${p.sk}</div>
       <div class="pch">${p.ch}</div>
       <div class="pdesc">${p.desc.substring(0,120)}…</div>
@@ -2118,11 +2296,458 @@ function showToast(msg){
   t.textContent=msg;t.classList.add('on');
   clearTimeout(t._tm);t._tm=setTimeout(()=>t.classList.remove('on'),2600);
 }
-function setLang(l){
-  showToast(l==='hi'?'हिन्दी सक्रिय':l==='sa'?'संस्कृत सक्रिय':'English active');
-  document.querySelectorAll('.lbtn').forEach(b=>b.classList.toggle('on',
-    (l==='en'&&b.textContent==='English')||(l==='hi'&&b.textContent==='हिन्दी')||(l==='sa'&&b.textContent==='संस्कृत')));
+/* =====================================================
+   INTERNATIONALISATION — ENGLISH + KANNADA
+===================================================== */
+const I18N = {
+  en: {
+    'brand':'Mahābhārata', 'brand.full':'ॐ Mahābhārata',
+    'nav.chars':'Characters','nav.tree':'Family Tree','nav.timeline':'Timeline',
+    'nav.kingdoms':'Kingdoms','nav.sites':'Sites','nav.war':'War Stats',
+    'nav.weapons':'Weapons','nav.map':'Map','nav.gita':'Gītā',
+    'nav.parvas':'Parvas','nav.quiz':'Quiz',
+    'hero.sk':'धर्मो रक्षति रक्षितः — Dharma protects those who protect it',
+    'hero.title':'Mahābhārata',
+    'hero.sub':'महाभारत · The Great Epic of Bhārata',
+    'hero.desc':"The world's longest epic poem — 100,000 verses, 18 sacred books, the eternal dialogue of the Bhagavad Gītā, and the great war that ended an age.",
+    'hero.cta1':'Explore Characters','hero.cta2':'View Timeline','hero.cta3':'Bhagavad Gītā',
+    'ey.chars':'The Great Protagonists','tit.chars':'Characters of the Epic',
+    'ey.tree':'Lineage of Bharata','tit.tree':'The Royal Family Tree',
+    'ey.timeline':'From Creation to Kali Yuga','tit.timeline':'Complete Timeline of Events',
+    'ey.kingdoms':'Janapadas of Āryāvarta','tit.kingdoms':'Kingdoms of Ancient India',
+    'ey.sites':'Pilgrimage Across Bhārata','tit.sites':'Sacred Sites & Locations',
+    'ey.war':'18 Days · 18 Akshauhinis','tit.war':'The War in Numbers',
+    'ey.days':'Day by Day','tit.days':'18 Days of Kurukshetra',
+    'ey.weapons':'Astras & Shastras','tit.weapons':'Divine Weapons Encyclopedia',
+    'ey.map':'Then & Now','tit.map':'Ancient India — Mahābhārata Map',
+    'ey.stories':'Stories Within the Story','tit.stories':'Sub-tales & Upākhyānas',
+    'ey.gita':'The Song of God · Bhīṣma Parva, Chapters 23–40','tit.gita':'Bhagavad Gītā — All 18 Chapters',
+    'ey.concepts':'The Philosophy','tit.concepts':'Key Dharmic Concepts',
+    'ey.verses':'Shlokas & Mantras','tit.verses':'Sacred Verses',
+    'ey.parvas':'The 18 Sacred Books','tit.parvas':'The Eighteen Parvas',
+    'ey.quiz':'Test Your Knowledge','tit.quiz':'Mahābhārata Quiz',
+    'filter.all':'All Characters','filter.pandava':'🔵 Pāṇḍavas',
+    'filter.kaurava':'🔴 Kauravas','filter.divine':'🟣 Divine','filter.neutral':'🟡 Sages & Others',
+    'tab.all':'All Events','tab.pre':'Pre-War','tab.war':'Kurukshetra War','tab.post':'Post-War',
+    'search.ph':'Search characters, kingdoms, events, weapons, Gita chapters…',
+    'ft.explore':'Explore','ft.texts':'Texts & Wisdom','ft.refs':'References',
+    'dharma.q':'यदा यदा हि धर्मस्य ग्लानिर्भवति भारत',
+    'audio.ambient':'Temple Sounds','audio.narrate':'Oracle Voice',
+    'nav.home':'Home','nav.sites2':'Sacred Sites','nav.war2':'War Statistics',
+    'nav.map2':'Ancient Map','nav.stories':'Sub-Stories','nav.gita2':'Bhagavad Gītā',
+    'nav.concepts':'Philosophy','nav.verses':'Sacred Verses','nav.parvas2':'18 Parvas',
+    'st.verses':'Sanskrit Verses','st.parvas':'Parvas (Books)','st.chars':'Characters',
+    'st.date':'Traditional Date','st.war':'Kurukshetra War',
+    'd.chars':'From divine avatars to tragic warriors — 24 immortal souls whose dharma and adharma shaped the fate of Bhārata',
+    'd.tree':'From sage Parāśara through Vyāsa to the Pāṇḍavas and Kauravas — the Kuru dynasty that shook the world',
+    'd.timeline':'Every major event of the Mahābhārata — from the birth of the Kuru lineage to the end of Dvāpara Yuga',
+    'd.kingdoms':'The mighty realms that sent their armies to Kurukshetra — and where to find them in modern India today',
+    'd.sites':'Ancient battlefields, holy rivers, and sacred forests — where the Mahābhārata lives on in modern India',
+    'd.war':'The staggering scale of the Kurukshetra War — the most documented epic conflict in ancient literature',
+    'd.days':"Click any day card for the complete account of that day's events",
+    'd.weapons':'From Gāṇḍīva to Brahmastra — the supernatural weapons that could invoke gods, destroy armies, and end ages',
+    'd.map':'15 key locations from the epic plotted across the Indian subcontinent — click any marker for details',
+    'd.stories':'The Mahābhārata contains hundreds of nested stories — each a complete universe of dharma, love, sacrifice, and wisdom',
+    'd.gita':'The eternal dialogue between Arjuna and Lord Krishna on the battlefield of Kurukshetra — 700 verses of timeless wisdom',
+    'd.concepts':'The philosophical vocabulary of the Mahābhārata — from Dharma to Moksha, Karma to Yoga, Ahimsa to Svadharma',
+    'd.verses':'The most celebrated shlokas from the Mahābhārata and Bhagavad Gītā — in Devanāgarī with transliteration and English translation',
+    'd.parvas':"100,000 verses organized into 18 Parvas — the complete structure of the world's longest epic poem, authored by Sage Vyāsa",
+    'd.quiz':'15 shuffled questions across characters, war events, weapons, philosophy, and Bhagavad Gītā — with explanations',
+    'ft.desc':'A world-class digital companion to the greatest epic ever written — every character, kingdom, event, weapon, and sacred site of Bhārata.',
+    'dharma.sub':'"Whenever dharma declines, I manifest myself" — Bhagavad Gītā 4.7, Lord Krishna',
+  },
+  kn: {
+    'brand':'ಮಹಾಭಾರತ', 'brand.full':'ॐ ಮಹಾಭಾರತ',
+    'nav.chars':'ಪಾತ್ರಗಳು','nav.tree':'ವಂಶವೃಕ್ಷ','nav.timeline':'ಕಾಲರೇಖೆ',
+    'nav.kingdoms':'ರಾಜ್ಯಗಳು','nav.sites':'ಕ್ಷೇತ್ರಗಳು','nav.war':'ಯುದ್ಧ ಅಂಕಿ',
+    'nav.weapons':'ಅಸ್ತ್ರಗಳು','nav.map':'ನಕ್ಷೆ','nav.gita':'ಗೀತೆ',
+    'nav.parvas':'ಪರ್ವಗಳು','nav.quiz':'ಪ್ರಶ್ನೋತ್ತರ',
+    'hero.sk':'ಧರ್ಮೋ ರಕ್ಷತಿ ರಕ್ಷಿತಃ — ಧರ್ಮವು ರಕ್ಷಿಸುವವರನ್ನು ರಕ್ಷಿಸುತ್ತದೆ',
+    'hero.title':'ಮಹಾಭಾರತ',
+    'hero.sub':'ಭಾರತದ ಮಹಾಕಾವ್ಯ · The Great Epic of Bhārata',
+    'hero.desc':'ಜಗತ್ತಿನ ಅತ್ಯಂತ ದೀರ್ಘ ಮಹಾಕಾವ್ಯ — ೧,೦೦,೦೦೦ ಶ್ಲೋಕಗಳು, ೧೮ ಪವಿತ್ರ ಗ್ರಂಥಗಳು, ಭಗವದ್ಗೀತೆಯ ಶಾಶ್ವತ ಸಂವಾದ ಮತ್ತು ಒಂದು ಯುಗವನ್ನು ಕೊನೆಗೊಳಿಸಿದ ಮಹಾಯುದ್ಧ.',
+    'hero.cta1':'ಪಾತ್ರಗಳನ್ನು ಅನ್ವೇಷಿಸಿ','hero.cta2':'ಕಾಲರೇಖೆ ನೋಡಿ','hero.cta3':'ಭಗವದ್ಗೀತೆ',
+    'ey.chars':'ಮಹಾನ್ ನಾಯಕರು','tit.chars':'ಮಹಾಕಾವ್ಯದ ಪಾತ್ರಗಳು',
+    'ey.tree':'ಭರತ ವಂಶ','tit.tree':'ರಾಜ ವಂಶವೃಕ್ಷ',
+    'ey.timeline':'ಸೃಷ್ಟಿಯಿಂದ ಕಲಿಯುಗದ ತನಕ','tit.timeline':'ಸಂಪೂರ್ಣ ಕಾಲರೇಖೆ',
+    'ey.kingdoms':'ಆರ್ಯಾವರ್ತದ ಜನಪದಗಳು','tit.kingdoms':'ಪ್ರಾಚೀನ ಭಾರತದ ರಾಜ್ಯಗಳು',
+    'ey.sites':'ಭಾರತದ ತೀರ್ಥಯಾತ್ರೆ','tit.sites':'ಪವಿತ್ರ ತೀರ್ಥಕ್ಷೇತ್ರಗಳು',
+    'ey.war':'೧೮ ದಿನಗಳು · ೧೮ ಅಕ್ಷೌಹಿಣಿಗಳು','tit.war':'ಯುದ್ಧದ ಅಂಕಿಅಂಶಗಳು',
+    'ey.days':'ದಿನವಾರು','tit.days':'ಕುರುಕ್ಷೇತ್ರದ ೧೮ ದಿನಗಳು',
+    'ey.weapons':'ಅಸ್ತ್ರ ಮತ್ತು ಶಸ್ತ್ರ','tit.weapons':'ದಿವ್ಯ ಅಸ್ತ್ರ-ಶಸ್ತ್ರ ವಿಶ್ವಕೋಶ',
+    'ey.map':'ಆಗ ಮತ್ತು ಈಗ','tit.map':'ಪ್ರಾಚೀನ ಭಾರತ ನಕ್ಷೆ',
+    'ey.stories':'ಕಥೆಯ ಒಳಗಿನ ಕಥೆ','tit.stories':'ಉಪಕಥೆಗಳು ಮತ್ತು ಆಖ್ಯಾನಗಳು',
+    'ey.gita':'ಭಗವಂತನ ಗೀತೆ · ಭೀಷ್ಮ ಪರ್ವ, ಅಧ್ಯಾಯ ೨೩–೪೦','tit.gita':'ಭಗವದ್ಗೀತೆ — ಎಲ್ಲಾ ೧೮ ಅಧ್ಯಾಯಗಳು',
+    'ey.concepts':'ತತ್ವಶಾಸ್ತ್ರ','tit.concepts':'ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಪರಿಕಲ್ಪನೆಗಳು',
+    'ey.verses':'ಶ್ಲೋಕ ಮತ್ತು ಮಂತ್ರ','tit.verses':'ಪವಿತ್ರ ಶ್ಲೋಕಗಳು',
+    'ey.parvas':'೧೮ ಪವಿತ್ರ ಗ್ರಂಥಗಳು','tit.parvas':'ಹದಿನೆಂಟು ಪರ್ವಗಳು',
+    'ey.quiz':'ನಿಮ್ಮ ಜ್ಞಾನ ಪರೀಕ್ಷಿಸಿ','tit.quiz':'ಮಹಾಭಾರತ ಪ್ರಶ್ನೋತ್ತರ',
+    'filter.all':'ಎಲ್ಲಾ ಪಾತ್ರಗಳು','filter.pandava':'🔵 ಪಾಂಡವರು',
+    'filter.kaurava':'🔴 ಕೌರವರು','filter.divine':'🟣 ದೈವಿಕ','filter.neutral':'🟡 ಋಷಿಗಳು ಮತ್ತು ಇತರರು',
+    'tab.all':'ಎಲ್ಲಾ ಘಟನೆಗಳು','tab.pre':'ಯುದ್ಧ ಪೂರ್ವ','tab.war':'ಕುರುಕ್ಷೇತ್ರ ಯುದ್ಧ','tab.post':'ಯುದ್ಧೋತ್ತರ',
+    'search.ph':'ಪಾತ್ರಗಳು, ರಾಜ್ಯಗಳು, ಘಟನೆಗಳು, ಅಸ್ತ್ರಗಳನ್ನು ಹುಡುಕಿ…',
+    'ft.explore':'ಅನ್ವೇಷಿಸಿ','ft.texts':'ಗ್ರಂಥಗಳು ಮತ್ತು ಜ್ಞಾನ','ft.refs':'ಆಕರ ಗ್ರಂಥಗಳು',
+    'dharma.q':'ಯದಾ ಯದಾ ಹಿ ಧರ್ಮಸ್ಯ ಗ್ಲಾನಿರ್ಭವತಿ ಭಾರತ',
+    'audio.ambient':'ದೇವಾಲಯ ಧ್ವನಿ','audio.narrate':'ಓರಾಕಲ್ ಧ್ವನಿ',
+    'nav.home':'ಮುಖಪುಟ','nav.sites2':'ಪವಿತ್ರ ಕ್ಷೇತ್ರಗಳು','nav.war2':'ಯುದ್ಧ ಅಂಕಿಅಂಶ',
+    'nav.map2':'ಪ್ರಾಚೀನ ನಕ್ಷೆ','nav.stories':'ಉಪಕಥೆಗಳು','nav.gita2':'ಭಗವದ್ಗೀತೆ',
+    'nav.concepts':'ತತ್ವಶಾಸ್ತ್ರ','nav.verses':'ಪವಿತ್ರ ಶ್ಲೋಕಗಳು','nav.parvas2':'೧೮ ಪರ್ವಗಳು',
+    'st.verses':'ಸಂಸ್ಕೃತ ಶ್ಲೋಕಗಳು','st.parvas':'ಪರ್ವಗಳು (ಗ್ರಂಥಗಳು)','st.chars':'ಪಾತ್ರಗಳು',
+    'st.date':'ಸಾಂಪ್ರದಾಯಿಕ ಕಾಲ','st.war':'ಕುರುಕ್ಷೇತ್ರ ಯುದ್ಧ',
+    'd.chars':'ದೈವಿಕ ಅವತಾರಗಳಿಂದ ದುರಂತ ಯೋಧರವರೆಗೆ — ಭಾರತದ ಭವಿಷ್ಯವನ್ನು ರೂಪಿಸಿದ ೨೪ ಅಮರ ಆತ್ಮಗಳ ಧರ್ಮ ಮತ್ತು ಅಧರ್ಮ',
+    'd.tree':'ಪರಾಶರ ಋಷಿಯಿಂದ ವ್ಯಾಸರ ಮೂಲಕ ಪಾಂಡವರು ಮತ್ತು ಕೌರವರವರೆಗೆ — ಜಗತ್ತನ್ನೇ ನಡುಗಿಸಿದ ಕುರು ವಂಶ',
+    'd.timeline':'ಮಹಾಭಾರತದ ಪ್ರತಿಯೊಂದು ಪ್ರಮುಖ ಘಟನೆ — ಕುರು ವಂಶದ ಜನ್ಮದಿಂದ ದ್ವಾಪರ ಯುಗದ ಅಂತ್ಯದವರೆಗೆ',
+    'd.kingdoms':'ಕುರುಕ್ಷೇತ್ರಕ್ಕೆ ಸೇನೆಗಳನ್ನು ಕಳುಹಿಸಿದ ಬಲಿಷ್ಠ ರಾಜ್ಯಗಳು — ಮತ್ತು ಇಂದಿನ ಭಾರತದಲ್ಲಿ ಅವು ಎಲ್ಲಿವೆ',
+    'd.sites':'ಪ್ರಾಚೀನ ರಣಭೂಮಿಗಳು, ಪವಿತ್ರ ನದಿಗಳು ಮತ್ತು ಪವಿತ್ರ ವನಗಳು — ಇಂದಿಗೂ ಮಹಾಭಾರತ ಜೀವಂತವಾಗಿರುವ ಸ್ಥಳಗಳು',
+    'd.war':'ಕುರುಕ್ಷೇತ್ರ ಯುದ್ಧದ ಬೃಹತ್ ಪ್ರಮಾಣ — ಪ್ರಾಚೀನ ಸಾಹಿತ್ಯದಲ್ಲಿ ಅತ್ಯಂತ ವಿವರವಾಗಿ ದಾಖಲಾದ ಮಹಾಸಂಗ್ರಾಮ',
+    'd.days':'ಆ ದಿನದ ಸಂಪೂರ್ಣ ವಿವರಣೆಗಾಗಿ ಯಾವುದೇ ದಿನದ ಕಾರ್ಡ್ ಒತ್ತಿರಿ',
+    'd.weapons':'ಗಾಂಡೀವದಿಂದ ಬ್ರಹ್ಮಾಸ್ತ್ರದವರೆಗೆ — ದೇವತೆಗಳನ್ನು ಆವಾಹಿಸುವ, ಸೇನೆಗಳನ್ನು ನಾಶಮಾಡುವ ಮತ್ತು ಯುಗಗಳನ್ನೇ ಕೊನೆಗೊಳಿಸುವ ಅಲೌಕಿಕ ಅಸ್ತ್ರಗಳು',
+    'd.map':'ಭಾರತ ಉಪಖಂಡದಾದ್ಯಂತ ಗುರುತಿಸಲಾದ ಮಹಾಕಾವ್ಯದ ೧೫ ಪ್ರಮುಖ ಸ್ಥಳಗಳು — ವಿವರಗಳಿಗಾಗಿ ಯಾವುದೇ ಗುರುತನ್ನು ಒತ್ತಿರಿ',
+    'd.stories':'ಮಹಾಭಾರತವು ನೂರಾರು ಉಪಕಥೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ — ಪ್ರತಿಯೊಂದೂ ಧರ್ಮ, ಪ್ರೀತಿ, ತ್ಯಾಗ ಮತ್ತು ಜ್ಞಾನದ ಸಂಪೂರ್ಣ ವಿಶ್ವ',
+    'd.gita':'ಕುರುಕ್ಷೇತ್ರ ರಣಭೂಮಿಯಲ್ಲಿ ಅರ್ಜುನ ಮತ್ತು ಶ್ರೀಕೃಷ್ಣನ ನಡುವಿನ ಶಾಶ್ವತ ಸಂವಾದ — ೭೦೦ ಶ್ಲೋಕಗಳ ಕಾಲಾತೀತ ಜ್ಞಾನ',
+    'd.concepts':'ಮಹಾಭಾರತದ ತಾತ್ವಿಕ ಶಬ್ದಕೋಶ — ಧರ್ಮದಿಂದ ಮೋಕ್ಷದವರೆಗೆ, ಕರ್ಮದಿಂದ ಯೋಗದವರೆಗೆ, ಅಹಿಂಸೆಯಿಂದ ಸ್ವಧರ್ಮದವರೆಗೆ',
+    'd.verses':'ಮಹಾಭಾರತ ಮತ್ತು ಭಗವದ್ಗೀತೆಯ ಅತ್ಯಂತ ಪ್ರಸಿದ್ಧ ಶ್ಲೋಕಗಳು — ದೇವನಾಗರಿ ಲಿಪಿಯಲ್ಲಿ ಅನುವಾದ ಸಹಿತ',
+    'd.parvas':'೧೮ ಪರ್ವಗಳಲ್ಲಿ ಜೋಡಿಸಲಾದ ೧,೦೦,೦೦೦ ಶ್ಲೋಕಗಳು — ವ್ಯಾಸ ಮಹರ್ಷಿ ರಚಿಸಿದ ಜಗತ್ತಿನ ಅತಿ ದೀರ್ಘ ಮಹಾಕಾವ್ಯದ ಸಂಪೂರ್ಣ ರಚನೆ',
+    'd.quiz':'ಪಾತ್ರಗಳು, ಯುದ್ಧ ಘಟನೆಗಳು, ಅಸ್ತ್ರಗಳು, ತತ್ವಶಾಸ್ತ್ರ ಮತ್ತು ಭಗವದ್ಗೀತೆಯ ಕುರಿತು ೧೫ ಪ್ರಶ್ನೆಗಳು — ವಿವರಣೆಗಳ ಸಹಿತ',
+    'ft.desc':'ಜಗತ್ತಿನ ಶ್ರೇಷ್ಠ ಮಹಾಕಾವ್ಯಕ್ಕೆ ವಿಶ್ವದರ್ಜೆಯ ಡಿಜಿಟಲ್ ಸಂಗಾತಿ — ಭಾರತದ ಪ್ರತಿಯೊಂದು ಪಾತ್ರ, ರಾಜ್ಯ, ಘಟನೆ, ಅಸ್ತ್ರ ಮತ್ತು ಪವಿತ್ರ ಕ್ಷೇತ್ರ.',
+    'dharma.sub':'"ಧರ್ಮವು ಕ್ಷೀಣಿಸಿದಾಗಲೆಲ್ಲಾ ನಾನು ಅವತರಿಸುತ್ತೇನೆ" — ಭಗವದ್ಗೀತೆ ೪.೭, ಶ್ರೀಕೃಷ್ಣ',
+  }
+};
+
+let CURRENT_LANG = 'en';
+
+function applyI18n(lang) {
+  const t = I18N[lang] || I18N.en;
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  // Update search placeholder separately
+  const si = document.getElementById('searchIn');
+  if (si && t['search.ph']) si.placeholder = t['search.ph'];
+  // Set lang attribute and data-lang for CSS font switching
+  document.documentElement.lang = lang === 'kn' ? 'kn' : lang === 'hi' ? 'hi' : 'en';
+  if (lang === 'kn') document.documentElement.setAttribute('data-lang','kn');
+  else document.documentElement.removeAttribute('data-lang');
 }
+
+function setLang(l) {
+  CURRENT_LANG = l;
+  applyI18n(l);
+  // Re-render every data-driven section in the new language
+  try{
+    const af=document.querySelector('.fb.on');
+    renderChars(af?af.dataset.f:'all');
+    renderGita(); renderParvas(); renderWeapons();
+    renderKingdoms(); renderConcepts();
+    _updateAudioUI();
+  }catch(e){}
+  const msgs = { en:'English activated', hi:'हिन्दी सक्रिय', kn:'ಕನ್ನಡ ಸಕ್ರಿಯ' };
+  showToast('🌐 ' + (msgs[l] || 'Language changed'));
+  document.querySelectorAll('.lbtn').forEach(b => {
+    b.classList.toggle('on',
+      (l==='en' && b.textContent==='English') ||
+      (l==='hi' && b.textContent==='हिन्दी') ||
+      (l==='kn' && b.textContent==='ಕನ್ನಡ')
+    );
+  });
+}
+
+/* =====================================================
+   DIVINE AUDIO ORACLE SYSTEM
+   ───────────────────────────────────────────────────
+   Ambient : Layered tanpura-style drone tuned to the
+             sacred OM frequency (136.1 Hz — the "Cosmic
+             Note", derived from Earth's orbital year).
+             Adds a perfect fifth, octave and a slowly
+             detuned chorus voice so the tone breathes
+             instead of sitting flat like a test tone.
+             Temple bells use additive inharmonic
+             partials with a long exponential decay,
+             passed through a convolution reverb built
+             from a synthetic stone-hall impulse.
+   Voice   : Web Speech API, but heavily "de-roboticised"
+             by splitting the text into short breath
+             phrases and speaking them as separate
+             utterances with pauses, pitch drift and
+             rate variation — which is what makes TTS
+             read as human rather than machine.
+===================================================== */
+let _actx=null,_master=null,_verb=null,_dry=null,_wet=null;
+let _ambientOn=false,_drone=[],_lfos=[],_bellTmr=null;
+let _speechOn=false,_speechQueue=[],_speechIdx=0;
+
+/* ── Synthetic cathedral / stone temple impulse response ── */
+function _buildReverb(){
+  const sr=_actx.sampleRate, len=Math.floor(sr*4.2);
+  const buf=_actx.createBuffer(2,len,sr);
+  for(let ch=0;ch<2;ch++){
+    const d=buf.getChannelData(ch);
+    for(let i=0;i<len;i++){
+      const t=i/len;
+      // Exponential decay + early reflections for stone-hall character
+      let v=(Math.random()*2-1)*Math.pow(1-t,2.6);
+      if(i<sr*0.09) v*=0.35;                      // pre-delay softening
+      if(i>sr*0.05&&i<sr*0.075) v*=2.4;           // early reflection
+      if(i>sr*0.11&&i<sr*0.13) v*=1.9;            // second reflection
+      d[i]=v*0.55;
+    }
+  }
+  const cv=_actx.createConvolver(); cv.buffer=buf; return cv;
+}
+
+function _initAudio(){
+  if(_actx) return true;
+  try{
+    _actx=new (window.AudioContext||window.webkitAudioContext)();
+    _master=_actx.createGain(); _master.gain.value=0;
+    _verb=_buildReverb();
+    _wet=_actx.createGain(); _wet.gain.value=0.42;
+    _dry=_actx.createGain(); _dry.gain.value=0.62;
+    // Warm the tone — remove digital harshness
+    const tone=_actx.createBiquadFilter();
+    tone.type='lowpass'; tone.frequency.value=2400; tone.Q.value=0.4;
+    _master.connect(tone);
+    tone.connect(_dry); _dry.connect(_actx.destination);
+    tone.connect(_verb); _verb.connect(_wet); _wet.connect(_actx.destination);
+    return true;
+  }catch(e){ return false; }
+}
+
+/* ── Tanpura-style drone: OM 136.1 Hz + harmonics ── */
+function _startDrone(){
+  const now=_actx.currentTime;
+  // [freq, waveform, gain, detune-cents, LFO rate, LFO depth]
+  const voices=[
+    [136.1 ,'sine'    ,0.30, 0  ,0.07,2.5],  // Sa  — the cosmic OM
+    [136.1 ,'triangle',0.10,-4  ,0.05,3.2],  // chorus companion
+    [204.15,'sine'    ,0.13, 2  ,0.09,2.0],  // Pa  — perfect fifth
+    [272.2 ,'sine'    ,0.09, 0  ,0.06,1.6],  // Sa' — octave
+    [ 68.05,'sine'    ,0.16, 0  ,0.04,1.2],  // sub — chest resonance
+  ];
+  voices.forEach(([f,type,g,det,lr,ld])=>{
+    const osc=_actx.createOscillator();
+    const gn=_actx.createGain();
+    osc.type=type; osc.frequency.value=f; osc.detune.value=det;
+    gn.gain.value=g;
+    // Slow pitch drift so the drone breathes (kills the "test tone" feel)
+    const lfo=_actx.createOscillator(), lfoGain=_actx.createGain();
+    lfo.frequency.value=lr; lfoGain.gain.value=ld;
+    lfo.connect(lfoGain); lfoGain.connect(osc.detune);
+    lfo.start();
+    // Gentle amplitude shimmer
+    const alfo=_actx.createOscillator(), aGain=_actx.createGain();
+    alfo.frequency.value=lr*0.6; aGain.gain.value=g*0.16;
+    alfo.connect(aGain); aGain.connect(gn.gain);
+    alfo.start();
+    osc.connect(gn); gn.connect(_master);
+    osc.start(now);
+    _drone.push(osc); _lfos.push(lfo,alfo);
+  });
+}
+
+/* ── Temple bell: inharmonic partials + long decay ── */
+function _bell(base){
+  if(!_actx||!_ambientOn) return;
+  const t=_actx.currentTime;
+  // Real bronze bells are inharmonic — these ratios give that shimmer
+  const partials=[[1,0.34,7.5],[2.02,0.20,5.4],[2.98,0.13,4.1],
+                  [4.15,0.08,2.9],[5.43,0.05,2.1],[0.5,0.16,8.2]];
+  partials.forEach(([ratio,amp,dur])=>{
+    const o=_actx.createOscillator(), g=_actx.createGain();
+    o.type='sine'; o.frequency.value=base*ratio;
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.exponentialRampToValueAtTime(amp,t+0.012);   // strike
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);  // long ring
+    o.connect(g); g.connect(_master);
+    o.start(t); o.stop(t+dur+0.1);
+  });
+}
+
+function _scheduleBell(){
+  const notes=[136.1,204.15,272.2,181.5,163.3]; // Sa Pa Sa' Ma Ga
+  _bellTmr=setTimeout(()=>{
+    _bell(notes[Math.floor(Math.random()*notes.length)]);
+    if(_ambientOn) _scheduleBell();
+  }, 14000+Math.random()*20000);
+}
+
+function toggleAmbient(){
+  if(!_initAudio()){ showToast('🔇 Audio unavailable on this device'); return; }
+  if(_actx.state==='suspended') _actx.resume();
+  const now=_actx.currentTime;
+  if(_ambientOn){
+    _master.gain.cancelScheduledValues(now);
+    _master.gain.setValueAtTime(_master.gain.value,now);
+    _master.gain.linearRampToValueAtTime(0,now+2.4);   // slow fade out
+    clearTimeout(_bellTmr);
+    setTimeout(()=>{
+      _drone.forEach(n=>{try{n.stop()}catch(e){}});
+      _lfos.forEach(n=>{try{n.stop()}catch(e){}});
+      _drone=[];_lfos=[];
+    },2500);
+    _ambientOn=false;
+    showToast('🕉 The temple falls silent');
+  }else{
+    _startDrone(); _ambientOn=true;
+    _master.gain.setValueAtTime(0.0001,now);
+    _master.gain.linearRampToValueAtTime(0.16,now+4.5); // 4.5s divine swell
+    setTimeout(()=>_bell(136.1),1400);
+    _scheduleBell();
+    showToast('🕉 The temple awakens');
+  }
+  const tg=document.getElementById('ambientTog');
+  if(tg){ tg.classList.toggle('on',_ambientOn); tg.setAttribute('aria-checked',_ambientOn); }
+  _updateAudioUI();
+}
+
+/* ── ORACLE NARRATION TEXTS ──
+   Written in short breath-phrases. Each "|" is a pause
+   point — this phrase-splitting is the single biggest
+   factor in making synthetic speech sound human.        */
+const ORACLE={
+home:`In the age when gods still walked as men.|When chariots carried the weight of dharma.|Across fields of sacred dust.|A sage sat before the elephant headed god.|And whispered one hundred thousand verses into the morning air.|What lies before you is not merely a story.|It is the mirror of every soul that has ever breathed.|The Mahabharata does not speak only of war.|It asks you a question.|What will you do.|When love, and duty.|Stand upon opposite sides.|Of the very same battlefield.`,
+
+characters:`Look closely upon these faces.|For each one carries within them a shard of the divine.|And a wound that is entirely human.|Here is the archer, who wept before his own kin.|Here is the warrior born of the sun.|Abandoned to the mercy of the river.|On the very morning of his birth.|Here is the queen, who bound her own eyes for forty years.|Only to open them once.|And turn iron.|Into dust.|They are not ancient.|They walk beside you.|Still.`,
+
+timeline:`Time does not move in a straight line here.|It coils.|Like the sacred serpent Shesha.|Upon the endless cosmic ocean.|From the moment a king first gazed upon a goddess.|At the river's silver edge.|To the morning the last of the Pandavas.|Laid their weapons at the foot of the Himalaya.|Every event was foretold.|And yet.|Every event was freely chosen.|That is the mystery.|This great epic asks you.|To carry within you.`,
+
+kingdoms:`These were not merely kingdoms.|They were living symbols.|Of everything human beings can become.|The blind king, who loved too fiercely to see.|The teacher, who asked a boy for his thumb.|The island city of gold.|Now sleeping beneath the Arabian sea.|Travel to these places.|Press your palm against their ancient stones.|And you will hear it.|The Mahabharata.|Whispering to you.|From the earth itself.`,
+
+war:`Eighteen days.|Do not let the smallness of that number deceive you.|For within those eighteen dawns.|The entire inheritance of an age.|Was consumed.|Every vow spoken in the dark.|Every insult swallowed, and then no longer swallowed.|Every act of love that led here.|Without ever knowing.|They all arrived upon this plain.|Beneath this indifferent sky.|Four million souls.|Who were, in truth.|One soul.|Looking at itself.`,
+
+weapons:`These are not merely weapons.|They are forces of nature.|Given a name.|And a purpose.|When the Gandiva spoke, the sky itself flinched.|When the Brahmastra was released.|Time held its breath.|And the armour that one warrior.|Cut from his own living body.|To give to a beggar, who was no beggar at all.|That was never armour.|That was his soul.|Placed into an outstretched palm.|Freely.`,
+
+gita:`Be still now.|For you are entering the space between two heartbeats.|Where eternity speaks.|An archer weeps.|An army waits.|And in that suspended silence.|A charioteer, who is also the entire universe.|Begins.|To speak.|Eighteen chapters.|Seven hundred verses.|The whole cosmos.|Compressed into a conversation.|Between one trembling human heart.|And the infinite.`,
+
+stories:`Every great river holds its tributaries.|And the Mahabharata carries within its banks.|Stories so ancient.|So luminous.|They glow even now.|Savitri, who followed Death himself for three days.|And returned carrying her husband's life.|Nala, who lost everything to a demon's dice.|And found it all again.|Through a single act of recognition.|These are not distractions.|This is the epic.|Telling you.|How vast.|The human heart.|Can be.`
+};
+
+/* ── Choose the most human-sounding available voice ── */
+function _pickVoice(){
+  const v=speechSynthesis.getVoices();
+  if(!v.length) return null;
+  // Prefer rich natural/neural voices, then quality named voices
+  const wanted=['Google UK English Female','Google UK English Male',
+    'Microsoft Libby','Microsoft Sonia','Microsoft Aria','Microsoft Ryan',
+    'Samantha','Karen','Moira','Tessa','Serena','Daniel','Fiona'];
+  for(const w of wanted){
+    const m=v.find(x=>x.name.includes(w));
+    if(m) return m;
+  }
+  return v.find(x=>/natural|neural|enhanced|premium/i.test(x.name)&&x.lang.startsWith('en'))
+      || v.find(x=>x.lang==='en-GB')
+      || v.find(x=>x.lang.startsWith('en'))
+      || v[0];
+}
+
+/* ── Speak phrase-by-phrase with breath pauses & drift ── */
+function _speakPhrases(){
+  if(!_speechOn||_speechIdx>=_speechQueue.length){
+    _speechOn=false; _updateAudioUI(); return;
+  }
+  const phrase=_speechQueue[_speechIdx].trim();
+  if(!phrase){ _speechIdx++; _speakPhrases(); return; }
+
+  const u=new SpeechSynthesisUtterance(phrase);
+  const vo=_pickVoice();
+  if(vo) u.voice=vo;
+
+  // Natural human variation — this is what removes the "machine" feel
+  const drift=(Math.sin(_speechIdx*1.7)+Math.sin(_speechIdx*0.6))*0.5;
+  u.rate  = 0.70 + drift*0.045;   // slow, unhurried, slightly varying
+  u.pitch = 0.78 + drift*0.075;   // low, warm, gently rising and falling
+  u.volume= 0.93;
+  u.lang  = vo?vo.lang:'en-GB';
+
+  u.onend=()=>{
+    _speechIdx++;
+    // Longer pause after longer phrases — mimics real breathing
+    const pause = phrase.length>60 ? 620 : phrase.length>30 ? 480 : 340;
+    // Soft temple bell between major phrases if ambient is running
+    if(_ambientOn && _speechIdx%4===0) _bell(272.2);
+    setTimeout(()=>_speakPhrases(), pause);
+  };
+  u.onerror=()=>{ _speechOn=false; _updateAudioUI(); };
+  speechSynthesis.speak(u);
+}
+
+function _currentSection(){
+  const map={home:'home',characters:'characters','family-tree':'characters',
+    timeline:'timeline',kingdoms:'kingdoms','sacred-sites':'kingdoms',
+    'war-stats':'war',weapons:'weapons',map:'kingdoms',stories:'stories',
+    gita:'gita',concepts:'gita',verses:'gita',parvas:'gita',quiz:'home'};
+  let cur='home';
+  Object.keys(map).forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&el.getBoundingClientRect().top<window.innerHeight*0.6) cur=id;
+  });
+  return map[cur]||'home';
+}
+
+const SECTION_NAMES={home:'The Great Epic',characters:'The Characters',
+  timeline:'The Turning of Time',kingdoms:'Kingdoms & Sacred Ground',
+  war:'The Eighteen Days',weapons:'The Divine Weapons',
+  gita:'The Song of God',stories:'The Sacred Stories'};
+
+function toggleOracle(){
+  if(!window.speechSynthesis){ showToast('🔇 Voice unavailable on this device'); return; }
+  if(_speechOn){
+    speechSynthesis.cancel(); _speechOn=false; _speechQueue=[]; _speechIdx=0;
+    _updateAudioUI(); showToast('🔮 The oracle rests'); return;
+  }
+  // Auto-start ambient so the voice sits inside the temple space
+  if(!_ambientOn) toggleAmbient();
+
+  const sec=_currentSection();
+  _speechQueue=(ORACLE[sec]||ORACLE.home).split('|');
+  _speechIdx=0; _speechOn=true;
+
+  const lbl=document.getElementById('oracleSectionLbl');
+  if(lbl) lbl.textContent='— '+(SECTION_NAMES[sec]||'The Epic')+' —';
+
+  const begin=()=>setTimeout(()=>_speakPhrases(),1100); // let the drone settle
+  if(speechSynthesis.getVoices().length) begin();
+  else { speechSynthesis.onvoiceschanged=()=>{speechSynthesis.onvoiceschanged=null;begin();};
+         speechSynthesis.getVoices(); }
+
+  _updateAudioUI();
+  showToast('🔮 The oracle speaks…');
+}
+
+function _updateAudioUI(){
+  const btn=document.getElementById('audioMainBtn');
+  const nb=document.getElementById('narrateBtn');
+  if(btn) btn.classList.toggle('live',_ambientOn||_speechOn);
+  if(nb){
+    nb.classList.toggle('speaking',_speechOn);
+    nb.innerHTML=_speechOn?'⏹ <span>Silence the Oracle</span>'
+                          :'🔮 <span data-i18n="audio.narrate">Oracle Voice</span>';
+    if(!_speechOn&&CURRENT_LANG==='kn') nb.innerHTML='🔮 <span>ಓರಾಕಲ್ ಧ್ವನಿ</span>';
+  }
+}
+
+function toggleAudioPanel(){
+  const p=document.getElementById('audioPanel'),b=document.getElementById('audioMainBtn');
+  if(!p) return;
+  b.setAttribute('aria-expanded',p.classList.toggle('open'));
+}
+
+// Stop everything cleanly when the page is hidden
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden&&_speechOn){ speechSynthesis.cancel(); _speechOn=false; _updateAudioUI(); }
+});
+
+// Close audio panel when clicking outside
+document.addEventListener('click', e => {
+  const fab = document.getElementById('audioFab');
+  if (fab && !fab.contains(e.target)) {
+    const panel = document.getElementById('audioPanel');
+    if (panel) panel.classList.remove('open');
+  }
+});
+
 function closeNav(){
   document.getElementById('mobNav').classList.remove('open');
   document.getElementById('hamBtn').setAttribute('aria-expanded','false');
